@@ -22,3 +22,6 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# Large unoptimized videos (>9MB)
+public/allstar-event-photos/all-star videos/IMG_1253.mp4
