@@ -23,5 +23,8 @@ pnpm-debug.log*
 # jetbrains setting folder
 .idea/
 
-# Large unoptimized videos (>9MB)
-public/allstar-event-photos/all-star videos/IMG_1253.mp4
+# Videos — only the optimized hero video is tracked; all others are unoptimized
+public/**/*.mp4
+public/**/*.mov
+public/**/*.avi
+!public/305-event-photos/hero-bkg-305-optimized.mp4
