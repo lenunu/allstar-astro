@@ -1,0 +1,560 @@
+---
+import Page from '../layouts/Page.astro';
+---
+
+<Page
+  title="Balloon Packages — All Star Party World Miami"
+  description="Four balloon decoration packages for every budget. Centerpieces, arches, organic arrangements, and columns. Add-on to your party or bring your own — we handle setup either way."
+>
+
+  <!-- Page Header -->
+  <header class="bp-header" aria-label="Balloon Packages page header">
+    <div class="bp-header-topbar" aria-hidden="true"></div>
+    <div class="bp-header-inner">
+      <div>
+        <nav class="bp-breadcrumb" aria-label="Breadcrumb">
+          <a href="/all-star-party-world">All Star Party World</a>
+          <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+          <span aria-current="page">Balloon Packages</span>
+        </nav>
+        <h1 class="bp-title">BALLOON<br /><span class="accent-yellow">PACKAGES.</span></h1>
+      </div>
+      <p class="bp-subtitle">Four packages to fit every party vision and budget. Mix themes, go custom, or bring your own — we handle setup either way.</p>
+    </div>
+  </header>
+
+  <!-- Pricing -->
+  <section class="bp-pricing" aria-labelledby="pricing-heading">
+    <div class="bp-section-inner">
+      <p class="section-eyebrow">Decoration Packages</p>
+      <h2 id="pricing-heading" class="section-title">Pick Your <span class="accent-yellow">Package.</span></h2>
+
+      <div class="pricing-grid" role="list">
+
+        <!-- Package 1 -->
+        <article class="pkg-card" role="listitem" aria-label="Essentials package">
+          <span class="pkg-badge">Package 1</span>
+          <h3 class="pkg-name">ESSENTIALS</h3>
+          <p class="pkg-tagline">The classic setup — centerpieces plus your choice of arch or columns.</p>
+          <div class="pkg-price" aria-label="Price: $275">$275</div>
+          <p class="pkg-price-note">+ 20% facility fee &amp; 7% sales tax</p>
+          <ul class="pkg-list" aria-label="Essentials package includes">
+            <li>(9) Balloon Centerpieces</li>
+            <li>Choose ONE: Standard Balloon Arch <em>or</em> (2) Columns</li>
+            <li>Tablecloths / Backdrop not included</li>
+          </ul>
+          <a href="/book" class="btn-pkg-outline">Book This Package</a>
+        </article>
+
+        <!-- Package 2 — Featured -->
+        <article class="pkg-card featured" role="listitem" aria-label="Full Setup package — most complete">
+          <span class="pkg-badge pop">Most Complete</span>
+          <h3 class="pkg-name">FULL SETUP</h3>
+          <p class="pkg-tagline">Arch AND columns — the full balloon statement for your room.</p>
+          <div class="pkg-price" aria-label="Price: $385">$385</div>
+          <p class="pkg-price-note">+ 20% facility fee &amp; 7% sales tax</p>
+          <ul class="pkg-list" aria-label="Full Setup package includes">
+            <li>(9) Balloon Centerpieces</li>
+            <li>(1) Standard Balloon Arch</li>
+            <li>(2) Balloon Columns</li>
+            <li>Tablecloths / Backdrop not included</li>
+          </ul>
+          <a href="/book" class="btn-pkg-primary">Book This Package</a>
+        </article>
+
+        <!-- Package 3 -->
+        <article class="pkg-card" role="listitem" aria-label="Organic Arch package">
+          <span class="pkg-badge">Package 3</span>
+          <h3 class="pkg-name">ORGANIC ARCH</h3>
+          <p class="pkg-tagline">A statement organic "L" arch — modern, lush, and photo-worthy.</p>
+          <div class="pkg-price" aria-label="Price: $395">$395</div>
+          <p class="pkg-price-note">+ 20% facility fee &amp; 7% sales tax</p>
+          <ul class="pkg-list" aria-label="Organic Arch package includes">
+            <li>(9) Balloon Centerpieces</li>
+            <li>(1) Organic "L" Arch</li>
+            <li>Tablecloths / Backdrop not included</li>
+          </ul>
+          <a href="/book" class="btn-pkg-outline">Book This Package</a>
+        </article>
+
+        <!-- Package 4 -->
+        <article class="pkg-card" role="listitem" aria-label="Semi Organic package">
+          <span class="pkg-badge">Package 4</span>
+          <h3 class="pkg-name">SEMI ORGANIC</h3>
+          <p class="pkg-tagline">The organic look at a friendlier price point — still stunning.</p>
+          <div class="pkg-price" aria-label="Price: $325">$325</div>
+          <p class="pkg-price-note">+ 20% facility fee &amp; 7% sales tax</p>
+          <ul class="pkg-list" aria-label="Semi Organic package includes">
+            <li>(9) Balloon Centerpieces</li>
+            <li>(1) Semi-Organic Arch</li>
+            <li>Tablecloths / Backdrop not included</li>
+          </ul>
+          <a href="/book" class="btn-pkg-outline">Book This Package</a>
+        </article>
+
+      </div>
+
+      <!-- Disclaimer -->
+      <div class="disclaimer" role="note" aria-label="Pricing note">
+        <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+        <p><strong>Pricing Note:</strong> All listed prices are before fees. A 20% Facility Fee and 7% Sales Tax will be added to the final balloon package price.</p>
+      </div>
+
+      <!-- BYO Banner -->
+      <div class="byo-banner">
+        <div class="byo-text">
+          <strong>Prefer to bring your own decorations?</strong>
+          No problem — our party attendants will help you set up the room when you arrive.
+        </div>
+        <a href="/book" class="btn-primary">
+          <i class="fa-regular fa-calendar" aria-hidden="true"></i>
+          Book Your Event
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider" aria-hidden="true"></div>
+
+  <!-- Theme Gallery -->
+  <section class="bp-gallery" aria-labelledby="gallery-heading">
+    <div class="bp-section-inner">
+      <p class="section-eyebrow">Theme Samples</p>
+      <h2 id="gallery-heading" class="section-title">A Few of Our <span class="accent-yellow">Themes.</span></h2>
+      <p class="section-body">Just a few samples from our library. Tell us your theme and we'll let you know what's available.</p>
+
+      <div class="gallery-grid">
+        {[
+          { src: 'https://allstarpartyworld.com/wp-content/uploads/2024/05/NeonArchandColumns.jpeg', label: 'Neon Arch + Columns' },
+          { src: 'https://allstarpartyworld.com/wp-content/uploads/2024/05/Glow_Centerpieces.jpg', label: 'Floating Neon CPs' },
+          { src: 'https://allstarpartyworld.com/wp-content/uploads/2024/05/GlowArch_2.jpg', label: 'Standard Neon Arch' },
+          { src: 'https://allstarpartyworld.com/wp-content/uploads/2022/05/OrganicArch.jpg', label: 'Organic Arch' },
+          { src: 'https://allstarpartyworld.com/wp-content/uploads/2024/05/Neon-Columns-9-circle.png', label: 'Neon Columns' },
+          { src: 'https://allstarpartyworld.com/wp-content/uploads/2024/05/GameColumns_MixedNeon.jpg', label: 'Mixed Neon' },
+          { src: 'https://allstarpartyworld.com/wp-content/uploads/2024/05/StrangerThings_SemiOrganic.jpeg', label: 'Semi Organic Arch' },
+          { src: 'https://allstarpartyworld.com/wp-content/uploads/2022/05/Arch_Emoji_Colorful.jpg', label: 'Emoji Arch' },
+          { src: 'https://allstarpartyworld.com/wp-content/uploads/2020/02/IMG_0195-2.jpg', label: 'Themed Centerpiece' },
+          { src: 'https://allstarpartyworld.com/wp-content/uploads/2020/02/IMG_0183-2.jpg', label: 'Emoji Theme' },
+          { src: 'https://allstarpartyworld.com/wp-content/uploads/2024/05/BasketballNeon.jpg', label: 'Basketball Neon' },
+          { src: 'https://allstarpartyworld.com/wp-content/uploads/2022/05/Basketball_Centerpieces.jpeg', label: 'BB Centerpieces' },
+          { src: 'https://allstarpartyworld.com/wp-content/uploads/2022/05/Sports-Arch.jpg', label: 'Sports Arch' },
+          { src: 'https://allstarpartyworld.com/wp-content/uploads/2022/05/Sports-Centerpieces.jpg', label: 'Sports Centerpieces' },
+          { src: 'https://allstarpartyworld.com/wp-content/uploads/2022/05/Pokemon_Arch2.jpeg', label: 'Pokemon Arch' },
+          { src: 'https://allstarpartyworld.com/wp-content/uploads/2022/05/Pokemon-Centerpiece.jpeg', label: 'Pokemon Centerpiece' },
+          { src: 'https://allstarpartyworld.com/wp-content/uploads/2022/05/Encanto.jpg', label: 'Encanto Theme' },
+          { src: 'https://allstarpartyworld.com/wp-content/uploads/2024/05/StitchCPs.jpeg', label: 'Stitch CPs' },
+          { src: 'https://allstarpartyworld.com/wp-content/uploads/2024/05/Minecraft_SemiOrganic.jpeg', label: 'Minecraft Semi Organic' },
+          { src: 'https://allstarpartyworld.com/wp-content/uploads/2022/05/Music_Arch.jpeg', label: 'Music Arch' },
+        ].map(item => (
+          <div class="gallery-item">
+            <img src={item.src} alt={item.label} loading="lazy" />
+            <div class="gallery-label" aria-hidden="true">{item.label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <div class="divider" aria-hidden="true"></div>
+
+  <!-- CTA -->
+  <section class="bp-cta" aria-labelledby="cta-heading">
+    <div class="bp-section-inner" style="text-align:center;">
+      <p class="section-eyebrow">Ready to Plan?</p>
+      <h2 id="cta-heading" class="section-title">Tell Us Your <span class="accent-yellow">Theme.</span></h2>
+      <p class="section-body" style="margin:0 auto 2rem;">Let us know your theme and we'll confirm availability and build a custom proposal for your event.</p>
+      <div class="cta-actions">
+        <a href="/book" class="btn-primary">
+          <i class="fa-regular fa-calendar" aria-hidden="true"></i>
+          Book Your Event
+        </a>
+        <a href="tel:+17864710100" class="btn-outline">
+          <i class="fa-solid fa-phone" aria-hidden="true"></i>
+          786-471-0100
+        </a>
+      </div>
+    </div>
+  </section>
+
+</Page>
+
+<style>
+  /* ── Tokens ── */
+  .accent-yellow { color: #F5C518; }
+
+  .section-eyebrow {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #F5C518;
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.2rem, 4vw, 4rem);
+    line-height: 0.95;
+    margin-bottom: 1rem;
+  }
+  .section-body {
+    font-size: 0.95rem;
+    line-height: 1.75;
+    color: rgba(255,255,255,0.55);
+    max-width: 540px;
+    margin-bottom: 1rem;
+  }
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent);
+  }
+
+  /* ── Page Header ── */
+  .bp-header {
+    background: #14161e;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    position: relative;
+    overflow: hidden;
+  }
+  .bp-header-topbar {
+    height: 3px;
+    background: linear-gradient(90deg, #F5C518, #E8357A);
+  }
+  .bp-header-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 3.5rem 2rem 3rem;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .bp-breadcrumb {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .bp-breadcrumb a {
+    color: rgba(255,255,255,0.4);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  .bp-breadcrumb a:hover { color: #fff; }
+  .bp-breadcrumb a:focus-visible { outline: 2px solid #F5C518; outline-offset: 2px; border-radius: 2px; }
+  .bp-breadcrumb i { font-size: 0.5rem; }
+  .bp-breadcrumb span { color: #F5C518; }
+
+  .bp-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.4rem, 5vw, 4.5rem);
+    line-height: 0.92;
+    letter-spacing: -0.01em;
+  }
+  .bp-subtitle {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.7;
+    max-width: 400px;
+  }
+
+  /* ── Sections ── */
+  .bp-section-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 5rem 2rem;
+  }
+  .bp-pricing { background: #0e0f14; }
+  .bp-pricing .bp-section-inner { padding-top: 3.5rem; }
+
+  /* ── Pricing Cards ── */
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+    margin-top: 2.5rem;
+  }
+
+  .pkg-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px;
+    padding: 1.75rem;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), border-color 0.3s ease;
+  }
+  .pkg-card:hover { transform: translateY(-4px); }
+  .pkg-card.featured {
+    background: rgba(245,197,24,0.05);
+    border-color: rgba(245,197,24,0.3);
+  }
+  .pkg-card.featured::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #F5C518, #E8357A);
+  }
+
+  .pkg-badge {
+    display: inline-block;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #F5C518;
+    margin-bottom: 1rem;
+  }
+  .pkg-badge.pop { color: #E8357A; }
+
+  .pkg-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.6rem;
+    line-height: 1;
+    margin-bottom: 0.25rem;
+  }
+  .pkg-tagline {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.5;
+    margin-bottom: 1.25rem;
+  }
+  .pkg-price {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3rem;
+    line-height: 1;
+    color: #F5C518;
+    margin-bottom: 0.25rem;
+  }
+  .pkg-price-note {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+  }
+
+  .pkg-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    flex: 1;
+  }
+  .pkg-list li {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.75);
+    padding-left: 1.25rem;
+    position: relative;
+    line-height: 1.45;
+  }
+  .pkg-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #F5C518;
+    font-size: 0.72rem;
+    top: 1px;
+  }
+
+  .btn-pkg-primary {
+    display: block;
+    text-align: center;
+    background: #3B7DEB;
+    color: #fff;
+    padding: 0.75rem;
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.03em;
+    text-decoration: none;
+    box-shadow: 0 0 20px rgba(59,125,235,0.3);
+    transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.2s ease;
+  }
+  .btn-pkg-primary:hover { transform: translateY(-2px); box-shadow: 0 0 36px rgba(59,125,235,0.5); }
+  .btn-pkg-primary:focus-visible { outline: 2px solid #3B7DEB; outline-offset: 3px; }
+
+  .btn-pkg-outline {
+    display: block;
+    text-align: center;
+    background: transparent;
+    color: #fff;
+    padding: 0.75rem;
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.03em;
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.2);
+    transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s cubic-bezier(0.34,1.56,0.64,1);
+  }
+  .btn-pkg-outline:hover { border-color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.05); transform: translateY(-2px); }
+  .btn-pkg-outline:focus-visible { outline: 2px solid rgba(255,255,255,0.5); outline-offset: 3px; }
+
+  /* ── Disclaimer ── */
+  .disclaimer {
+    background: rgba(245,197,24,0.06);
+    border: 1px solid rgba(245,197,24,0.18);
+    border-radius: 10px;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-top: 1.75rem;
+  }
+  .disclaimer i { color: #F5C518; font-size: 0.9rem; margin-top: 2px; flex-shrink: 0; }
+  .disclaimer p { font-size: 0.82rem; color: rgba(255,255,255,0.6); line-height: 1.6; }
+  .disclaimer p strong { color: rgba(255,255,255,0.85); }
+
+  /* ── BYO Banner ── */
+  .byo-banner {
+    background: #1c1f2b;
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 12px;
+    padding: 1.5rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-top: 1.25rem;
+  }
+  .byo-text {
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.6;
+  }
+  .byo-text strong {
+    color: #fff;
+    display: block;
+    margin-bottom: 0.15rem;
+    font-size: 0.95rem;
+  }
+
+  /* ── CTA Buttons ── */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #3B7DEB;
+    color: #fff;
+    padding: 0.9rem 2rem;
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    box-shadow: 0 0 24px rgba(59,125,235,0.4);
+    transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.2s ease;
+    white-space: nowrap;
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 40px rgba(59,125,235,0.6); }
+  .btn-primary:focus-visible { outline: 2px solid #3B7DEB; outline-offset: 3px; }
+
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: transparent;
+    color: #fff;
+    padding: 0.9rem 2rem;
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.2);
+    transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s cubic-bezier(0.34,1.56,0.64,1);
+  }
+  .btn-outline:hover { border-color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.05); transform: translateY(-2px); }
+  .btn-outline:focus-visible { outline: 2px solid rgba(255,255,255,0.5); outline-offset: 3px; }
+
+  /* ── Gallery ── */
+  .bp-gallery { background: #14161e; }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.75rem;
+    margin-top: 2.5rem;
+  }
+  .gallery-item {
+    aspect-ratio: 1;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.07);
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+  }
+  .gallery-item:hover { transform: scale(1.03); border-color: rgba(245,197,24,0.35); }
+  .gallery-item img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+  .gallery-item:hover img { transform: scale(1.08); }
+  .gallery-label {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 0.5rem 0.6rem;
+    background: linear-gradient(to top, rgba(14,15,20,0.92), transparent);
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.75);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .gallery-item:hover .gallery-label { opacity: 1; }
+
+  /* ── CTA ── */
+  .bp-cta { background: #14161e; }
+  .cta-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 1100px) {
+    .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+    .gallery-grid { grid-template-columns: repeat(4, 1fr); }
+  }
+  @media (max-width: 768px) {
+    .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+    .bp-header-inner { flex-direction: column; align-items: flex-start; }
+  }
+  @media (max-width: 600px) {
+    .pricing-grid { grid-template-columns: 1fr; }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .byo-banner { flex-direction: column; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .gallery-item:hover { transform: none; }
+    .gallery-item:hover img { transform: none; }
+    .pkg-card:hover { transform: none; }
+  }
+</style>

@@ -1,0 +1,157 @@
+---
+---
+
+<footer>
+  <div class="footer-inner">
+    <!-- Brand col -->
+    <div>
+      <div class="footer-brand-name">ALL STAR <span style="color:#3B7DEB">✦</span> 305</div>
+      <div style="font-size:0.85rem;line-height:1.8;color:rgba(255,255,255,0.65);margin-bottom:1.5rem;">
+        Located Next To The Falls Shopping Center<br />
+        8770 SW 131st Street<br />
+        Miami, Florida 33176<br />
+        <br />
+        <a href="tel:+17864710100" style="color:#F5C518;text-decoration:none;font-weight:600;">786-471-0100</a>
+      </div>
+      <div class="footer-socials">
+        <a href="https://www.instagram.com/allstarpartyworld/" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Instagram — All Star Party World">
+          <i class="fab fa-instagram" aria-hidden="true"></i>
+        </a>
+        <a href="https://www.facebook.com/AllStarPartyMiami/" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Facebook — All Star Party World">
+          <i class="fab fa-facebook" aria-hidden="true"></i>
+        </a>
+        <a href="https://www.youtube.com/@AllStarPartyWorld" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="YouTube — All Star Party World">
+          <i class="fab fa-youtube" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- All Star col -->
+    <div>
+      <div class="footer-col-title">All Star Party World</div>
+      <ul class="footer-links" role="list">
+        <li><a href="/all-star-party-world">About the Venue</a></li>
+        <li><a href="/all-star-party-world#package">Party Packages</a></li>
+        <li><a href="/balloon-packages">Balloon Packages</a></li>
+        <li><a href="/gallery">Gallery</a></li>
+        <li><a href="/book">Book Now</a></li>
+      </ul>
+    </div>
+
+    <!-- 305 Club col -->
+    <div>
+      <div class="footer-col-title">The 305 Club</div>
+      <ul class="footer-links" role="list">
+        <li><a href="/305-club">About the Club</a></li>
+        <li><a href="/305-club#packages">Event Packages</a></li>
+        <li><a href="/305-club#events">Events We Host</a></li>
+        <li><a href="/gallery">Gallery</a></li>
+        <li><a href="/book">Book Now</a></li>
+      </ul>
+    </div>
+
+    <!-- Info col -->
+    <div>
+      <div class="footer-col-title">Info</div>
+      <ul class="footer-links" role="list">
+        <li><a href="/#faq">FAQ</a></li>
+        <li><a href="/book">Contact Us</a></li>
+        <li><a href="/waiver">Sign Waiver</a></li>
+        <li><a href="/experiences/karaoke-lounge">Karaoke Lounge</a></li>
+        <li><a href="/experiences/vr-experience">VR Experience</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <span>© 2026 All Star Party World & The 305 Club. All rights reserved.</span>
+    <span>Miami, Florida · allstarpartyworld.com</span>
+  </div>
+</footer>
+
+<style>
+  footer {
+    background: #080910;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .footer-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 4rem 2rem 2rem;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 3rem;
+  }
+
+  .footer-brand-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-socials { display: flex; gap: 0.75rem; }
+
+  .social-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    text-decoration: none;
+    color: rgba(255,255,255,0.6);
+    transition: background 0.2s ease, color 0.2s ease, transform 0.2s cubic-bezier(0.34,1.56,0.64,1);
+  }
+  .social-btn:hover { background: #3B7DEB; color: #fff; transform: translateY(-2px); }
+
+  .footer-col-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 1.25rem;
+  }
+
+  .footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+  .footer-links a {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  .footer-links a:hover { color: #fff; }
+
+  .footer-bottom {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 1.5rem 2rem;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.3);
+  }
+
+  @media (max-width: 900px) {
+    .footer-inner { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 600px) {
+    .footer-inner { grid-template-columns: 1fr; }
+    .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+  }
+</style>

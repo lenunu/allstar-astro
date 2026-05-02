@@ -1,0 +1,511 @@
+---
+import Page from '../layouts/Page.astro';
+
+const allstarPhotos = [
+  { src: '/allstar-event-photos/glow-party-kids-dancing-blacklight-allstar-mural.jpg', alt: 'Kids dancing at a glow party under blacklights with All Star Party World mural in background', tag: 'allstar', label: 'Glow Party' },
+  { src: '/allstar-event-photos/party-room-view-basketball-court-with-balloons-and-tables.jpg', alt: 'All Star Party World party room with basketball court, balloon decorations, and party tables set up', tag: 'allstar', label: 'Party Room' },
+  { src: '/allstar-event-photos/inflatable-bounce-house-and-obstacle-course.jpg', alt: 'Inflatable bounce house and obstacle course set up in the All Star Party World venue', tag: 'allstar', label: 'Bounce House' },
+  { src: '/allstar-event-photos/laser-light-dance-floor-party.jpg', alt: 'Laser light show on the dance floor during a kids party at All Star Party World', tag: 'allstar', label: 'Laser Dance Floor' },
+  { src: '/allstar-event-photos/kids-playing-basketball-arcade-shootout-machines.jpg', alt: 'Kids playing basketball arcade shootout machines at All Star Party World', tag: 'allstar', label: 'Basketball Arcade' },
+  { src: '/allstar-event-photos/kids-playing-classic-arcade-games-pacman-mario.jpg', alt: 'Kids playing classic arcade games including Pac-Man and Mario at All Star Party World', tag: 'allstar', label: 'Arcade Games' },
+  { src: '/allstar-event-photos/adult-playing-street-basketball-arcade-machine.jpg', alt: 'Adult playing street basketball arcade machine at All Star Party World', tag: 'allstar', label: 'Sports Arcade' },
+  { src: '/allstar-event-photos/kids-parachute-game-activity-party.jpg', alt: 'Kids playing the parachute game during a group activity party at All Star Party World', tag: 'allstar', label: 'Parachute Games' },
+  { src: '/allstar-event-photos/toddler-interactive-touchscreen-bear-game.jpg', alt: 'Toddler playing with an interactive touchscreen bear game at All Star Party World', tag: 'allstar', label: 'Interactive Games' },
+];
+
+const photos305 = [
+  { src: '/305-event-photos/305 dance floor 2.jpg', alt: 'The 305 Club dance floor lit up with colorful lights during an event', tag: '305', label: 'Dance Floor' },
+  { src: '/305-event-photos/305 quinces.jpg', alt: 'Quinceanera celebration at The 305 Club with elegant decorations and guests dancing', tag: '305', label: 'Quinceañera' },
+  { src: '/305-event-photos/305 15 b-day.jpg', alt: '15th birthday celebration at The 305 Club with guests and party setup', tag: '305', label: '15th Birthday' },
+  { src: '/305-event-photos/305 360 photo booth.jpg', alt: '360 photo booth in action at The 305 Club event', tag: '305', label: '360 Photo Booth' },
+  { src: '/305-event-photos/305 event food.jpg', alt: 'Catering spread with food and drinks at a 305 Club event', tag: '305', label: 'Catering' },
+  { src: '/305-event-photos/305 58th b-day.jpg', alt: '58th birthday celebration at The 305 Club with guests and vibrant event setup', tag: '305', label: '58th Birthday' },
+  { src: '/305-event-photos/305 10th b-day.jpg', alt: '10th birthday party celebration at The 305 Club with kids and balloon decorations', tag: '305', label: '10th Birthday' },
+  { src: '/305-event-photos/305 13th b-day 2.jpg', alt: '13th birthday party at The 305 Club with teens celebrating on the dance floor', tag: '305', label: '13th Birthday' },
+  { src: '/305-event-photos/305 13th b-day 3.jpg', alt: '13th birthday celebration at The 305 Club with colorful decorations and party guests', tag: '305', label: '13th Birthday' },
+  { src: '/305-event-photos/305 event 13th b-day.jpg', alt: 'Teens celebrating a 13th birthday at The 305 Club with DJ and dance floor', tag: '305', label: '13th Birthday' },
+  { src: '/305-event-photos/305 even samples.jpg', alt: 'Event sample setup at The 305 Club showing decoration and venue layout', tag: '305', label: 'Event Setup' },
+  { src: '/305-event-photos/305 dance floor.jpg', alt: 'The 305 Club main dance floor with DJ booth and lighting during an event', tag: '305', label: 'Dance Floor' },
+  { src: '/305-event-photos/305 event halloween 2.jpg', alt: 'Halloween party at The 305 Club with guests in costumes', tag: '305', label: 'Halloween Event' },
+  { src: '/305-event-photos/305 halloween.jpg', alt: 'Halloween themed event at The 305 Club with decorations and costumed guests', tag: '305', label: 'Halloween' },
+  { src: '/305-event-photos/divas.jpg', alt: 'Pop Star Divas experience at All Star Party World with glam costumes and photo backdrop', tag: '305', label: 'Divas Experience' },
+];
+
+const paintmeonePhotos = [
+  { src: '/paintmeone-photos/kids-group-blacklight-paint-room.jpg', alt: 'Large group of kids in black smocks and hair nets standing in the neon blacklight Paint Me One room', tag: 'experiences', label: 'Paint Me One' },
+  { src: '/paintmeone-photos/kids-painting-canvases-neon-wall.jpg', alt: 'Kids in white lab coats painting glowing canvases against the neon splatter wall', tag: 'experiences', label: 'Paint Me One' },
+  { src: '/paintmeone-photos/girl-smiling-paint-room.jpg', alt: 'Young girl smiling in white smock holding a paintbrush in the Paint Me One blacklight room', tag: 'experiences', label: 'Paint Me One' },
+  { src: '/paintmeone-photos/girl-painting-canvas-closeup.jpg', alt: 'Close-up of a girl painting her canvas with neon paint under UV blacklights', tag: 'experiences', label: 'Paint Me One' },
+  { src: '/paintmeone-photos/wide-room-kids-smocks.jpg', alt: 'Wide angle view of kids in white lab coats in the Paint Me One room with colorful hanging dot decorations', tag: 'experiences', label: 'Paint Me One' },
+  { src: '/karaoke-photos/karaoke-lounge-singing.jpg', alt: 'Group of guests singing on professional microphones in the karaoke lounge at All Star Party World', tag: 'experiences', label: 'Karaoke Lounge' },
+];
+
+const allPhotos = [...allstarPhotos, ...photos305, ...paintmeonePhotos];
+---
+
+<Page
+  title="Gallery — All Star Party World & The 305 Club"
+  description="Browse photos from All Star Party World and The 305 Club. Kids birthday parties, quinceañeras, sweet 16s, glow parties, karaoke, Paint Me One, and more in Miami."
+>
+
+  <!-- Header -->
+  <header class="gallery-header" aria-label="Gallery page header">
+    <div class="gallery-header-inner">
+      <div class="gh-text">
+        <p class="section-eyebrow">Photo Gallery</p>
+        <h1 class="gh-title">Two Venues,<br /><span class="accent-blue">Unforgettable</span> Moments.</h1>
+        <p class="gh-sub">Real parties. Real memories. Browse photos from All Star Party World, The 305 Club, and our signature experiences.</p>
+      </div>
+      <div class="gh-stats" role="list" aria-label="Gallery stats">
+        <div class="gh-stat" role="listitem">
+          <span class="stat-num">{allPhotos.length}+</span>
+          <span class="stat-label">Photos</span>
+        </div>
+        <div class="gh-stat" role="listitem">
+          <span class="stat-num">2</span>
+          <span class="stat-label">Venues</span>
+        </div>
+        <div class="gh-stat" role="listitem">
+          <span class="stat-num">1000+</span>
+          <span class="stat-label">Events</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Filter Tabs -->
+  <div class="filter-bar" role="navigation" aria-label="Gallery filter">
+    <div class="filter-inner">
+      <button class="filter-btn active" data-filter="all" aria-pressed="true">All Photos</button>
+      <button class="filter-btn" data-filter="allstar" aria-pressed="false">All Star Party World</button>
+      <button class="filter-btn" data-filter="305" aria-pressed="false">The 305 Club</button>
+      <button class="filter-btn" data-filter="experiences" aria-pressed="false">Experiences</button>
+    </div>
+  </div>
+
+  <!-- Gallery Grid -->
+  <main id="main-gallery" class="gallery-section" aria-label="Photo gallery">
+    <div class="gallery-masonry" id="gallery-grid">
+      {allPhotos.map((photo, i) => (
+        <div
+          class="gal-item"
+          data-tag={photo.tag}
+          data-index={i}
+          role="button"
+          tabindex="0"
+          aria-label={`View photo: ${photo.label}`}
+        >
+          <img
+            src={photo.src}
+            alt={photo.alt}
+            loading={i < 9 ? 'eager' : 'lazy'}
+          />
+          <div class="gal-overlay" aria-hidden="true">
+            <span class="gal-label">{photo.label}</span>
+            <span class="gal-venue">{photo.tag === 'allstar' ? 'All Star Party World' : photo.tag === '305' ? 'The 305 Club' : 'Experiences'}</span>
+          </div>
+        </div>
+      ))}
+    </div>
+  </main>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo lightbox" aria-hidden="true">
+    <button class="lb-close" id="lb-close" aria-label="Close photo">
+      <i class="fas fa-times" aria-hidden="true"></i>
+    </button>
+    <button class="lb-prev" id="lb-prev" aria-label="Previous photo">
+      <i class="fas fa-chevron-left" aria-hidden="true"></i>
+    </button>
+    <button class="lb-next" id="lb-next" aria-label="Next photo">
+      <i class="fas fa-chevron-right" aria-hidden="true"></i>
+    </button>
+    <div class="lb-content">
+      <img src="" alt="" id="lb-img" />
+      <div class="lb-caption" id="lb-caption"></div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <section class="gallery-cta" aria-labelledby="gallery-cta-heading">
+    <div class="gallery-cta-inner">
+      <p class="section-eyebrow" style="text-align:center;">Your Party, Next</p>
+      <h2 id="gallery-cta-heading" class="cta-title">Ready to Make <span class="accent-blue">Memories?</span></h2>
+      <p class="cta-sub">Book your event at All Star Party World or The 305 Club and we'll handle everything — from the venue to the vibes.</p>
+      <div class="cta-actions">
+        <a href="/book" class="btn-primary">Book Your Event</a>
+        <a href="tel:+17864710100" class="btn-outline">
+          <i class="fas fa-phone" aria-hidden="true"></i>
+          786-471-0100
+        </a>
+      </div>
+    </div>
+  </section>
+
+</Page>
+
+<style>
+  .accent-blue { color: #3B7DEB; }
+  .section-eyebrow {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #3B7DEB;
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+
+  /* ── Header ── */
+  .gallery-header {
+    background: #14161e;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    padding: 4rem 2rem 3rem;
+  }
+  .gallery-header-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+  .gh-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    line-height: 0.92;
+    margin-bottom: 1rem;
+  }
+  .gh-sub {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.7;
+    max-width: 480px;
+  }
+  .gh-stats {
+    display: flex;
+    gap: 2.5rem;
+    flex-shrink: 0;
+  }
+  .gh-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
+  }
+  .stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.5rem;
+    line-height: 1;
+    color: #3B7DEB;
+  }
+  .stat-label {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+  }
+
+  /* ── Filter Bar ── */
+  .filter-bar {
+    position: sticky;
+    top: 72px;
+    z-index: 50;
+    background: rgba(14,15,20,0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .filter-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    gap: 0.25rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .filter-inner::-webkit-scrollbar { display: none; }
+
+  .filter-btn {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    padding: 1rem 1.25rem;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+  .filter-btn:hover { color: #fff; }
+  .filter-btn.active { color: #fff; border-bottom-color: #3B7DEB; }
+  .filter-btn:focus-visible { outline: 2px solid #3B7DEB; outline-offset: -2px; border-radius: 2px; }
+
+  /* ── Gallery Grid ── */
+  .gallery-section {
+    background: #0e0f14;
+    padding: 2rem;
+  }
+  .gallery-masonry {
+    max-width: 1280px;
+    margin: 0 auto;
+    columns: 4;
+    column-gap: 0.75rem;
+  }
+
+  .gal-item {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.06);
+    cursor: pointer;
+    break-inside: avoid;
+    margin-bottom: 0.75rem;
+    transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), border-color 0.3s ease;
+  }
+  .gal-item:hover { transform: scale(1.02); border-color: rgba(59,125,235,0.35); }
+  .gal-item:focus-visible { outline: 2px solid #3B7DEB; outline-offset: 2px; }
+  .gal-item[data-tag="allstar"]:hover { border-color: rgba(245,197,24,0.35); }
+  .gal-item[data-tag="experiences"]:hover { border-color: rgba(232,53,122,0.35); }
+
+  .gal-item img {
+    width: 100%;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+  .gal-item:hover img { transform: scale(1.04); }
+
+  .gal-overlay {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 1.5rem 0.75rem 0.75rem;
+    background: linear-gradient(to top, rgba(8,9,16,0.92), transparent);
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .gal-item:hover .gal-overlay { opacity: 1; }
+  .gal-label {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #fff;
+  }
+  .gal-venue {
+    font-size: 0.65rem;
+    color: rgba(255,255,255,0.55);
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .gal-item.hidden { display: none; }
+
+  /* ── Lightbox ── */
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    background: rgba(0,0,0,0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+  .lightbox.open {
+    opacity: 1;
+    pointer-events: all;
+  }
+  .lb-content {
+    max-width: 90vw;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  #lb-img {
+    max-width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 8px;
+  }
+  .lb-caption {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+  }
+  .lb-close, .lb-prev, .lb-next {
+    position: fixed;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: #fff;
+    border-radius: 50%;
+    width: 44px; height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background 0.2s ease, transform 0.2s cubic-bezier(0.34,1.56,0.64,1);
+  }
+  .lb-close { top: 1.5rem; right: 1.5rem; }
+  .lb-prev { left: 1.5rem; top: 50%; transform: translateY(-50%); }
+  .lb-next { right: 1.5rem; top: 50%; transform: translateY(-50%); }
+  .lb-close:hover, .lb-prev:hover, .lb-next:hover { background: rgba(255,255,255,0.2); }
+  .lb-prev:hover { transform: translateY(-50%) scale(1.1); }
+  .lb-next:hover { transform: translateY(-50%) scale(1.1); }
+  .lb-close:focus-visible, .lb-prev:focus-visible, .lb-next:focus-visible { outline: 2px solid #3B7DEB; outline-offset: 3px; }
+
+  /* ── CTA ── */
+  .gallery-cta {
+    background: #14161e;
+    padding: 6rem 2rem;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    text-align: center;
+  }
+  .gallery-cta-inner { max-width: 600px; margin: 0 auto; }
+  .cta-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+  .cta-sub {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+  .cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: #3B7DEB; color: #fff; padding: 0.9rem 2rem;
+    border-radius: 8px; font-family: 'DM Sans', sans-serif;
+    font-weight: 600; font-size: 0.9rem; letter-spacing: 0.04em;
+    text-decoration: none;
+    box-shadow: 0 0 24px rgba(59,125,235,0.4);
+    transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.2s ease;
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 40px rgba(59,125,235,0.6); }
+  .btn-primary:focus-visible { outline: 2px solid #3B7DEB; outline-offset: 3px; }
+
+  .btn-outline {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: transparent; color: #fff; padding: 0.9rem 2rem;
+    border-radius: 8px; font-family: 'DM Sans', sans-serif;
+    font-weight: 600; font-size: 0.9rem; letter-spacing: 0.04em;
+    text-decoration: none; border: 1px solid rgba(255,255,255,0.2);
+    transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s cubic-bezier(0.34,1.56,0.64,1);
+  }
+  .btn-outline:hover { border-color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.05); transform: translateY(-2px); }
+  .btn-outline:focus-visible { outline: 2px solid rgba(255,255,255,0.5); outline-offset: 3px; }
+
+  /* ── Responsive ── */
+  @media (max-width: 1100px) { .gallery-masonry { columns: 3; } }
+  @media (max-width: 768px) {
+    .gallery-masonry { columns: 2; }
+    .gh-stats { gap: 1.5rem; }
+    .gallery-header-inner { flex-direction: column; align-items: flex-start; }
+  }
+  @media (max-width: 500px) { .gallery-masonry { columns: 2; } }
+
+  @media (prefers-reduced-motion: reduce) {
+    .gal-item:hover { transform: none; }
+    .gal-item:hover img { transform: none; }
+    .lightbox { transition: none; }
+  }
+</style>
+
+<script>
+  // ── Filter ──
+  const filterBtns = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
+  const items = document.querySelectorAll<HTMLElement>('.gal-item');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const filter = btn.dataset.filter!;
+      filterBtns.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });
+      btn.classList.add('active');
+      btn.setAttribute('aria-pressed', 'true');
+      items.forEach(item => {
+        const match = filter === 'all' || item.dataset.tag === filter;
+        item.classList.toggle('hidden', !match);
+      });
+    });
+  });
+
+  // ── Lightbox ──
+  const lightbox = document.getElementById('lightbox')!;
+  const lbImg = document.getElementById('lb-img') as HTMLImageElement;
+  const lbCaption = document.getElementById('lb-caption')!;
+  const lbClose = document.getElementById('lb-close')!;
+  const lbPrev = document.getElementById('lb-prev')!;
+  const lbNext = document.getElementById('lb-next')!;
+
+  let currentIndex = 0;
+  let visibleItems: HTMLElement[] = [];
+
+  function openLightbox(item: HTMLElement) {
+    visibleItems = Array.from(items).filter(i => !i.classList.contains('hidden'));
+    currentIndex = visibleItems.indexOf(item);
+    showPhoto(currentIndex);
+    lightbox.classList.add('open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    lbClose.focus();
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  function showPhoto(idx: number) {
+    const item = visibleItems[idx];
+    if (!item) return;
+    const img = item.querySelector('img')!;
+    lbImg.src = img.src;
+    lbImg.alt = img.alt;
+    lbCaption.textContent = item.querySelector('.gal-label')?.textContent ?? '';
+    currentIndex = idx;
+  }
+
+  items.forEach(item => {
+    item.addEventListener('click', () => openLightbox(item));
+    item.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLightbox(item); }
+    });
+  });
+
+  lbClose.addEventListener('click', closeLightbox);
+  lbPrev.addEventListener('click', () => showPhoto((currentIndex - 1 + visibleItems.length) % visibleItems.length));
+  lbNext.addEventListener('click', () => showPhoto((currentIndex + 1) % visibleItems.length));
+
+  lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') showPhoto((currentIndex - 1 + visibleItems.length) % visibleItems.length);
+    if (e.key === 'ArrowRight') showPhoto((currentIndex + 1) % visibleItems.length);
+  });
+</script>

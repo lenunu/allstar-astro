@@ -1,0 +1,734 @@
+---
+import Page from '../layouts/Page.astro';
+---
+
+<Page
+  title="Book Your Event — All Star Party World & The 305 Club"
+  description="Reserve your date at All Star Party World or The 305 Club. Complete the form and our event team will reach out within 24 hours with availability, pricing, and a custom proposal."
+>
+
+  <div class="book-page">
+    <div class="book-inner">
+
+      <!-- Header -->
+      <header class="book-header" aria-label="Booking page header">
+        <p class="page-eyebrow">Reserve Your Date</p>
+        <h1 class="page-title">Book Your Event</h1>
+        <p class="page-sub">Complete the form below and our event team will reach out within 24 hours with availability, pricing, and a custom proposal.</p>
+      </header>
+
+      <div class="book-grid">
+
+        <!-- Form -->
+        <div>
+          <form
+            id="booking-form"
+            class="form-card"
+            aria-label="Event booking form"
+            novalidate
+          >
+            <!-- Venue Selector -->
+            <fieldset class="venue-selector" aria-labelledby="venue-legend">
+              <legend id="venue-legend" class="form-section-title">Which Venue?</legend>
+              <div class="venue-options">
+                <label class="venue-option" aria-label="All Star Party World — Kids ages 4–12">
+                  <input type="radio" name="venue" value="all-star-party-world" required />
+                  <div class="venue-option-content">
+                    <span class="venue-dot allstar" aria-hidden="true"></span>
+                    <div>
+                      <strong>All Star Party World</strong>
+                      <span>Kids ages 4–12</span>
+                    </div>
+                  </div>
+                </label>
+                <label class="venue-option" aria-label="The 305 Club — Teens and adults">
+                  <input type="radio" name="venue" value="305-club" />
+                  <div class="venue-option-content">
+                    <span class="venue-dot club" aria-hidden="true"></span>
+                    <div>
+                      <strong>The 305 Club</strong>
+                      <span>Teens &amp; adults</span>
+                    </div>
+                  </div>
+                </label>
+                <label class="venue-option" aria-label="Both venues — Coordinate same-day event">
+                  <input type="radio" name="venue" value="both" />
+                  <div class="venue-option-content">
+                    <span class="venue-dot both" aria-hidden="true"></span>
+                    <div>
+                      <strong>Both Venues</strong>
+                      <span>Same-day coordination</span>
+                    </div>
+                  </div>
+                </label>
+              </div>
+            </fieldset>
+
+            <div class="form-divider" aria-hidden="true"></div>
+
+            <!-- Contact Info -->
+            <fieldset class="form-section" aria-labelledby="contact-legend">
+              <legend id="contact-legend" class="form-section-title">Contact Info</legend>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="first-name">First Name <span class="required" aria-label="required">*</span></label>
+                  <input type="text" id="first-name" name="firstName" class="form-input" placeholder="Maria" autocomplete="given-name" required aria-required="true" />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="last-name">Last Name <span class="required" aria-label="required">*</span></label>
+                  <input type="text" id="last-name" name="lastName" class="form-input" placeholder="Rodriguez" autocomplete="family-name" required aria-required="true" />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="cell-phone">Cell Phone <span class="required" aria-label="required">*</span></label>
+                  <input type="tel" id="cell-phone" name="cellPhone" class="form-input" placeholder="(305) 000-0000" autocomplete="tel" required aria-required="true" />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="secondary-phone">Secondary Phone</label>
+                  <input type="tel" id="secondary-phone" name="secondaryPhone" class="form-input" placeholder="(786) 000-0000" autocomplete="tel" />
+                </div>
+              </div>
+              <div class="form-group" style="margin-bottom:0.85rem;">
+                <label class="form-label" id="text-opt-label">OK to text you?</label>
+                <label class="checkbox-label" aria-labelledby="text-opt-label">
+                  <input type="checkbox" name="okToText" value="yes" checked />
+                  <span class="checkbox-custom" aria-hidden="true"></span>
+                  Yes, text me
+                </label>
+                <p class="form-hint">We only contact you regarding your inquiry. Reply STOP to opt out.</p>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="best-time">Best Time to Call</label>
+                  <input type="text" id="best-time" name="bestTimeToCall" class="form-input" placeholder="e.g. After 4pm weekdays" />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="email">Email <span class="required" aria-label="required">*</span></label>
+                  <input type="email" id="email" name="email" class="form-input" placeholder="you@email.com" autocomplete="email" required aria-required="true" />
+                </div>
+              </div>
+            </fieldset>
+
+            <div class="form-divider" aria-hidden="true"></div>
+
+            <!-- Event Details -->
+            <fieldset class="form-section" aria-labelledby="event-legend">
+              <legend id="event-legend" class="form-section-title">Event Details</legend>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="preferred-date">Preferred Date <span class="required" aria-label="required">*</span></label>
+                  <input type="date" id="preferred-date" name="preferredDate" class="form-input" required aria-required="true" />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="alternate-date">Alternate Date</label>
+                  <input type="date" id="alternate-date" name="alternateDate" class="form-input" />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="start-time">Party Start Time</label>
+                  <input type="text" id="start-time" name="startTime" class="form-input" placeholder="e.g. 2:00 PM" />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="num-kids">Number of Kids</label>
+                  <input type="number" id="num-kids" name="numKids" class="form-input" placeholder="0" min="0" />
+                </div>
+              </div>
+              <div class="form-group" style="margin-bottom:0.85rem;">
+                <label class="form-label" id="party-length-label">Party Length <span class="required" aria-label="required">*</span></label>
+                <div class="radio-group" role="group" aria-labelledby="party-length-label">
+                  <label class="radio-label">
+                    <input type="radio" name="partyLength" value="2hrs" required />
+                    <span class="radio-custom" aria-hidden="true"></span>
+                    2 hours
+                  </label>
+                  <label class="radio-label">
+                    <input type="radio" name="partyLength" value="3hrs" />
+                    <span class="radio-custom" aria-hidden="true"></span>
+                    3 hours
+                  </label>
+                  <label class="radio-label">
+                    <input type="radio" name="partyLength" value="4hrs+" />
+                    <span class="radio-custom" aria-hidden="true"></span>
+                    4 hours+
+                  </label>
+                  <label class="radio-label">
+                    <input type="radio" name="partyLength" value="not-sure" />
+                    <span class="radio-custom" aria-hidden="true"></span>
+                    Not sure yet
+                  </label>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="num-adults">Number of Adults</label>
+                  <input type="number" id="num-adults" name="numAdults" class="form-input" placeholder="0" min="0" />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="birthday-age">Birthday Person's Age</label>
+                  <input type="text" id="birthday-age" name="birthdayAge" class="form-input" placeholder="e.g. 7" />
+                </div>
+              </div>
+              <div class="form-group" style="margin-bottom:0.85rem;">
+                <label class="form-label" for="celebrating">Who Are We Celebrating?</label>
+                <input type="text" id="celebrating" name="celebrating" class="form-input" placeholder="e.g. Sofia's 7th Birthday" />
+              </div>
+            </fieldset>
+
+            <div class="form-divider" aria-hidden="true"></div>
+
+            <!-- Party Preferences -->
+            <fieldset class="form-section" aria-labelledby="prefs-legend">
+              <legend id="prefs-legend" class="form-section-title">Tell Us More</legend>
+              <div class="form-group" style="margin-bottom:0.85rem;">
+                <label class="form-label" for="party-description">Party Description</label>
+                <textarea
+                  id="party-description"
+                  name="partyDescription"
+                  class="form-textarea"
+                  placeholder="Tell us what kind of party you're interested in. Do you need catering? A DJ? A specific activity or experience? Any special requests?"
+                ></textarea>
+              </div>
+              <div class="form-group" style="margin-bottom:0.85rem;">
+                <label class="form-label" for="hear-about-us">How Did You Hear About Us?</label>
+                <select id="hear-about-us" name="hearAboutUs" class="form-select">
+                  <option value="">Select one…</option>
+                  <option value="google">Google</option>
+                  <option value="instagram">Instagram</option>
+                  <option value="facebook">Facebook</option>
+                  <option value="tiktok">TikTok</option>
+                  <option value="youtube">YouTube</option>
+                  <option value="referral">Friend / Family Referral</option>
+                  <option value="drove-by">Drove By</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+            </fieldset>
+
+            <!-- Status messages -->
+            <div id="form-error" class="form-status error" role="alert" aria-live="assertive" hidden>
+              <i class="fas fa-exclamation-circle" aria-hidden="true"></i>
+              <span id="form-error-msg">Please fill in all required fields.</span>
+            </div>
+            <div id="form-success" class="form-status success" role="status" aria-live="polite" hidden>
+              <i class="fas fa-check-circle" aria-hidden="true"></i>
+              <span>Your request was sent! We'll be in touch within 24 hours.</span>
+            </div>
+
+            <button type="submit" class="form-submit" id="form-submit-btn">
+              <span id="submit-label">Send My Booking Request</span>
+              <span id="submit-loading" hidden aria-hidden="true">
+                <i class="fas fa-spinner fa-spin"></i> Sending…
+              </span>
+            </button>
+            <p class="form-footer-note">No payment required now. We'll send a proposal first.</p>
+          </form>
+        </div>
+
+        <!-- Sidebar -->
+        <aside aria-label="Contact information and booking tips">
+          <div class="info-card">
+            <div class="info-title">Contact &amp; Location</div>
+            <div class="info-item">
+              <div class="info-icon" aria-hidden="true"><i class="fa-solid fa-phone"></i></div>
+              <div>
+                <div class="info-label">Phone</div>
+                <div class="info-value"><a href="tel:+17864710100">786-471-0100</a></div>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="info-icon" aria-hidden="true"><i class="fa-solid fa-location-dot"></i></div>
+              <div>
+                <div class="info-label">Address</div>
+                <div class="info-value">
+                  8770 SW 131st Street<br />
+                  Miami, Florida 33176<br />
+                  <span style="font-size:0.78rem;color:rgba(255,255,255,0.4);">Next to The Falls Shopping Center</span>
+                </div>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="info-icon" aria-hidden="true"><i class="fa-solid fa-clock"></i></div>
+              <div>
+                <div class="info-label">Response Time</div>
+                <div class="info-value">Within 24 hours</div>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="info-icon" aria-hidden="true"><i class="fa-solid fa-calendar-check"></i></div>
+              <div>
+                <div class="info-label">Booking Window</div>
+                <div class="info-value">Book 3–6 months ahead for best date availability</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tip-box">
+            <div class="tip-label">Pro Tip</div>
+            <p class="tip-text">Popular dates (Friday nights, Saturday afternoons) fill up fast — especially June through August and holidays. Submit early and include your alternate date.</p>
+          </div>
+
+          <div class="venues-box">
+            <div class="tip-label">Two Venues Available</div>
+            <div class="venues-list">
+              <a href="/all-star-party-world" class="venue-link">
+                <span class="venue-dot allstar" aria-hidden="true"></span>
+                <div>
+                  <strong>All Star Party World</strong>
+                  <span>6,000 sq ft · Kids ages 4–12</span>
+                </div>
+                <i class="fas fa-arrow-right" aria-hidden="true"></i>
+              </a>
+              <a href="/305-club" class="venue-link">
+                <span class="venue-dot club" aria-hidden="true"></span>
+                <div>
+                  <strong>The 305 Club</strong>
+                  <span>10,000 sq ft · Teens &amp; adults</span>
+                </div>
+                <i class="fas fa-arrow-right" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </div>
+
+</Page>
+
+<style>
+  /* ── Layout ── */
+  .book-page { background: #0e0f14; padding: 4rem 2rem 6rem; }
+  .book-inner { max-width: 1100px; margin: 0 auto; }
+
+  /* ── Header ── */
+  .page-eyebrow {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.72rem; font-weight: 600;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: #7fb3ff; margin-bottom: 0.75rem; display: block;
+  }
+  .page-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 0.95; margin-bottom: 0.75rem;
+  }
+  .page-sub {
+    font-size: 0.95rem; color: rgba(255,255,255,0.55);
+    line-height: 1.7; margin-bottom: 2.5rem; max-width: 560px;
+  }
+
+  .book-grid {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 2.5rem;
+    align-items: start;
+  }
+
+  /* ── Form Card ── */
+  .form-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-top: 2px solid #3B7DEB;
+    border-radius: 16px;
+    padding: 2.5rem;
+  }
+
+  .form-section-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 1.25rem;
+    display: block;
+  }
+  .form-divider {
+    height: 1px;
+    background: rgba(255,255,255,0.06);
+    margin: 1.5rem 0;
+  }
+  .form-section { border: none; padding: 0; margin: 0; }
+  .venue-selector { border: none; padding: 0; margin: 0; }
+
+  /* ── Venue Options ── */
+  .venue-options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+  .venue-option {
+    cursor: pointer;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    padding: 0.75rem 1rem;
+    transition: border-color 0.2s ease, background 0.2s ease;
+  }
+  .venue-option input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .venue-option:has(input:checked) {
+    border-color: #3B7DEB;
+    background: rgba(59,125,235,0.08);
+  }
+  .venue-option:focus-within { outline: 2px solid #3B7DEB; outline-offset: 2px; border-radius: 10px; }
+  .venue-option-content {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .venue-option-content div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+  }
+  .venue-option-content strong {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #fff;
+    display: block;
+  }
+  .venue-option-content span {
+    font-size: 0.68rem;
+    color: rgba(255,255,255,0.45);
+  }
+  .venue-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .venue-dot.allstar { background: #F5C518; box-shadow: 0 0 6px rgba(245,197,24,0.5); }
+  .venue-dot.club { background: #3B7DEB; box-shadow: 0 0 6px rgba(59,125,235,0.5); }
+  .venue-dot.both {
+    background: linear-gradient(135deg, #F5C518 50%, #3B7DEB 50%);
+    box-shadow: 0 0 6px rgba(59,125,235,0.3);
+  }
+
+  /* ── Form Fields ── */
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.85rem;
+    margin-bottom: 0.85rem;
+  }
+  .form-group { display: flex; flex-direction: column; gap: 0.3rem; }
+
+  .form-label {
+    font-size: 0.7rem; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+  }
+  .required { color: #E8357A; }
+
+  .form-input, .form-select, .form-textarea {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    padding: 0.65rem 0.9rem;
+    color: #fff;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.88rem;
+    outline: none;
+    width: 100%;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  .form-input::placeholder, .form-textarea::placeholder { color: rgba(255,255,255,0.2); }
+  .form-input:focus, .form-select:focus, .form-textarea:focus {
+    border-color: #3B7DEB;
+    box-shadow: 0 0 0 3px rgba(59,125,235,0.15);
+  }
+  .form-select { appearance: none; cursor: pointer; }
+  .form-select option { background: #222734; }
+  .form-textarea { resize: vertical; min-height: 110px; }
+  .form-hint {
+    font-size: 0.68rem;
+    color: rgba(255,255,255,0.3);
+    line-height: 1.5;
+    margin-top: 0.35rem;
+  }
+
+  /* ── Checkbox ── */
+  .checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.75);
+    cursor: pointer;
+    margin-top: 0.3rem;
+  }
+  .checkbox-label input[type="checkbox"] { position: absolute; opacity: 0; pointer-events: none; }
+  .checkbox-custom {
+    width: 16px; height: 16px;
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 4px;
+    background: rgba(255,255,255,0.05);
+    flex-shrink: 0;
+    position: relative;
+    transition: background 0.2s ease, border-color 0.2s ease;
+  }
+  .checkbox-label:has(input:checked) .checkbox-custom {
+    background: #3B7DEB;
+    border-color: #3B7DEB;
+  }
+  .checkbox-label:has(input:checked) .checkbox-custom::after {
+    content: '';
+    position: absolute;
+    left: 4px; top: 1px;
+    width: 5px; height: 9px;
+    border: 2px solid #fff;
+    border-top: none; border-left: none;
+    transform: rotate(45deg);
+  }
+
+  /* ── Radio Group ── */
+  .radio-group {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-top: 0.4rem;
+  }
+  .radio-label {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.7);
+    cursor: pointer;
+  }
+  .radio-label input[type="radio"] { position: absolute; opacity: 0; pointer-events: none; }
+  .radio-custom {
+    width: 16px; height: 16px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.25);
+    background: rgba(255,255,255,0.05);
+    flex-shrink: 0;
+    position: relative;
+    transition: border-color 0.2s ease;
+  }
+  .radio-label:has(input:checked) .radio-custom {
+    border-color: #3B7DEB;
+    background: rgba(59,125,235,0.15);
+  }
+  .radio-label:has(input:checked) .radio-custom::after {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: #3B7DEB;
+  }
+
+  /* ── Status ── */
+  .form-status {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.85rem 1rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+  }
+  .form-status.error { background: rgba(232,53,122,0.1); border: 1px solid rgba(232,53,122,0.3); color: #ff8ab0; }
+  .form-status.success { background: rgba(59,235,130,0.1); border: 1px solid rgba(59,235,130,0.3); color: #7fffc0; }
+  .form-status[hidden] { display: none; }
+
+  /* ── Submit ── */
+  .form-submit {
+    width: 100%;
+    background: #3B7DEB;
+    color: #fff;
+    padding: 0.9rem;
+    border: none;
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    box-shadow: 0 0 20px rgba(59,125,235,0.35);
+    transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.2s ease, opacity 0.2s ease;
+  }
+  .form-submit:hover { transform: translateY(-2px); box-shadow: 0 0 36px rgba(59,125,235,0.55); }
+  .form-submit:focus-visible { outline: 2px solid #7fb3ff; outline-offset: 3px; }
+  .form-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+  .form-footer-note {
+    text-align: center;
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.3);
+    margin-top: 0.75rem;
+    line-height: 1.5;
+  }
+
+  /* ── Sidebar ── */
+  .info-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 14px;
+    padding: 1.75rem;
+    position: sticky;
+    top: 6rem;
+    margin-bottom: 1rem;
+  }
+  .info-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem; font-weight: 600; letter-spacing: 0.04em;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+  .info-item {
+    display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 1rem;
+  }
+  .info-icon {
+    width: 30px; height: 30px; border-radius: 7px; flex-shrink: 0;
+    background: rgba(59,125,235,0.12); border: 1px solid rgba(59,125,235,0.2);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.8rem; color: #7fb3ff;
+  }
+  .info-label {
+    font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 0.2rem;
+  }
+  .info-value { font-size: 0.85rem; color: rgba(255,255,255,0.75); line-height: 1.5; }
+  .info-value a { color: #7fb3ff; text-decoration: none; }
+  .info-value a:hover { color: #fff; }
+  .info-value a:focus-visible { outline: 2px solid #3B7DEB; outline-offset: 2px; border-radius: 2px; }
+
+  .tip-box {
+    background: rgba(245,197,24,0.05);
+    border: 1px solid rgba(245,197,24,0.18);
+    border-radius: 10px;
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+  }
+  .tip-label {
+    font-size: 0.65rem; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; color: rgba(245,197,24,0.65);
+    margin-bottom: 0.4rem;
+  }
+  .tip-text { font-size: 0.82rem; color: rgba(255,255,255,0.55); line-height: 1.6; }
+
+  .venues-box {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 10px;
+    padding: 1.25rem;
+  }
+  .venues-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+  }
+  .venue-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    color: inherit;
+    padding: 0.6rem 0.75rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.06);
+    transition: background 0.2s ease, border-color 0.2s ease;
+  }
+  .venue-link:hover { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.12); }
+  .venue-link:focus-visible { outline: 2px solid #3B7DEB; outline-offset: 2px; }
+  .venue-link div { flex: 1; display: flex; flex-direction: column; gap: 0.1rem; }
+  .venue-link strong { font-size: 0.82rem; color: #fff; }
+  .venue-link span { font-size: 0.68rem; color: rgba(255,255,255,0.45); }
+  .venue-link i { font-size: 0.7rem; color: rgba(255,255,255,0.25); }
+
+  /* ── Responsive ── */
+  @media (max-width: 900px) {
+    .book-grid { grid-template-columns: 1fr; }
+    .info-card { position: static; }
+    .venue-options { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 600px) {
+    .form-card { padding: 1.5rem; }
+    .form-row { grid-template-columns: 1fr; }
+    .radio-group { gap: 0.75rem; }
+  }
+</style>
+
+<script>
+  const form = document.getElementById('booking-form') as HTMLFormElement;
+  const submitBtn = document.getElementById('form-submit-btn') as HTMLButtonElement;
+  const submitLabel = document.getElementById('submit-label')!;
+  const submitLoading = document.getElementById('submit-loading')!;
+  const errorBox = document.getElementById('form-error') as HTMLElement;
+  const errorMsg = document.getElementById('form-error-msg')!;
+  const successBox = document.getElementById('form-success') as HTMLElement;
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // Basic validation
+    const required = form.querySelectorAll<HTMLInputElement>('[required]');
+    let firstInvalid: HTMLElement | null = null;
+    let allValid = true;
+
+    required.forEach(field => {
+      if (!field.value.trim()) {
+        field.style.borderColor = '#E8357A';
+        if (!firstInvalid) firstInvalid = field;
+        allValid = false;
+      } else {
+        field.style.borderColor = '';
+      }
+    });
+
+    if (!allValid) {
+      errorBox.hidden = false;
+      errorMsg.textContent = 'Please fill in all required fields.';
+      firstInvalid?.focus();
+      return;
+    }
+
+    // Loading state
+    errorBox.hidden = true;
+    successBox.hidden = true;
+    submitBtn.disabled = true;
+    submitLabel.hidden = true;
+    submitLoading.hidden = false;
+
+    // Build payload
+    const data = Object.fromEntries(new FormData(form).entries());
+
+    try {
+      const res = await fetch('https://cms.allstarpartyworld.com/api/bookings', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+
+      if (res.ok) {
+        successBox.hidden = false;
+        form.reset();
+        successBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      } else {
+        throw new Error('Server error');
+      }
+    } catch {
+      errorBox.hidden = false;
+      errorMsg.textContent = 'Something went wrong. Please call us at 786-471-0100.';
+    } finally {
+      submitBtn.disabled = false;
+      submitLabel.hidden = false;
+      submitLoading.hidden = true;
+    }
+  });
+
+  // Clear error state on input
+  form.querySelectorAll<HTMLInputElement>('.form-input, .form-select, .form-textarea').forEach(field => {
+    field.addEventListener('input', () => { field.style.borderColor = ''; });
+  });
+</script>

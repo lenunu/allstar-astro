@@ -1,0 +1,1017 @@
+---
+import Page from '../layouts/Page.astro';
+---
+
+<Page
+  title="Waiver Agreement — All Star Party World"
+  description="Complete the Release & Waiver of Liability for All Star Party World. Required for all children attending events and activities."
+>
+
+<div class="waiver-page">
+
+  <!-- ── STEP PROGRESS BAR ── -->
+  <div class="step-bar" role="navigation" aria-label="Waiver steps">
+    <div class="step-bar-inner">
+      <div class="step-item active" id="step-indicator-1" aria-current="step">
+        <div class="step-circle" aria-hidden="true">1</div>
+        <span class="step-label">Read Waiver</span>
+      </div>
+      <div class="step-line" aria-hidden="true"></div>
+      <div class="step-item" id="step-indicator-2">
+        <div class="step-circle" aria-hidden="true">2</div>
+        <span class="step-label">Complete Form</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- STEP 1 — READ WAIVER                                   -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <section id="step-read" class="step-section" aria-label="Step 1 of 2: Read the waiver">
+    <div class="waiver-inner">
+
+      <header class="step-header">
+        <p class="eyebrow">Step 1 of 2</p>
+        <h1 class="step-title">Read the Waiver</h1>
+        <p class="step-sub">Scroll through the full agreement below. The Continue button unlocks once you've reached the bottom.</p>
+      </header>
+
+      <!-- Scroll progress -->
+      <div class="progress-wrap" aria-hidden="true">
+        <div class="progress-track">
+          <div class="progress-fill" id="progress-fill"></div>
+        </div>
+        <span class="progress-label" id="progress-label">0% read</span>
+      </div>
+
+      <!-- Waiver document -->
+      <div
+        class="waiver-doc"
+        id="waiver-doc"
+        role="region"
+        aria-label="Waiver document — scroll to read"
+        tabindex="0"
+      >
+        <div class="doc-header">
+          <p class="doc-entity">Line Drive Performance of Miami, LLC.</p>
+          <p class="doc-entity">D.B.A All-Star Party World</p>
+          <h2 class="doc-title">RELEASE &amp; WAIVER OF LIABILITY, ASSUMPTION OF RISK,<br />&amp; INDEMNITY AGREEMENT ("AGREEMENT")</h2>
+        </div>
+
+        <div class="doc-body">
+          <p>In consideration of permission to participate in events and the various activities typically carried out at these events held on the premises of All-Star Party World ("Activities"), I, the parent or guardian of the Participant(s) listed below, represent that I understand the nature of these Activities &amp; that we are qualified, in good health, and in proper physical condition to participate in such Activities. I acknowledge that if I believe that conditions are unsafe, I/we will immediately discontinue participating in the Activities.</p>
+
+          <p>I fully understand that these Activities involve risks of serious bodily injury, including permanent disability, paralysis and death, which may be caused by my own actions, or inactions, those of others participating in the Activities, the conditions in which the Activities take place, or the negligence of the "Released Parties" named below; and that there may be other risks either not known to me or not readily foreseeable at this time; and I fully accept and assume all such risks and all responsibility for losses, costs, and damages that I incur, or that I may cause to others, as a result of my participation in these Activities.</p>
+
+          <p>I fully understand that an inherent risk of exposure to COVID-19 exists in any public place where people are present. All-Star Party World has enhanced health and safety measures for our Guests and Staff. By visiting All-Star Party World you voluntarily assume all risks related to exposure to COVID-19.</p>
+
+          <p>I hereby release, discharge, and covenant not to sue, All-Star Party World, it's respective administrators, directors, agents, officers, volunteers, and employees, other participants, any sponsors, advertisers, and if applicable, owners and lessors of the premises on which these Activities take place, (each considered one of the <strong>"Released Parties"</strong> herein) from all liability, claims, demands, losses, or damages on my account caused or alleged to be caused in whole or in part by the negligence of the Released Parties or otherwise, including negligent rescue operations; and I further agree that if, despite this release, waiver of liability, and assumption of risk I, or anyone on my behalf, makes a claim against any of the Released Parties, I will indemnify, save, and hold harmless each of the Released Parties from any loss, liability, damage, or cost which any may incur as the result of such claim.</p>
+
+          <p>I consent to all emergency medical treatment as may be deemed appropriate under existing circumstances by medical personnel or personnel associated with the Activities.</p>
+
+          <div class="doc-section-head">PHOTO / VIDEO / SOCIAL MEDIA WAIVER</div>
+
+          <p>In connection with our use of the All-Star Party World facility, I/we consent to the recording of our physical likeness and/or voice through mechanical, photographic, technical, digital, electronic or other means ("Recordings"). I/we hereby consent to and authorize All-Star Party World and its agents, representatives, employees, successors and assigns to use, in perpetuity, such Recordings, as well as the participant's name and my name, for any purpose, including advertising, promoting, exploiting and/or publicizing the All-Star Party World Facility. I further agree that the foregoing includes the consent to use the participant's and/or my physical likeness in any form. In addition, I waive any and all claims I may have in connection with the Recordings.</p>
+
+          <div class="doc-closing">
+            <p>I understand that I have given up substantial rights by signing it and have signed it freely and without any inducement and assurance of any nature and intend it to be a complete and unconditional release of all liability to the greatest extent allowed by law and agree that if any portion of this Agreement is held to be invalid the balance, notwithstanding, shall continue in full force and effect. I further agree that this Agreement shall be construed in accordance with the laws of the State of Florida.</p>
+          </div>
+
+          <div class="doc-version">Version 2 &mdash; All-Star Party World &mdash; Miami, Florida</div>
+        </div>
+      </div>
+
+      <!-- Scroll hint -->
+      <div class="scroll-hint" id="scroll-hint" aria-live="polite" aria-atomic="true">
+        <i class="fas fa-chevron-down" aria-hidden="true"></i>
+        Scroll to read the full agreement
+      </div>
+
+      <!-- Agree + Continue -->
+      <div class="agree-bar" id="agree-bar">
+        <label class="agree-check" id="agree-check-label">
+          <input
+            type="checkbox"
+            id="agree-checkbox"
+            disabled
+            aria-describedby="agree-check-label"
+            aria-label="I have read and agree to the waiver"
+          />
+          <span class="check-box" aria-hidden="true"></span>
+          <span>I have read this <strong>Release &amp; Waiver of Liability, Assumption of Risk, and Indemnity Agreement</strong></span>
+        </label>
+        <button
+          id="continue-btn"
+          class="btn-continue"
+          disabled
+          aria-disabled="true"
+        >
+          Complete the Form
+          <i class="fas fa-arrow-right" aria-hidden="true"></i>
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- STEP 2 — COMPLETE THE FORM                             -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <section id="step-form" class="step-section" hidden aria-label="Step 2 of 2: Complete the form">
+    <div class="waiver-inner">
+
+      <header class="step-header">
+        <p class="eyebrow">Step 2 of 2</p>
+        <h1 class="step-title">Complete the Form</h1>
+        <p class="step-sub">Enter your information and the information for every child attending. Your signature below constitutes a legally binding electronic agreement.</p>
+      </header>
+
+      <!-- Waiver summary chip -->
+      <div class="waiver-read-badge" aria-label="Waiver already read">
+        <i class="fas fa-check-circle" aria-hidden="true"></i>
+        Waiver read and acknowledged
+      </div>
+
+      <form id="waiver-form" novalidate aria-label="Waiver completion form">
+
+        <!-- ── Parent / Guardian ── -->
+        <fieldset class="form-block" aria-labelledby="parent-legend">
+          <legend id="parent-legend" class="block-title">Parent / Guardian Information</legend>
+
+          <div class="field-row">
+            <div class="field-group">
+              <label class="field-label" for="parent-first">
+                Parent First Name <span class="req" aria-label="required">*</span>
+              </label>
+              <input
+                type="text" id="parent-first" name="parentFirstName"
+                class="field-input" autocomplete="given-name"
+                required aria-required="true" placeholder="Maria"
+              />
+            </div>
+            <div class="field-group">
+              <label class="field-label" for="parent-last">
+                Parent Last Name <span class="req" aria-label="required">*</span>
+              </label>
+              <input
+                type="text" id="parent-last" name="parentLastName"
+                class="field-input" autocomplete="family-name"
+                required aria-required="true" placeholder="Rodriguez"
+              />
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label" for="parent-email">
+              Email <span class="req" aria-label="required">*</span>
+            </label>
+            <input
+              type="email" id="parent-email" name="email"
+              class="field-input" autocomplete="email"
+              required aria-required="true" placeholder="Your Email"
+            />
+          </div>
+
+          <div class="field-group">
+            <label class="field-label" for="parent-phone">
+              Phone <span class="req" aria-label="required">*</span>
+            </label>
+            <input
+              type="tel" id="parent-phone" name="phone"
+              class="field-input" autocomplete="tel"
+              required aria-required="true" placeholder="Primary Phone"
+            />
+          </div>
+
+          <div class="field-group">
+            <label class="field-label" for="num-children">
+              # of Children <span class="req" aria-label="required">*</span>
+            </label>
+            <div class="select-wrap">
+              <select
+                id="num-children" name="numChildren"
+                class="field-select"
+                required aria-required="true"
+                aria-describedby="num-children-hint"
+              >
+                {[1,2,3,4,5,6,7,8,9,10].map(n => (
+                  <option value={n}>{n}</option>
+                ))}
+              </select>
+              <i class="fas fa-chevron-down select-icon" aria-hidden="true"></i>
+            </div>
+            <p id="num-children-hint" class="field-hint">Select the number of children attending — child rows will appear below.</p>
+          </div>
+        </fieldset>
+
+        <!-- ── Children ── -->
+        <fieldset class="form-block" aria-labelledby="children-legend">
+          <legend id="children-legend" class="block-title">Children Attending</legend>
+          <p class="block-sub">Enter the information for every child in attendance.</p>
+          <div id="children-list" aria-live="polite" aria-label="Child information fields"></div>
+        </fieldset>
+
+        <!-- ── Event & Consent ── -->
+        <fieldset class="form-block" aria-labelledby="event-legend">
+          <legend id="event-legend" class="block-title">Event Information &amp; Consent</legend>
+
+          <div class="field-group">
+            <label class="field-label" for="event-date">
+              Date of Event <span class="req" aria-label="required">*</span>
+            </label>
+            <input
+              type="date" id="event-date" name="eventDate"
+              class="field-input"
+              required aria-required="true"
+            />
+          </div>
+
+          <div class="consent-block">
+            <label class="consent-check" id="consent-label">
+              <input
+                type="checkbox"
+                id="consent-checkbox"
+                name="consentGiven"
+                value="agreed"
+                required
+                aria-required="true"
+                aria-describedby="consent-label"
+              />
+              <span class="check-box" aria-hidden="true"></span>
+              <span>I have read this <strong>Release and Waiver of Liability, Assumption of Risk, and Indemnity Agreement</strong></span>
+            </label>
+            <p class="consent-fine-print">
+              I understand that I have given up substantial rights by signing it and have signed it freely and without any inducement and assurance of any nature and intend it to be a complete and unconditional release of all liability to the greatest extent allowed by law and agree that if any portion of this Agreement is held to be invalid the balance, notwithstanding, shall continue in full force and effect. I further agree that this Agreement shall be construed in accordance with the laws of the State of Florida.
+            </p>
+          </div>
+        </fieldset>
+
+        <!-- ── Signature ── -->
+        <fieldset class="form-block sig-block" aria-labelledby="sig-legend">
+          <legend id="sig-legend" class="block-title">Signature <span class="req" aria-label="required">*</span></legend>
+          <p class="block-sub">Type your full legal name below. This constitutes a legally binding electronic signature.</p>
+
+          <div class="field-group">
+            <label class="field-label" for="signature">
+              Full Legal Name
+            </label>
+            <input
+              type="text"
+              id="signature"
+              name="signature"
+              class="field-input sig-input"
+              placeholder="Type your full name"
+              autocomplete="name"
+              required
+              aria-required="true"
+              aria-describedby="sig-note"
+              spellcheck="false"
+            />
+          </div>
+          <p id="sig-note" class="sig-note">
+            <i class="fas fa-lock" aria-hidden="true"></i>
+            By entering your name above, you agree to the terms of the Release &amp; Waiver of Liability, Assumption of Risk, and Indemnity Agreement.
+          </p>
+        </fieldset>
+
+        <!-- Status messages -->
+        <div id="form-error" class="status-msg error" role="alert" aria-live="assertive" hidden>
+          <i class="fas fa-exclamation-circle" aria-hidden="true"></i>
+          <span id="form-error-text">Please complete all required fields.</span>
+        </div>
+        <div id="form-success" class="status-msg success" role="status" aria-live="polite" hidden>
+          <i class="fas fa-check-circle" aria-hidden="true"></i>
+          Waiver submitted! A confirmation has been sent to your email address.
+        </div>
+
+        <!-- Submit -->
+        <div class="submit-wrap">
+          <button type="submit" id="submit-btn" class="btn-submit">
+            <span id="submit-label">Submit Waiver</span>
+            <span id="submit-loading" hidden aria-hidden="true">
+              <i class="fas fa-spinner fa-spin"></i>&nbsp;Submitting…
+            </span>
+          </button>
+          <p class="submit-note">A confirmation copy will be emailed to you. No payment required.</p>
+        </div>
+
+      </form>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- STEP 3 — CONFIRMATION                                  -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <section id="step-done" class="step-section done-section" hidden aria-label="Waiver submitted successfully">
+    <div class="waiver-inner done-inner">
+      <div class="done-icon" aria-hidden="true">
+        <i class="fas fa-check-circle"></i>
+      </div>
+      <h1 class="done-title">Waiver Submitted!</h1>
+      <p class="done-sub">
+        Thank you. Your signed waiver has been recorded and a confirmation has been sent to your email. You're all set — see you at the party!
+      </p>
+      <div class="done-actions">
+        <a href="/" class="btn-primary">Back to Home</a>
+        <a href="/book" class="btn-ghost">Book an Event</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+</Page>
+
+<style>
+/* ── Page shell ── */
+.waiver-page {
+  background: #0e0f14;
+  min-height: 100vh;
+}
+
+/* ── Step progress bar ── */
+.step-bar {
+  background: #14161e;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  padding: 1rem 2rem;
+}
+.step-bar-inner {
+  max-width: 760px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+.step-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.step-circle {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.04);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.78rem; font-weight: 600;
+  color: rgba(255,255,255,0.35);
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+.step-item.active .step-circle {
+  border-color: #3B7DEB;
+  background: rgba(59,125,235,0.15);
+  color: #7fb3ff;
+}
+.step-item.complete .step-circle {
+  border-color: rgba(59,235,130,0.5);
+  background: rgba(59,235,130,0.1);
+  color: #7fffc0;
+}
+.step-label {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.7rem; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  transition: color 0.3s ease;
+}
+.step-item.active .step-label { color: #7fb3ff; }
+.step-item.complete .step-label { color: rgba(255,255,255,0.5); }
+.step-line {
+  flex: 1;
+  height: 1px;
+  background: rgba(255,255,255,0.08);
+  margin: 0 1rem;
+  max-width: 80px;
+  transition: background 0.3s ease;
+}
+.step-line.active { background: rgba(59,235,130,0.3); }
+
+/* ── Section layout ── */
+.step-section { display: none; }
+.step-section.visible { display: block; }
+
+.waiver-inner {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 3.5rem 2rem 6rem;
+}
+
+/* ── Step header ── */
+.step-header { margin-bottom: 2.5rem; }
+.eyebrow {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.7rem; font-weight: 600;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: #3B7DEB; margin-bottom: 0.5rem; display: block;
+}
+.step-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  line-height: 0.95; margin-bottom: 0.75rem;
+}
+.step-sub {
+  font-size: 0.9rem; color: rgba(255,255,255,0.5);
+  line-height: 1.7; max-width: 520px;
+}
+
+/* ── Progress bar ── */
+.progress-wrap {
+  display: flex; align-items: center; gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+.progress-track {
+  flex: 1; height: 4px;
+  background: rgba(255,255,255,0.07);
+  border-radius: 4px; overflow: hidden;
+}
+.progress-fill {
+  height: 100%; width: 0%;
+  background: linear-gradient(90deg, #3B7DEB, #7fb3ff);
+  border-radius: 4px;
+  transition: width 0.15s ease;
+}
+.progress-label {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.65rem; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  white-space: nowrap; min-width: 56px; text-align: right;
+}
+
+/* ── Waiver document ── */
+.waiver-doc {
+  background: #14161e;
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 12px;
+  height: 440px;
+  overflow-y: scroll;
+  padding: 2.5rem;
+  outline: none;
+  scroll-behavior: smooth;
+}
+.waiver-doc:focus-visible { box-shadow: inset 0 0 0 2px #3B7DEB; }
+
+.doc-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.doc-entity {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.85rem; font-weight: 600;
+  letter-spacing: 0.05em;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 0.15rem;
+}
+.doc-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.8rem; font-weight: 700;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  color: rgba(255,255,255,0.85);
+  margin-top: 1rem; line-height: 1.5;
+}
+.doc-body p {
+  font-size: 0.83rem;
+  line-height: 1.85;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 1.1rem;
+}
+.doc-section-head {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.72rem; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  margin: 1.5rem 0 0.75rem;
+}
+.doc-closing {
+  margin-top: 1.5rem;
+  padding: 1.25rem;
+  background: rgba(59,125,235,0.06);
+  border: 1px solid rgba(59,125,235,0.15);
+  border-radius: 8px;
+}
+.doc-closing p {
+  font-size: 0.8rem;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 0 !important;
+  font-style: italic;
+}
+.doc-version {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.62rem; letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.2);
+  text-align: center;
+}
+
+/* ── Scroll hint ── */
+.scroll-hint {
+  display: flex; align-items: center; gap: 0.5rem;
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.25);
+  margin-top: 0.6rem;
+  transition: opacity 0.4s ease;
+}
+.scroll-hint i { animation: bounce 1.8s ease-in-out infinite; }
+.scroll-hint.done { opacity: 0; pointer-events: none; }
+@keyframes bounce {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(4px); }
+}
+
+/* ── Agree bar ── */
+.agree-bar {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1.5rem; flex-wrap: wrap;
+  margin-top: 1.25rem;
+  padding: 1.25rem 1.5rem;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 10px;
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+.agree-bar.ready {
+  border-color: rgba(59,125,235,0.3);
+  background: rgba(59,125,235,0.05);
+}
+
+/* ── Checkbox ── */
+.agree-check, .consent-check {
+  display: flex; align-items: flex-start; gap: 0.75rem;
+  font-size: 0.85rem; color: rgba(255,255,255,0.7);
+  cursor: pointer; line-height: 1.55;
+}
+.agree-check input, .consent-check input {
+  position: absolute; opacity: 0; pointer-events: none;
+}
+.agree-check input:disabled + .check-box { opacity: 0.3; cursor: not-allowed; }
+.check-box {
+  width: 18px; height: 18px; min-width: 18px;
+  border: 1.5px solid rgba(255,255,255,0.2);
+  border-radius: 5px;
+  background: rgba(255,255,255,0.04);
+  position: relative;
+  transition: background 0.2s ease, border-color 0.2s ease;
+  margin-top: 2px;
+}
+.agree-check:has(input:checked) .check-box,
+.consent-check:has(input:checked) .check-box {
+  background: #3B7DEB; border-color: #3B7DEB;
+}
+.agree-check:has(input:checked) .check-box::after,
+.consent-check:has(input:checked) .check-box::after {
+  content: '';
+  position: absolute;
+  left: 5px; top: 2px;
+  width: 5px; height: 9px;
+  border: 2px solid #fff; border-top: none; border-left: none;
+  transform: rotate(45deg);
+}
+
+/* ── Continue button ── */
+.btn-continue {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  background: #3B7DEB; color: #fff;
+  padding: 0.75rem 1.75rem; border: none; border-radius: 8px;
+  font-family: 'DM Sans', sans-serif; font-size: 0.88rem; font-weight: 600;
+  letter-spacing: 0.04em; cursor: pointer; white-space: nowrap;
+  box-shadow: 0 0 20px rgba(59,125,235,0.35);
+  transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.2s ease, opacity 0.2s ease;
+}
+.btn-continue:disabled { opacity: 0.35; cursor: not-allowed; box-shadow: none; }
+.btn-continue:not(:disabled):hover { transform: translateY(-2px); box-shadow: 0 0 36px rgba(59,125,235,0.55); }
+.btn-continue:focus-visible { outline: 2px solid #7fb3ff; outline-offset: 3px; }
+
+/* ── Waiver read badge ── */
+.waiver-read-badge {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.7rem; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: #7fffc0;
+  background: rgba(59,235,130,0.08);
+  border: 1px solid rgba(59,235,130,0.2);
+  border-radius: 100px;
+  padding: 0.4rem 1rem;
+  margin-bottom: 2rem;
+}
+
+/* ── Form blocks ── */
+.form-block {
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 14px;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  background: rgba(255,255,255,0.02);
+}
+.block-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.75rem; font-weight: 700;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 1.5rem; display: block;
+}
+.block-sub {
+  font-size: 0.82rem; color: rgba(255,255,255,0.4);
+  line-height: 1.6; margin-top: -1rem; margin-bottom: 1.25rem;
+}
+
+/* ── Fields ── */
+.field-row {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 1rem; margin-bottom: 1rem;
+}
+.field-group { display: flex; flex-direction: column; gap: 0.35rem; margin-bottom: 1rem; }
+.field-group:last-child { margin-bottom: 0; }
+.field-label {
+  font-size: 0.7rem; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+}
+.req { color: #E8357A; }
+.field-hint {
+  font-size: 0.68rem; color: rgba(255,255,255,0.3);
+  line-height: 1.5; margin-top: 0.3rem;
+}
+
+.field-input {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px; padding: 0.7rem 0.9rem;
+  color: #fff; font-family: 'DM Sans', sans-serif; font-size: 0.88rem;
+  outline: none; width: 100%;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.field-input::placeholder { color: rgba(255,255,255,0.2); }
+.field-input:focus {
+  border-color: #3B7DEB;
+  box-shadow: 0 0 0 3px rgba(59,125,235,0.15);
+}
+.field-input.invalid { border-color: #E8357A; box-shadow: 0 0 0 3px rgba(232,53,122,0.12); }
+
+.select-wrap { position: relative; }
+.field-select {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px; padding: 0.7rem 2.5rem 0.7rem 0.9rem;
+  color: #fff; font-family: 'DM Sans', sans-serif; font-size: 0.88rem;
+  outline: none; width: 100%; appearance: none; cursor: pointer;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.field-select:focus { border-color: #3B7DEB; box-shadow: 0 0 0 3px rgba(59,125,235,0.15); }
+.field-select option { background: #1c1f2b; }
+.select-icon {
+  position: absolute; right: 0.9rem; top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.7rem; color: rgba(255,255,255,0.3);
+  pointer-events: none;
+}
+
+/* ── Child rows ── */
+.child-block {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 10px;
+  padding: 1.25rem;
+  margin-bottom: 0.85rem;
+}
+.child-block-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.68rem; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  margin-bottom: 1rem;
+}
+
+/* ── Consent ── */
+.consent-block {
+  margin-top: 0.5rem;
+  padding: 1.25rem;
+  background: rgba(59,125,235,0.05);
+  border: 1px solid rgba(59,125,235,0.18);
+  border-radius: 10px;
+}
+.consent-fine-print {
+  font-size: 0.75rem; color: rgba(255,255,255,0.4);
+  line-height: 1.7; margin-top: 0.85rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid rgba(255,255,255,0.07);
+  font-style: italic;
+}
+
+/* ── Signature ── */
+.sig-block { border-color: rgba(59,125,235,0.2); }
+.sig-input {
+  font-family: 'Georgia', 'Times New Roman', serif !important;
+  font-size: 1.35rem !important;
+  letter-spacing: 0.02em;
+  color: #fff !important;
+  border-bottom: 2px solid rgba(255,255,255,0.2) !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-top: none !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  padding-bottom: 0.5rem !important;
+  padding-left: 0 !important;
+}
+.sig-input:focus {
+  border-bottom-color: #3B7DEB !important;
+  box-shadow: none !important;
+}
+.sig-note {
+  font-size: 0.75rem; color: rgba(255,255,255,0.35);
+  line-height: 1.6; margin-top: 0.75rem;
+  display: flex; align-items: flex-start; gap: 0.5rem;
+}
+.sig-note i { margin-top: 2px; color: rgba(255,255,255,0.25); flex-shrink: 0; }
+
+/* ── Status messages ── */
+.status-msg {
+  display: flex; align-items: center; gap: 0.75rem;
+  padding: 0.9rem 1.1rem; border-radius: 8px;
+  font-size: 0.85rem; margin-bottom: 1.25rem;
+}
+.status-msg.error { background: rgba(232,53,122,0.1); border: 1px solid rgba(232,53,122,0.3); color: #ff8ab0; }
+.status-msg.success { background: rgba(59,235,130,0.1); border: 1px solid rgba(59,235,130,0.3); color: #7fffc0; }
+.status-msg[hidden] { display: none; }
+
+/* ── Submit ── */
+.submit-wrap { display: flex; flex-direction: column; gap: 0.75rem; }
+.btn-submit {
+  width: 100%; background: #3B7DEB; color: #fff;
+  padding: 1rem; border: none; border-radius: 10px;
+  font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 0 24px rgba(59,125,235,0.4);
+  transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.2s ease, opacity 0.2s ease;
+}
+.btn-submit:hover { transform: translateY(-2px); box-shadow: 0 0 40px rgba(59,125,235,0.6); }
+.btn-submit:focus-visible { outline: 2px solid #7fb3ff; outline-offset: 3px; }
+.btn-submit:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+.submit-note {
+  text-align: center; font-size: 0.72rem;
+  color: rgba(255,255,255,0.28); line-height: 1.5;
+}
+
+/* ── Done ── */
+.done-section.visible { display: flex; align-items: center; justify-content: center; min-height: 75vh; }
+.done-inner { text-align: center; max-width: 480px; }
+.done-icon { font-size: 4.5rem; color: #7fffc0; margin-bottom: 1.5rem; }
+.done-title { font-family: 'Bebas Neue', sans-serif; font-size: 3rem; line-height: 1; margin-bottom: 1rem; }
+.done-sub { font-size: 0.95rem; color: rgba(255,255,255,0.55); line-height: 1.75; margin-bottom: 2rem; }
+.done-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: #3B7DEB; color: #fff; padding: 0.8rem 1.75rem;
+  border-radius: 8px; font-family: 'DM Sans', sans-serif;
+  font-weight: 600; font-size: 0.88rem; text-decoration: none;
+  box-shadow: 0 0 20px rgba(59,125,235,0.4);
+  transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.2s ease;
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 36px rgba(59,125,235,0.6); }
+.btn-primary:focus-visible { outline: 2px solid #7fb3ff; outline-offset: 3px; }
+.btn-ghost {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  color: rgba(255,255,255,0.6); padding: 0.8rem 1.75rem;
+  border: 1px solid rgba(255,255,255,0.18); border-radius: 8px;
+  font-family: 'DM Sans', sans-serif; font-weight: 500; font-size: 0.88rem;
+  text-decoration: none;
+  transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s cubic-bezier(0.34,1.56,0.64,1);
+}
+.btn-ghost:hover { color: #fff; border-color: rgba(255,255,255,0.45); transform: translateY(-2px); }
+.btn-ghost:focus-visible { outline: 2px solid rgba(255,255,255,0.5); outline-offset: 3px; }
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .field-row { grid-template-columns: 1fr; }
+  .agree-bar { flex-direction: column; align-items: flex-start; }
+  .btn-continue { width: 100%; justify-content: center; }
+  .waiver-doc { height: 360px; padding: 1.5rem; }
+  .form-block { padding: 1.5rem; }
+  .step-label { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .scroll-hint i { animation: none; }
+  .progress-fill { transition: none; }
+}
+</style>
+
+<script>
+// ════════════════════════════════════════════════════════
+// STEP 1 — Scroll to unlock
+// ════════════════════════════════════════════════════════
+
+const doc        = document.getElementById('waiver-doc')!;
+const fill       = document.getElementById('progress-fill')!;
+const progLabel  = document.getElementById('progress-label')!;
+const scrollHint = document.getElementById('scroll-hint')!;
+const agreeChk   = document.getElementById('agree-checkbox') as HTMLInputElement;
+const agreeBar   = document.getElementById('agree-bar')!;
+const continueBtn= document.getElementById('continue-btn') as HTMLButtonElement;
+
+let unlocked = false;
+
+function onScroll() {
+  const { scrollTop, scrollHeight, clientHeight } = doc;
+  const max  = scrollHeight - clientHeight;
+  const pct  = max > 0 ? Math.min(100, Math.round((scrollTop / max) * 100)) : 100;
+
+  fill.style.width     = pct + '%';
+  progLabel.textContent = pct + '% read';
+
+  if (pct >= 98 && !unlocked) {
+    unlocked = true;
+    agreeChk.disabled = false;
+    scrollHint.classList.add('done');
+    agreeBar.classList.add('ready');
+  }
+}
+
+doc.addEventListener('scroll', onScroll, { passive: true });
+
+agreeChk.addEventListener('change', () => {
+  const ok = agreeChk.checked && unlocked;
+  continueBtn.disabled = !ok;
+  continueBtn.setAttribute('aria-disabled', String(!ok));
+});
+
+continueBtn.addEventListener('click', () => {
+  // Show step 2
+  document.getElementById('step-read')!.classList.remove('visible');
+  document.getElementById('step-read')!.hidden = true;
+
+  const s2 = document.getElementById('step-form')!;
+  s2.hidden = false;
+  s2.classList.add('visible');
+
+  // Update step bar
+  document.getElementById('step-indicator-1')!.classList.remove('active');
+  document.getElementById('step-indicator-1')!.classList.add('complete');
+  document.getElementById('step-indicator-1')!.querySelector('.step-circle')!.innerHTML =
+    '<i class="fas fa-check" style="font-size:0.7rem"></i>';
+  document.getElementById('step-indicator-2')!.classList.add('active');
+  document.querySelector('.step-line')!.classList.add('active');
+
+  s2.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  setTimeout(() => (document.getElementById('parent-first') as HTMLElement)?.focus(), 400);
+
+  // Build initial child rows
+  buildChildRows(1);
+});
+
+// ════════════════════════════════════════════════════════
+// STEP 2 — Dynamic child rows driven by # of Children select
+// ════════════════════════════════════════════════════════
+
+const numChildrenSel = document.getElementById('num-children') as HTMLSelectElement;
+const childrenList   = document.getElementById('children-list')!;
+
+function buildChildRows(n: number) {
+  childrenList.innerHTML = '';
+  for (let i = 1; i <= n; i++) {
+    const block = document.createElement('div');
+    block.className = 'child-block';
+    block.setAttribute('data-child', String(i));
+    block.innerHTML = `
+      <div class="child-block-title">Child ${i} Information</div>
+      <div class="field-row">
+        <div class="field-group">
+          <label class="field-label" for="child-first-${i}">First Name <span class="req">*</span></label>
+          <input type="text" id="child-first-${i}" name="children[${i}][firstName]"
+            class="field-input" required placeholder="First" />
+        </div>
+        <div class="field-group">
+          <label class="field-label" for="child-last-${i}">Last Name <span class="req">*</span></label>
+          <input type="text" id="child-last-${i}" name="children[${i}][lastName]"
+            class="field-input" required placeholder="Last" />
+        </div>
+      </div>
+      <div class="field-group">
+        <label class="field-label" for="child-dob-${i}">Date of Birth <span class="req">*</span></label>
+        <input type="date" id="child-dob-${i}" name="children[${i}][dateOfBirth]"
+          class="field-input" required aria-describedby="child-dob-hint-${i}" />
+        <p id="child-dob-hint-${i}" class="field-hint">Child's date of birth</p>
+      </div>
+    `;
+    childrenList.appendChild(block);
+  }
+}
+
+numChildrenSel.addEventListener('change', () => {
+  buildChildRows(parseInt(numChildrenSel.value, 10));
+});
+
+// ════════════════════════════════════════════════════════
+// STEP 2 — Form submit
+// ════════════════════════════════════════════════════════
+
+const form        = document.getElementById('waiver-form') as HTMLFormElement;
+const errorBox    = document.getElementById('form-error') as HTMLElement;
+const errorText   = document.getElementById('form-error-text')!;
+const successBox  = document.getElementById('form-success') as HTMLElement;
+const submitBtn   = document.getElementById('submit-btn') as HTMLButtonElement;
+const submitLabel = document.getElementById('submit-label')!;
+const submitLoad  = document.getElementById('submit-loading')!;
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  errorBox.hidden = true;
+  successBox.hidden = true;
+
+  // Validate all required fields
+  const required = form.querySelectorAll<HTMLInputElement | HTMLSelectElement>('[required]');
+  let firstInvalid: HTMLElement | null = null;
+  let valid = true;
+
+  required.forEach(field => {
+    const el = field as HTMLElement;
+    if (field.type === 'checkbox') {
+      if (!(field as HTMLInputElement).checked) {
+        valid = false;
+        el.closest('.agree-check, .consent-check')?.setAttribute('aria-invalid', 'true');
+        if (!firstInvalid) firstInvalid = el;
+      }
+    } else if (!field.value.trim()) {
+      valid = false;
+      el.classList.add('invalid');
+      if (!firstInvalid) firstInvalid = el;
+    }
+  });
+
+  if (!valid) {
+    errorBox.hidden = false;
+    errorText.textContent = 'Please complete all required fields before submitting.';
+    firstInvalid?.focus();
+    return;
+  }
+
+  // Build payload
+  const fd = new FormData(form);
+  const data: Record<string, unknown> = Object.fromEntries(fd.entries());
+
+  // Collect children
+  const numKids = parseInt(numChildrenSel.value, 10);
+  const children: Record<string, string>[] = [];
+  for (let i = 1; i <= numKids; i++) {
+    children.push({
+      firstName:   (document.getElementById(`child-first-${i}`) as HTMLInputElement)?.value ?? '',
+      lastName:    (document.getElementById(`child-last-${i}`) as HTMLInputElement)?.value ?? '',
+      dateOfBirth: (document.getElementById(`child-dob-${i}`) as HTMLInputElement)?.value ?? '',
+    });
+  }
+  data.children = children;
+  data.waiverVersion = 'V2';
+  data.waiverReadConfirmed = true;
+
+  // Loading state
+  submitBtn.disabled = true;
+  submitLabel.hidden = true;
+  submitLoad.hidden = false;
+
+  try {
+    const res = await fetch('https://cms.allstarpartyworld.com/api/waivers', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    });
+
+    if (res.ok) {
+      // Step 3 — done
+      document.getElementById('step-form')!.hidden = true;
+      document.getElementById('step-form')!.classList.remove('visible');
+
+      const done = document.getElementById('step-done')!;
+      done.hidden = false;
+      done.classList.add('visible');
+      done.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      throw new Error('Server error');
+    }
+  } catch {
+    errorBox.hidden = false;
+    errorText.textContent = 'Something went wrong. Please call us at 786-471-0100 or try again.';
+  } finally {
+    submitBtn.disabled = false;
+    submitLabel.hidden = false;
+    submitLoad.hidden = true;
+  }
+});
+
+// Clear invalid state on input
+form.querySelectorAll<HTMLElement>('.field-input, .field-select').forEach(el => {
+  el.addEventListener('input', () => el.classList.remove('invalid'));
+});
+
+// Init — show step 1
+document.getElementById('step-read')!.classList.add('visible');
+</script>

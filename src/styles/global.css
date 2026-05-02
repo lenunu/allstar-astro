@@ -1,0 +1,127 @@
+@import "tailwindcss";
+
+@theme {
+  /* Colors */
+  --color-blue: #3B7DEB;
+  --color-blue-light: #7fb3ff;
+  --color-blue-dark: #1e56c0;
+  --color-yellow: #F5C518;
+  --color-yellow-light: #ffe066;
+  --color-yellow-dark: #c99e00;
+  --color-orange: #FF6B2B;
+  --color-pink: #E8357A;
+  --color-base: #0e0f14;
+  --color-surface-1: #14161e;
+  --color-surface-2: #1c1f2b;
+  --color-surface-3: #242838;
+  --color-dark: #222734;
+  --color-gray: #828282;
+  --color-border: rgba(255,255,255,0.08);
+  --color-border-hover: rgba(255,255,255,0.18);
+  --color-text-primary: #ffffff;
+  --color-text-secondary: rgba(255,255,255,0.65);
+  --color-text-muted: rgba(255,255,255,0.35);
+  --color-text-inverted: #0e0f14;
+  --color-blue-glow: rgba(59,125,235,0.35);
+  --color-yellow-glow: rgba(245,197,24,0.35);
+
+  /* Fonts */
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-heading: 'Oswald', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+
+  /* Spacing */
+  --space-section: 5rem;
+  --container-x: 2rem;
+  --max-width: 1280px;
+  --nav-height: 72px;
+
+  /* Border radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --radius-pill: 100px;
+
+  /* Easing */
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Base reset */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--color-base);
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ADA: skip to content link */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  padding: 0.5rem 1rem;
+  background: var(--color-blue);
+  color: #fff;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  z-index: 9999;
+  transition: top 0.2s;
+  text-decoration: none;
+}
+.skip-link:focus { top: 1rem; }
+
+/* Global focus visible */
+:focus-visible {
+  outline: 2px solid var(--color-blue);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Typography base */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+p { color: var(--color-text-secondary); }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--color-base); }
+::-webkit-scrollbar-thumb { background: var(--color-surface-3); border-radius: 3px; }
+
+/* Selection */
+::selection { background: rgba(59,125,235,0.35); }
+
+/* Utility: layout */
+.section {
+  padding-block: var(--space-section);
+  padding-inline: var(--container-x);
+}
+.container {
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: var(--container-x);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  html { scroll-behavior: auto; }
+}
