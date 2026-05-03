@@ -1,0 +1,1185 @@
+---
+import Page from '../layouts/Page.astro';
+
+const categories = [
+  { id: 'all', label: 'All Items' },
+  { id: 'salads', label: 'Salads' },
+  { id: 'appetizers', label: 'Appetizers & Platters' },
+  { id: 'hot-foods', label: 'Fun Hot Foods' },
+  { id: 'pizza', label: 'Pizza' },
+  { id: 'sweets', label: 'Sweets' },
+  { id: 'beverages', label: 'Beverages' },
+];
+
+const menu = [
+  // SALADS
+  {
+    name: "Caesar Salad",
+    description: "Romaine Lettuce, Croutons, Aged Parmesan Cheese served with a creamy caesar dressing",
+    category: "salads",
+    image: "/catering-photos/caesar-salad-10-1200.jpg",
+    variations: [
+      { label: "Small (10–15 ppl)", price: "$59.95" },
+      { label: "Large (20–25 ppl)", price: "$99.95" },
+    ]
+  },
+  {
+    name: "Greek Salad",
+    description: "Mixed Green Lettuce with Feta Cheese, Ripe Tomatoes, Red Onions, English Cucumber, Pepperoncini peppers, black olives served with a lemon vinaigrette",
+    category: "salads",
+    image: "/catering-photos/greek-salad-2-1200.jpg",
+    variations: [
+      { label: "Small (10–15 ppl)", price: "$64.95" },
+      { label: "Large (20–25 ppl)", price: "$104.95" },
+    ]
+  },
+  {
+    name: "Strawberry & Baby Green Salad",
+    description: "Mixed Baby Greens, Sliced Strawberries, Sun-Dried Cranberries, Walnuts, Feta Cheese served with a balsamic vinaigrette",
+    category: "salads",
+    image: "/catering-photos/Strawberry-Salad.jpg",
+    variations: [
+      { label: "Small (10–15 ppl)", price: "$69.95" },
+      { label: "Large (20–25 ppl)", price: "$114.95" },
+    ]
+  },
+  // APPETIZERS & PLATTERS
+  {
+    name: "Spinach Dip",
+    description: "Served with Vegetables & Pita Triangles",
+    category: "appetizers",
+    image: "/catering-photos/442.jpg",
+    variations: [
+      { label: "15–20 ppl", price: "$74.95" },
+    ]
+  },
+  {
+    name: "Charcuterie Board",
+    description: "Assorted Smoked & Cured Meats, Imported Cheeses, Assorted Crackers, dried fruits, nuts, and other accompaniments",
+    category: "appetizers",
+    image: "/catering-photos/Charcuterie.jpg",
+    variations: [
+      { label: "15–20 ppl", price: "$139.95" },
+    ]
+  },
+  {
+    name: "Shrimp Cocktail",
+    description: "Jumbo Shrimp with Lemon Wedges & Tangy Cocktail Sauce",
+    category: "appetizers",
+    image: "/catering-photos/ShrimpCocktail.jpg",
+    variations: [
+      { label: "Small (50 pcs)", price: "$139.95" },
+      { label: "Large (100 pcs)", price: "$229.95" },
+    ]
+  },
+  {
+    name: "Hummus & Tabbouleh Platter",
+    description: "Served with Pita Triangles",
+    category: "appetizers",
+    image: "/catering-photos/Hummus.jpg",
+    variations: [
+      { label: "15–20 ppl", price: "$84.95" },
+    ]
+  },
+  {
+    name: "Meat & Cheese Platter (Cubed)",
+    description: "Assorted Cheeses, Meats & Grapes",
+    category: "appetizers",
+    image: "/catering-photos/CubedMeat.jpg",
+    variations: [
+      { label: "Small (10–12 ppl)", price: "$74.95" },
+      { label: "Large (20–24 ppl)", price: "$134.95" },
+    ]
+  },
+  {
+    name: "Fresh Fruit & Cheese Platter",
+    description: "Seasonal Fruit & Cubed Domestic Cheese",
+    category: "appetizers",
+    image: "/catering-photos/FruitCheese.jpg",
+    variations: [
+      { label: "Small (15–20 ppl)", price: "$74.95" },
+      { label: "Large (30–40 ppl)", price: "$134.95" },
+    ]
+  },
+  {
+    name: "Gourmet Fruit Platter",
+    description: "Seasonal Fruits & Assorted Berries",
+    category: "appetizers",
+    image: "/catering-photos/Fruits.jpg",
+    variations: [
+      { label: "Small (15–20 ppl)", price: "$74.95" },
+      { label: "Large (30–40 ppl)", price: "$134.95" },
+    ]
+  },
+  {
+    name: "Domestic Cheese Platter",
+    description: "Cubed Swiss, Cheddar, Pepper Jack & Colby Jack Cheese served with Deli Mustard",
+    category: "appetizers",
+    image: "/catering-photos/Cheese.jpg",
+    variations: [
+      { label: "Small (15–20 ppl)", price: "$74.95" },
+      { label: "Large (30–40 ppl)", price: "$134.95" },
+    ]
+  },
+  {
+    name: "Fresh Vegetable Platter",
+    description: "Assorted Veggies served with Ranch Dressing",
+    category: "appetizers",
+    image: "/catering-photos/Veggie.jpg",
+    variations: [
+      { label: "15–20 ppl", price: "$69.95" },
+    ]
+  },
+  {
+    name: "Fried Chicken Tender Platter",
+    description: "Served with Choice of BBQ or Honey Mustard",
+    category: "appetizers",
+    image: "/catering-photos/ChickenTenders.jpg",
+    variations: [
+      { label: "Small (10–15 ppl)", price: "$74.95" },
+      { label: "Large (20–30 ppl)", price: "$119.95" },
+    ]
+  },
+  {
+    name: "Popcorn Chicken Platter",
+    description: "Served with Choice of BBQ or Honey Mustard",
+    category: "appetizers",
+    image: "/catering-photos/PopcornChicken.jpg",
+    variations: [
+      { label: "Small (10–15 ppl)", price: "$74.95" },
+      { label: "Large (20–30 ppl)", price: "$119.95" },
+    ]
+  },
+  {
+    name: "Sandwich Platter",
+    description: "French Bread, Ham, Turkey, Roasted Beef, Assorted Cheese, Lettuce & Condiments",
+    category: "appetizers",
+    image: "/catering-photos/Sandwich.png",
+    variations: [
+      { label: "Small (12–15 ppl)", price: "$75.95" },
+      { label: "Large (25–30 ppl)", price: "$129.95" },
+    ]
+  },
+  {
+    name: "Pinwheel Platter",
+    description: "Assorted Wrap with Cream Cheese, Turkey, Ham, and Lettuce",
+    category: "appetizers",
+    image: "/catering-photos/Pinwheel-scaled-1.jpg",
+    variations: [
+      { label: "Small (10–15 ppl)", price: "$69.95" },
+      { label: "Large (25–30 ppl)", price: "$114.95" },
+    ]
+  },
+  {
+    name: "Bagel Platter",
+    description: "Bagels, Assorted Cream Cheese, Lettuce, Tomato, Onion, Cucumber, Capers",
+    category: "appetizers",
+    image: "/catering-photos/Bagels.png",
+    variations: [
+      { label: "Per Person", price: "$9.95" },
+    ]
+  },
+  // FUN HOT FOODS
+  {
+    name: "Oriental Chicken Pot Stickers",
+    description: "Served Hot with Teriyaki Sauce",
+    category: "hot-foods",
+    image: "/catering-photos/Pot-Stickers.jpg",
+    variations: [
+      { label: "Small (50 pcs)", price: "$64.95" },
+      { label: "Large (100 pcs)", price: "$104.95" },
+    ]
+  },
+  {
+    name: "Fried Chicken & Waffle Sliders",
+    description: "Served with Syrup",
+    category: "hot-foods",
+    image: "/catering-photos/ChickenWaffle.jpg",
+    variations: [
+      { label: "Per Person", price: "$4.95" },
+    ]
+  },
+  {
+    name: "Burger Sliders",
+    description: "Served with Aged Cheddar, Pickles & Ketchup",
+    category: "hot-foods",
+    image: "/catering-photos/BurgerSlider.jpg",
+    variations: [
+      { label: "Per Person", price: "$4.95" },
+    ]
+  },
+  {
+    name: "Hot Dog Bar",
+    description: "All Beef Hot Dog, Buns, Relish, Onions & Condiments",
+    category: "hot-foods",
+    image: "/catering-photos/HotDog.jpg",
+    variations: [
+      { label: "Per Person", price: "$9.95" },
+    ]
+  },
+  {
+    name: "Taco Bar",
+    description: "Beef or Chicken. Salsa, Sour Cream, Cheese, Lettuce, Tomato & Soft Taco Shells",
+    category: "hot-foods",
+    image: "/catering-photos/TacoBar.jpg",
+    variations: [
+      { label: "Per Person – Beef", price: "$13.95" },
+      { label: "Per Person – Chicken", price: "$13.95" },
+    ]
+  },
+  {
+    name: "Mojo Roasted Chicken",
+    description: "Accompanied by Yellow Rice, Garden Salad & Rolls",
+    category: "hot-foods",
+    image: "/catering-photos/MojoChicken.jpg",
+    variations: [
+      { label: "Small (15 ppl)", price: "$159.95" },
+      { label: "Large (30 ppl)", price: "$294.95" },
+    ]
+  },
+  {
+    name: "Italian Sausage Sandwich Bar",
+    description: "Served with Sautéed Onions & Peppers and Italian Bread",
+    category: "hot-foods",
+    image: "/catering-photos/Italian.jpeg",
+    variations: [
+      { label: "Small (10–12 ppl)", price: "$104.95" },
+      { label: "Large (20–25 ppl)", price: "$184.95" },
+    ]
+  },
+  {
+    name: "Pasta Bar",
+    description: "Meat Lasagna or Vegetarian Baked Ziti. Served with House Caesar Salad & Fresh Baked Rolls",
+    category: "hot-foods",
+    image: "/catering-photos/BakedZiti.jpg",
+    variations: [
+      { label: "Small (10–12 ppl) – Meat Lasagna", price: "$159.95" },
+      { label: "Small (10–12 ppl) – Baked Ziti", price: "$159.95" },
+      { label: "Large (20–25 ppl) – Meat Lasagna", price: "$294.95" },
+      { label: "Large (20–25 ppl) – Baked Ziti", price: "$294.95" },
+    ]
+  },
+  // PIZZA
+  {
+    name: "Freshly Baked Pizza – Cheese",
+    description: "16\" pie — 10 slices",
+    category: "pizza",
+    image: "/catering-photos/PizzaCheese.jpg",
+    variations: [
+      { label: "Cheese (per pie)", price: "$17.00" },
+    ]
+  },
+  {
+    name: "Freshly Baked Pizza – 1 Topping",
+    description: "16\" pie — 10 slices. Choose: Pepperoni, Sausage, Ham, or Mushroom",
+    category: "pizza",
+    image: "/catering-photos/Pizza.jpg",
+    variations: [
+      { label: "1 Topping (per pie)", price: "$20.00" },
+    ]
+  },
+  // SWEETS
+  {
+    name: "Cookie & Brownie Platter",
+    description: "Assorted Freshly Baked Cookies and Brownies",
+    category: "sweets",
+    image: "/catering-photos/Cookies.jpg",
+    variations: [
+      { label: "Small (10–12 ppl)", price: "$54.95" },
+      { label: "Large (20–25 ppl)", price: "$79.95" },
+    ]
+  },
+  // BEVERAGES
+  {
+    name: "Unlimited Beverage Package",
+    description: "Soda, Water, Ice & Cups",
+    category: "beverages",
+    image: "/catering-photos/beverage.jpg",
+    variations: [
+      { label: "2–3 Hour Event", price: "$3.95 / person" },
+      { label: "4 Hour Event", price: "$4.95 / person" },
+    ]
+  },
+];
+---
+
+<Page
+  title="Catering Menu — AllStar Party World"
+  description="Build the perfect party spread. Browse our full catering menu — platters, hot foods, pizza, salads, sweets and beverages available for your next event."
+>
+  <!-- Page Header -->
+  <section class="catering-header">
+    <div class="header-bg"></div>
+    <div class="header-content">
+      <p class="eyebrow">Food & Catering</p>
+      <h1>Party <span class="accent">Menu</span></h1>
+      <p class="header-sub">Build the perfect spread for your event. All items are available for pre-order and served fresh the day of your party.</p>
+      <a href="/book?catering=true" class="btn-primary">Request Catering with Your Booking</a>
+    </div>
+  </section>
+
+  <!-- Notice Banner -->
+  <div class="notice-banner">
+    <span class="notice-icon">&#9432;</span>
+    <span>All catering must be pre-ordered. Pricing shown does not include applicable taxes or service fees. Contact us for custom orders or dietary accommodations.</span>
+  </div>
+
+  <!-- Filter Tabs -->
+  <nav class="filter-nav" aria-label="Menu categories">
+    <div class="filter-inner">
+      {categories.map(cat => (
+        <button
+          class={`filter-btn ${cat.id === 'all' ? 'active' : ''}`}
+          data-filter={cat.id}
+          aria-pressed={cat.id === 'all' ? 'true' : 'false'}
+        >
+          {cat.label}
+        </button>
+      ))}
+    </div>
+  </nav>
+
+  <!-- Menu Grid -->
+  <section class="menu-section">
+    <div class="menu-grid">
+      {menu.map(item => (
+        <article class="menu-card" data-category={item.category} aria-label={item.name}>
+          <div class="card-img-wrap">
+            <img src={item.image} alt={item.name} class="card-img" loading="lazy" />
+            <div class="card-img-overlay"></div>
+          </div>
+          <div class="card-body">
+            <h3 class="card-name">{item.name}</h3>
+            <p class="card-desc">{item.description}</p>
+            <div class="variations">
+              {item.variations.map((v, i) => (
+                <div class={`variation-row ${item.variations.length > 1 ? 'has-multiple' : ''}`}>
+                  {item.variations.length > 1 && (
+                    <button
+                      class={`variation-btn ${i === 0 ? 'selected' : ''}`}
+                      data-price={v.price}
+                      aria-pressed={i === 0 ? 'true' : 'false'}
+                    >
+                      {v.label}
+                    </button>
+                  )}
+                  {item.variations.length === 1 && (
+                    <span class="variation-single-label">{v.label}</span>
+                  )}
+                  {item.variations.length === 1 && (
+                    <span class="variation-price">{v.price}</span>
+                  )}
+                </div>
+              ))}
+              {item.variations.length > 1 && (
+                <div class="price-display">
+                  <span class="price-label">Price:</span>
+                  <span class="price-value">{item.variations[0].price}</span>
+                </div>
+              )}
+            </div>
+            <button class="card-cta add-btn" data-name={item.name} aria-label={`Add ${item.name} to your selection`}>
+              + Add to Selection
+            </button>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- Cart Toggle Button -->
+  <button class="cart-toggle" id="cart-toggle" aria-label="Open catering selection" hidden>
+    <span class="cart-toggle-icon">🛒</span>
+    <span class="cart-toggle-count" id="cart-count">0</span>
+  </button>
+
+  <!-- Side Cart -->
+  <aside class="side-cart" id="side-cart" aria-label="Your catering selection" aria-hidden="true">
+    <div class="side-cart-header">
+      <div>
+        <p class="side-cart-eyebrow">Catering</p>
+        <h2 class="side-cart-title">Your Selection</h2>
+      </div>
+      <button class="side-cart-close" id="side-cart-close" aria-label="Close cart">✕</button>
+    </div>
+
+    <ul class="side-cart-items" id="tray-items"></ul>
+
+    <div class="side-cart-empty" id="side-cart-empty">
+      <p>No items added yet.</p>
+      <p>Browse the menu and click <strong>+ Add to Selection</strong>.</p>
+    </div>
+
+    <div class="side-cart-footer">
+      <div class="side-cart-total-row">
+        <span class="side-cart-total-label">Estimated Total</span>
+        <span class="side-cart-total-value" id="tray-total">$0.00</span>
+      </div>
+      <p class="side-cart-disclaimer">*Excludes applicable taxes and service fees. Final pricing confirmed at booking.</p>
+      <a class="tray-book" id="tray-book" href="/book?catering=true">Request Catering →</a>
+      <button class="tray-clear" id="tray-clear" aria-label="Clear all selections">Clear all items</button>
+    </div>
+  </aside>
+
+  <!-- Cart Backdrop -->
+  <div class="cart-backdrop" id="cart-backdrop"></div>
+
+  <!-- Bottom CTA -->
+  <section class="catering-cta">
+    <div class="cta-inner">
+      <p class="cta-eyebrow">Ready to plan your menu?</p>
+      <h2>Let's Build Your<br/><span class="accent">Perfect Party Spread</span></h2>
+      <p class="cta-sub">Include your catering selections when you book your event and our team will handle the rest.</p>
+      <a href="/book?catering=true" class="btn-primary">Book Your Event + Catering</a>
+    </div>
+  </section>
+</Page>
+
+<style>
+  /* ── Header ── */
+  .catering-header {
+    position: relative;
+    padding: 7rem 1.5rem 5rem;
+    text-align: center;
+    overflow: hidden;
+  }
+  .header-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 50% 0%, rgba(245,197,24,0.12) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 40% at 80% 100%, rgba(232,53,122,0.08) 0%, transparent 60%);
+    z-index: 0;
+  }
+  .header-content {
+    position: relative;
+    z-index: 1;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+  .eyebrow {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-yellow);
+    margin-bottom: 1rem;
+  }
+  .catering-header h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3.5rem, 8vw, 6rem);
+    line-height: 0.95;
+    letter-spacing: 0.02em;
+    color: #fff;
+    margin-bottom: 1.25rem;
+  }
+  .accent { color: var(--color-yellow); }
+  .header-sub {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.05rem;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+  .btn-primary {
+    display: inline-block;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: var(--color-yellow);
+    color: #0e0f14;
+    padding: 0.85rem 2rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-primary:hover { background: #ffd740; transform: translateY(-1px); }
+  .btn-primary:active { transform: translateY(0); }
+
+  /* ── Notice Banner ── */
+  .notice-banner {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    max-width: 1200px;
+    margin: 0 auto 0;
+    padding: 1rem 1.5rem;
+    background: rgba(245,197,24,0.08);
+    border: 1px solid rgba(245,197,24,0.2);
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.5;
+    margin: 0 1.5rem 0;
+  }
+  @media (min-width: 1248px) {
+    .notice-banner { margin: 0 auto; }
+  }
+  .notice-icon {
+    color: var(--color-yellow);
+    font-size: 1rem;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* ── Filter Nav ── */
+  .filter-nav {
+    position: sticky;
+    top: 72px;
+    z-index: 40;
+    background: rgba(14,15,20,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    padding: 0.75rem 1.5rem;
+    margin-top: 1.5rem;
+  }
+  .filter-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+  .filter-btn {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.45rem 1rem;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.1);
+    background: transparent;
+    color: rgba(255,255,255,0.5);
+    cursor: pointer;
+    transition: color 0.2s, border-color 0.2s, background 0.2s;
+    white-space: nowrap;
+  }
+  .filter-btn:hover {
+    color: #fff;
+    border-color: rgba(255,255,255,0.25);
+  }
+  .filter-btn.active {
+    background: var(--color-yellow);
+    border-color: var(--color-yellow);
+    color: #0e0f14;
+  }
+  .filter-btn:focus-visible {
+    outline: 2px solid var(--color-yellow);
+    outline-offset: 2px;
+  }
+
+  /* ── Menu Grid ── */
+  .menu-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 4rem;
+  }
+  .menu-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+  }
+  @media (max-width: 1100px) { .menu-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 768px)  { .menu-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 480px)  { .menu-grid { grid-template-columns: 1fr; } }
+
+  /* ── Menu Card ── */
+  .menu-card {
+    background: #14161e;
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .menu-card:hover {
+    border-color: rgba(245,197,24,0.3);
+    transform: translateY(-2px);
+  }
+  .menu-card.hidden { display: none; }
+
+  .card-img-wrap {
+    position: relative;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+  }
+  .card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s;
+  }
+  .menu-card:hover .card-img { transform: scale(1.04); }
+  .card-img-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(14,15,20,0.6) 0%, transparent 50%);
+  }
+
+  .card-body {
+    padding: 1rem 1.1rem 1.1rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  .card-name {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #fff;
+    margin-bottom: 0.4rem;
+    line-height: 1.3;
+  }
+  .card-desc {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.5;
+    margin-bottom: 0.9rem;
+    flex: 1;
+  }
+
+  /* ── Variations ── */
+  .variations { margin-bottom: 0.9rem; }
+  .variation-row { display: flex; align-items: center; justify-content: space-between; }
+  .variation-btn {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.75rem;
+    padding: 0.3rem 0.65rem;
+    border-radius: 4px;
+    border: 1px solid rgba(255,255,255,0.12);
+    background: rgba(255,255,255,0.04);
+    color: rgba(255,255,255,0.55);
+    cursor: pointer;
+    margin-bottom: 0.35rem;
+    margin-right: 0.35rem;
+    transition: border-color 0.15s, color 0.15s, background 0.15s;
+    text-align: left;
+  }
+  .variation-btn:hover {
+    border-color: rgba(245,197,24,0.4);
+    color: rgba(255,255,255,0.85);
+  }
+  .variation-btn.selected {
+    border-color: var(--color-yellow);
+    background: rgba(245,197,24,0.1);
+    color: var(--color-yellow);
+  }
+  .variation-btn:focus-visible {
+    outline: 2px solid var(--color-yellow);
+    outline-offset: 2px;
+  }
+  .variation-single-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.45);
+  }
+  .variation-price {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.1rem;
+    color: var(--color-yellow);
+    letter-spacing: 0.02em;
+  }
+  .price-display {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+  .price-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.4);
+  }
+  .price-value {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.15rem;
+    color: var(--color-yellow);
+    letter-spacing: 0.02em;
+  }
+
+  /* ── Card CTA ── */
+  .card-cta {
+    display: block;
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 6px;
+    padding: 0.55rem;
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s, background 0.2s;
+  }
+  .card-cta:hover {
+    border-color: var(--color-yellow);
+    color: var(--color-yellow);
+    background: rgba(245,197,24,0.05);
+  }
+  .card-cta:focus-visible {
+    outline: 2px solid var(--color-yellow);
+    outline-offset: 2px;
+  }
+
+  /* ── Add Button States ── */
+  .add-btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 6px;
+    padding: 0.55rem;
+    background: transparent;
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s, background 0.2s;
+  }
+  .add-btn:hover {
+    border-color: var(--color-yellow);
+    color: var(--color-yellow);
+    background: rgba(245,197,24,0.05);
+  }
+  .add-btn.added {
+    border-color: #22c55e;
+    color: #22c55e;
+    background: rgba(34,197,94,0.08);
+  }
+  .add-btn:focus-visible { outline: 2px solid var(--color-yellow); outline-offset: 2px; }
+
+  /* ── Cart Toggle Button ── */
+  .cart-toggle {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 90;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--color-yellow);
+    color: #0e0f14;
+    border: none;
+    border-radius: 50px;
+    padding: 0.75rem 1.25rem;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(245,197,24,0.35);
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  }
+  .cart-toggle:hover { background: #ffd740; transform: translateY(-2px); box-shadow: 0 6px 24px rgba(245,197,24,0.45); }
+  .cart-toggle:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+  .cart-toggle-icon { font-size: 1.1rem; }
+  .cart-toggle-count {
+    background: #0e0f14;
+    color: var(--color-yellow);
+    border-radius: 50%;
+    width: 1.4rem;
+    height: 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+  }
+
+  /* ── Side Cart ── */
+  .side-cart {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 380px;
+    max-width: 100vw;
+    z-index: 100;
+    background: #14161e;
+    border-left: 1px solid rgba(245,197,24,0.15);
+    box-shadow: -12px 0 40px rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+    transform: translateX(100%);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .side-cart.open {
+    transform: translateX(0);
+  }
+
+  .side-cart-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 1.5rem 1.5rem 1rem;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    flex-shrink: 0;
+  }
+  .side-cart-eyebrow {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-yellow);
+    margin-bottom: 0.2rem;
+  }
+  .side-cart-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.8rem;
+    color: #fff;
+    letter-spacing: 0.03em;
+    line-height: 1;
+  }
+  .side-cart-close {
+    background: none;
+    border: 1px solid rgba(255,255,255,0.12);
+    color: rgba(255,255,255,0.5);
+    border-radius: 6px;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 0.8rem;
+    flex-shrink: 0;
+    margin-top: 0.25rem;
+    transition: color 0.15s, border-color 0.15s;
+  }
+  .side-cart-close:hover { color: #fff; border-color: rgba(255,255,255,0.3); }
+  .side-cart-close:focus-visible { outline: 2px solid var(--color-yellow); outline-offset: 2px; }
+
+  /* Items list */
+  .side-cart-items {
+    list-style: none;
+    margin: 0;
+    padding: 1rem 1.5rem;
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  .tray-item {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    grid-template-rows: auto auto;
+    gap: 0.1rem 0.75rem;
+    align-items: center;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 8px;
+    padding: 0.7rem 0.9rem;
+  }
+  .tray-item-name {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.9rem;
+    color: #fff;
+    grid-column: 1;
+    grid-row: 1;
+    font-weight: 400;
+  }
+  .tray-item-variation {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.4);
+    grid-column: 1;
+    grid-row: 2;
+  }
+  .tray-item-price {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.2rem;
+    color: var(--color-yellow);
+    grid-column: 2;
+    grid-row: 1 / 3;
+    letter-spacing: 0.03em;
+  }
+  .tray-remove {
+    background: none;
+    border: none;
+    color: rgba(255,255,255,0.2);
+    cursor: pointer;
+    font-size: 0.75rem;
+    padding: 0;
+    grid-column: 3;
+    grid-row: 1 / 3;
+    transition: color 0.15s;
+    line-height: 1;
+  }
+  .tray-remove:hover { color: #ef4444; }
+
+  /* Empty state */
+  .side-cart-empty {
+    padding: 2rem 1.5rem;
+    text-align: center;
+    color: rgba(255,255,255,0.3);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    line-height: 1.6;
+  }
+  .side-cart-empty strong { color: rgba(255,255,255,0.5); }
+  .side-cart-empty.hidden { display: none; }
+
+  /* Footer */
+  .side-cart-footer {
+    padding: 1.25rem 1.5rem 1.5rem;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .side-cart-total-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+  .side-cart-total-label {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+  }
+  .side-cart-total-value {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.2rem;
+    color: var(--color-yellow);
+    letter-spacing: 0.02em;
+    line-height: 1;
+  }
+  .side-cart-disclaimer {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.68rem;
+    color: rgba(255,255,255,0.25);
+    line-height: 1.4;
+    margin: 0;
+  }
+  .tray-book {
+    display: block;
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: var(--color-yellow);
+    color: #0e0f14;
+    border-radius: 6px;
+    padding: 0.85rem;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .tray-book:hover { background: #ffd740; transform: translateY(-1px); }
+  .tray-book:focus-visible { outline: 2px solid var(--color-yellow); outline-offset: 2px; }
+  .tray-clear {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: none;
+    border: 1px solid rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.35);
+    border-radius: 6px;
+    padding: 0.55rem;
+    cursor: pointer;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .tray-clear:hover { color: #ef4444; border-color: rgba(239,68,68,0.35); }
+
+  /* Backdrop */
+  .cart-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 95;
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(2px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+  }
+  .cart-backdrop.open { opacity: 1; pointer-events: all; }
+
+  /* ── Bottom CTA ── */
+  .catering-cta {
+    background: #14161e;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 5rem 1.5rem;
+    text-align: center;
+  }
+  .cta-inner { max-width: 600px; margin: 0 auto; }
+  .cta-eyebrow {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-yellow);
+    margin-bottom: 1rem;
+  }
+  .catering-cta h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    line-height: 1;
+    color: #fff;
+    margin-bottom: 1.25rem;
+  }
+  .cta-sub {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1rem;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+</style>
+
+<script>
+  // ── Filter ──
+  const filterBtns = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
+  const cards = document.querySelectorAll<HTMLElement>('.menu-card');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const filter = btn.dataset.filter!;
+      filterBtns.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });
+      btn.classList.add('active');
+      btn.setAttribute('aria-pressed', 'true');
+      cards.forEach(card => {
+        card.classList.toggle('hidden', filter !== 'all' && card.dataset.category !== filter);
+      });
+    });
+  });
+
+  // ── Variation selector ──
+  document.querySelectorAll<HTMLElement>('.menu-card').forEach(card => {
+    const varBtns = card.querySelectorAll<HTMLButtonElement>('.variation-btn');
+    const priceVal = card.querySelector<HTMLElement>('.price-value');
+    varBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        varBtns.forEach(b => { b.classList.remove('selected'); b.setAttribute('aria-pressed', 'false'); });
+        btn.classList.add('selected');
+        btn.setAttribute('aria-pressed', 'true');
+        if (priceVal && btn.dataset.price) priceVal.textContent = btn.dataset.price;
+      });
+    });
+  });
+
+  // ── Side Cart ──
+  interface SelectionItem { name: string; variation: string; price: number; }
+  let selection: SelectionItem[] = [];
+
+  const cart = document.getElementById('side-cart')!;
+  const backdrop = document.getElementById('cart-backdrop')!;
+  const cartToggle = document.getElementById('cart-toggle')!;
+  const cartClose = document.getElementById('side-cart-close')!;
+  const trayItemsList = document.getElementById('tray-items')!;
+  const trayTotal = document.getElementById('tray-total')!;
+  const trayBook = document.getElementById('tray-book') as HTMLAnchorElement;
+  const trayClear = document.getElementById('tray-clear')!;
+  const emptyState = document.getElementById('side-cart-empty')!;
+  const cartCount = document.getElementById('cart-count')!;
+
+  function openCart() {
+    cart.classList.add('open');
+    cart.setAttribute('aria-hidden', 'false');
+    backdrop.classList.add('open');
+    cartClose.focus();
+  }
+  function closeCart() {
+    cart.classList.remove('open');
+    cart.setAttribute('aria-hidden', 'true');
+    backdrop.classList.remove('open');
+    cartToggle.focus();
+  }
+
+  cartToggle.addEventListener('click', openCart);
+  cartClose.addEventListener('click', closeCart);
+  backdrop.addEventListener('click', closeCart);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeCart(); });
+
+  function parsePrice(str: string): number {
+    const match = str.match(/[\d.]+/);
+    return match ? parseFloat(match[0]) : 0;
+  }
+
+  function renderCart() {
+    trayItemsList.innerHTML = '';
+    let total = 0;
+
+    selection.forEach((item, idx) => {
+      total += item.price;
+      const li = document.createElement('li');
+      li.className = 'tray-item';
+      li.innerHTML = `
+        <span class="tray-item-name">${item.name}</span>
+        <span class="tray-item-variation">${item.variation}</span>
+        <span class="tray-item-price">$${item.price.toFixed(2)}</span>
+        <button class="tray-remove" data-idx="${idx}" aria-label="Remove ${item.name}">✕</button>
+      `;
+      trayItemsList.appendChild(li);
+    });
+
+    trayTotal.textContent = `$${total.toFixed(2)}`;
+    cartCount.textContent = String(selection.length);
+    cartToggle.hidden = selection.length === 0;
+    emptyState.classList.toggle('hidden', selection.length > 0);
+
+    const summary = selection.map(i => `${i.name} (${i.variation}) — $${i.price.toFixed(2)}`).join('\n');
+    const encoded = encodeURIComponent('Catering requests:\n' + summary);
+    trayBook.href = `/book?catering=true&cateringSelection=${encoded}`;
+
+    trayItemsList.querySelectorAll<HTMLButtonElement>('.tray-remove').forEach(btn => {
+      btn.addEventListener('click', () => {
+        selection.splice(parseInt(btn.dataset.idx!), 1);
+        renderCart();
+      });
+    });
+  }
+
+  // Add button
+  document.querySelectorAll<HTMLButtonElement>('.add-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const card = btn.closest<HTMLElement>('.menu-card')!;
+      const name = btn.dataset.name!;
+      const selectedVarBtn = card.querySelector<HTMLButtonElement>('.variation-btn.selected');
+      const singleLabel = card.querySelector<HTMLElement>('.variation-single-label');
+      const singlePrice = card.querySelector<HTMLElement>('.variation-price');
+
+      let variation = '';
+      let price = 0;
+
+      if (selectedVarBtn) {
+        variation = selectedVarBtn.textContent?.trim() ?? '';
+        price = parsePrice(selectedVarBtn.dataset.price ?? '0');
+      } else if (singleLabel && singlePrice) {
+        variation = singleLabel.textContent?.trim() ?? '';
+        price = parsePrice(singlePrice.textContent ?? '0');
+      }
+
+      selection.push({ name, variation, price });
+      renderCart();
+      openCart();
+
+      btn.textContent = '✓ Added';
+      btn.classList.add('added');
+      setTimeout(() => {
+        btn.textContent = '+ Add to Selection';
+        btn.classList.remove('added');
+      }, 1500);
+    });
+  });
+
+  trayClear.addEventListener('click', () => {
+    selection = [];
+    renderCart();
+  });
+</script>
