@@ -57,7 +57,8 @@ src/
     balloon-packages.astro            ✅ done
     gallery.astro                     ✅ done (filterable, lightbox)
     book.astro                        ✅ done (POSTs to Payload API)
-    waiver.astro                      ⏳ pending
+    waiver.astro                      ✅ done (scroll-to-unlock, dynamic kids rows, typed signature)
+    catering.astro                    ✅ done (29 products, side cart, running total)
     experiences/
       paint-me-one.astro              ✅ done
       karaoke-lounge.astro            ✅ done
@@ -67,9 +68,10 @@ src/
     global.css          Tailwind v4 @theme tokens
 public/
   allstar-event-photos/     9 real event photos
-  305-event-photos/         15 real event photos
+  305-event-photos/         15 real event photos (videos excluded — unoptimized)
   paintmeone-photos/        6 selected PMO photos
   karaoke-photos/           2 karaoke lounge photos
+  catering-photos/          29 product photos (scraped from WooCommerce staging)
   brand_assets/
 ```
 
@@ -84,34 +86,58 @@ public/
 - **/balloon-packages** — 4 pricing packages + 20-photo theme gallery
 - **/gallery** — Masonry gallery, filter tabs (All / AllStar / 305 / Experiences), lightbox with keyboard nav
 - **/book** — Full booking form: venue selector, contact, event details, POST to Payload API
+- **/waiver** — Two-step gated: scroll-to-unlock legal text → parent + dynamic kids form + typed signature → POST to Payload
+- **/catering** — 29 products across 6 categories (scraped from WooCommerce), side cart with running total + booking integration
 - **/experiences/paint-me-one** — Full page with 6 real PMO photos
 - **/experiences/karaoke-lounge** — Full page with 2 karaoke photos
 - **/experiences/pop-star-divas** — Full page (placeholder, needs real photos)
 - **/experiences/vr-experience** — Full page (placeholder, needs real photos)
 
 ### ⏳ Pending
-- **/waiver** — Two-step gated flow:
-  1. Scroll to read full legal text (checkbox unlocks when scrolled to bottom)
-  2. Parent info + repeatable kids array + canvas signature + typed name fallback
-  - On submit: POST to Payload Waivers collection → Plunk confirmation email
-- **/gallery** upgrade — currently uses local photos only; wire to Payload Gallery collection after CMS is live
+- **Payload CMS** — NOT YET DEPLOYED. Booking/waiver forms POST to dead endpoints. This is the #1 blocker.
+- **Plunk email** — Not configured. Needs Payload first.
+- **Custom domain** — `allstarpartyworld.com` not yet pointed to CF Pages (owner not ready to go live)
+- **Pop Star Divas + VR Experience** — need real photos
+- **Gallery** — currently local photos only; wire to Payload Gallery collection after CMS is live
+- **Catering → CMS-driven** — currently hardcoded in catering.astro; migrate to Payload Menu collection when CMS is live
 
 ---
 
-## Waiver Page Design (when you build it)
-**Step 1 — Read**
-- Full legal text in a scrollable container with fixed height
-- "I have read and agree" checkbox + Continue button **disabled** until user scrolls to bottom
-- Scroll progress indicator
+## Deployment
+- **Live URL:** https://allstar-astro.pages.dev
+- **GitHub repo:** https://github.com/lenunu/allstar-astro
+- **Auto-deploy:** every push to `main` triggers Cloudflare Pages build
+- **Build command:** `npm run build`
+- **Deploy command:** `npx wrangler pages deploy dist --project-name allstar-astro --branch main`
+- **CF Account ID:** 0a0c28fb61bd0644bed0a0456d9de5a3
+- **API token:** "allstar-astro build token" (Cloudflare Pages: Edit permission)
 
-**Step 2 — Sign**
-- Parent: first name, last name, email, phone, relationship to child
-- Event date picker
-- Kids array (repeatable rows): first name, last name, age, date of birth — add/remove, min 1
-- Signature: `<canvas>` draw pad + typed name field (ADA fallback)
-- Acknowledgment checkbox
-- Submit → POST to `https://cms.allstarpartyworld.com/api/waivers`
-- Plunk sends confirmation to parent + notification to staff
+---
+
+## ⚠️ Next Session — Start Here: Deploy Payload CMS
+
+Payload CMS is the #1 remaining task. The booking and waiver forms are complete but POSTing to `cms.allstarpartyworld.com` which returns 500 (app not deployed).
+
+### Payload Setup Steps
+1. Create Payload v3 project (or check if `lenunu` GitHub already has one)
+2. Collections: `bookings`, `waivers`, `gallery`, `events`, `experiences`, `site-settings`, `menu`
+3. Deploy to Coolify:
+   - SSH: `root@coolify.lenunu.net`
+   - Postgres: `o0s48sggc0sok800owkk4ooo:5432` / db: `allstar_cms`
+   - DATABASE_URI: `postgresql://postgres:SwijoFymgB8PjOsQacNVDf6zupU8T7aOARRKv61duQtxfiL614BQ0u9Ur11Pn0tX@o0s48sggc0sok800owkk4ooo:5432/allstar_cms`
+   - Subdomain: `cms.allstarpartyworld.com` (DNS A record → 5.161.254.158 already set ✅)
+4. Configure Plunk:
+   - Public key: `pk_5d8d453c9a8fced4fed06329919d0e1a8e450a4b05494452d2421101fd1ccd11`
+   - From: `no-reply@allstarpartyworld.com`
+5. Test booking + waiver form submissions end-to-end
+
+---
+
+## Waiver Page (already built)
+- Step 1: Scrollable legal text (real text from allstarpartyworld.com), progress bar, checkbox + Continue locked until 98% scrolled
+- Step 2: Parent info, # of children dropdown (1–10) builds dynamic child rows (first, last, DOB), consent checkbox, typed signature
+- Step 3: Confirmation screen
+- Submits to `POST https://cms.allstarpartyworld.com/api/waivers` (will work once Payload is live)
 
 ---
 
