@@ -416,8 +416,43 @@ const menu = [
         <span class="side-cart-total-value" id="tray-total">$0.00</span>
       </div>
       <p class="side-cart-disclaimer">*Excludes applicable taxes and service fees. Final pricing confirmed at booking.</p>
-      <a class="tray-book" id="tray-book" href="/book?catering=true">Request Catering →</a>
+      <button class="tray-book" id="tray-book" type="button">Request Catering →</button>
       <button class="tray-clear" id="tray-clear" aria-label="Clear all selections">Clear all items</button>
+    </div>
+
+    <!-- Contact form — shown as step 2 -->
+    <div class="tray-contact-form" id="tray-contact-form" hidden>
+      <div class="tray-contact-header">
+        <button class="tray-back" id="tray-back" type="button" aria-label="Back to selection">← Back</button>
+        <span class="tray-contact-title">Your Info</span>
+      </div>
+      <form id="catering-contact-form" novalidate>
+        <div class="tray-field">
+          <label class="tray-label" for="ct-name">Name <span class="tray-req">*</span></label>
+          <input class="tray-input" id="ct-name" name="name" type="text" placeholder="Maria Rodriguez" required autocomplete="name" />
+        </div>
+        <div class="tray-field">
+          <label class="tray-label" for="ct-email">Email <span class="tray-req">*</span></label>
+          <input class="tray-input" id="ct-email" name="email" type="email" placeholder="you@email.com" required autocomplete="email" />
+        </div>
+        <div class="tray-field">
+          <label class="tray-label" for="ct-phone">Phone <span class="tray-req">*</span></label>
+          <input class="tray-input" id="ct-phone" name="phone" type="tel" placeholder="(305) 000-0000" required autocomplete="tel" />
+        </div>
+        <div class="tray-field">
+          <label class="tray-label" for="ct-date">Event Date</label>
+          <input class="tray-input" id="ct-date" name="eventDate" type="date" />
+        </div>
+        <div class="tray-field">
+          <label class="tray-label" for="ct-notes">Notes</label>
+          <textarea class="tray-input tray-textarea" id="ct-notes" name="notes" placeholder="Dietary restrictions, special requests…" rows="3"></textarea>
+        </div>
+        <div id="ct-error" class="tray-form-error" hidden>Please fill in all required fields.</div>
+        <div id="ct-success" class="tray-form-success" hidden>
+          ✓ Request sent! We'll be in touch soon.
+        </div>
+        <button class="tray-submit" id="tray-submit" type="submit">Send Catering Request →</button>
+      </form>
     </div>
   </aside>
 
@@ -964,6 +999,7 @@ const menu = [
   }
   .tray-book {
     display: block;
+    width: 100%;
     text-align: center;
     font-family: 'Oswald', sans-serif;
     font-size: 0.9rem;
@@ -971,12 +1007,14 @@ const menu = [
     text-transform: uppercase;
     background: var(--color-yellow);
     color: #0e0f14;
+    border: none;
     border-radius: 6px;
     padding: 0.85rem;
-    text-decoration: none;
     font-weight: 600;
+    cursor: pointer;
     transition: background 0.2s, transform 0.15s;
   }
+  .tray-book:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
   .tray-book:hover { background: #ffd740; transform: translateY(-1px); }
   .tray-book:focus-visible { outline: 2px solid var(--color-yellow); outline-offset: 2px; }
   .tray-clear {
@@ -996,6 +1034,109 @@ const menu = [
     transition: color 0.2s, border-color 0.2s;
   }
   .tray-clear:hover { color: #ef4444; border-color: rgba(239,68,68,0.35); }
+
+  /* ── Tray contact form (step 2) ── */
+  .tray-contact-form {
+    position: absolute;
+    inset: 0;
+    background: #14161e;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    padding: 0 1.25rem 1.5rem;
+    z-index: 2;
+  }
+  .tray-contact-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1.25rem 0 1rem;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    margin-bottom: 1.25rem;
+    position: sticky;
+    top: 0;
+    background: #14161e;
+    z-index: 1;
+  }
+  .tray-back {
+    background: none;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 6px;
+    color: rgba(255,255,255,0.55);
+    font-size: 0.78rem;
+    padding: 0.3rem 0.65rem;
+    cursor: pointer;
+    transition: color 0.15s, border-color 0.15s;
+  }
+  .tray-back:hover { color: #fff; border-color: rgba(255,255,255,0.3); }
+  .tray-contact-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+  }
+  .tray-field { margin-bottom: 0.85rem; }
+  .tray-label {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 0.35rem;
+  }
+  .tray-req { color: #E8357A; }
+  .tray-input {
+    width: 100%;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 7px;
+    padding: 0.6rem 0.75rem;
+    font-size: 0.85rem;
+    color: #fff;
+    font-family: 'DM Sans', sans-serif;
+    transition: border-color 0.2s;
+    box-sizing: border-box;
+  }
+  .tray-input:focus { outline: none; border-color: #F5C518; }
+  .tray-input::placeholder { color: rgba(255,255,255,0.2); }
+  .tray-textarea { resize: vertical; min-height: 72px; }
+  .tray-form-error {
+    font-size: 0.78rem;
+    color: #E8357A;
+    margin-bottom: 0.75rem;
+  }
+  .tray-form-success {
+    font-size: 0.85rem;
+    color: #4ade80;
+    text-align: center;
+    padding: 0.75rem;
+    background: rgba(74,222,128,0.08);
+    border: 1px solid rgba(74,222,128,0.2);
+    border-radius: 8px;
+    margin-bottom: 0.75rem;
+  }
+  .tray-submit {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: var(--color-yellow);
+    color: #0e0f14;
+    border: none;
+    border-radius: 6px;
+    padding: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    margin-top: 0.25rem;
+  }
+  .tray-submit:hover { background: #ffd740; transform: translateY(-1px); }
+  .tray-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
 
   /* Backdrop */
   .cart-backdrop {
@@ -1083,7 +1224,7 @@ const menu = [
   const cartClose = document.getElementById('side-cart-close')!;
   const trayItemsList = document.getElementById('tray-items')!;
   const trayTotal = document.getElementById('tray-total')!;
-  const trayBook = document.getElementById('tray-book') as HTMLAnchorElement;
+  const trayBook = document.getElementById('tray-book') as HTMLButtonElement;
   const trayClear = document.getElementById('tray-clear')!;
   const emptyState = document.getElementById('side-cart-empty')!;
   const cartCount = document.getElementById('cart-count')!;
@@ -1133,9 +1274,10 @@ const menu = [
     cartToggle.hidden = selection.length === 0;
     emptyState.classList.toggle('hidden', selection.length > 0);
 
+    // keep encoded summary for fallback redirect
     const summary = selection.map(i => `${i.name} (${i.variation}) — $${i.price.toFixed(2)}`).join('\n');
     const encoded = encodeURIComponent('Catering requests:\n' + summary);
-    trayBook.href = `/book?catering=true&cateringSelection=${encoded}`;
+    trayBook.dataset.encoded = encoded;
 
     trayItemsList.querySelectorAll<HTMLButtonElement>('.tray-remove').forEach(btn => {
       btn.addEventListener('click', () => {
@@ -1144,6 +1286,80 @@ const menu = [
       });
     });
   }
+
+  // Step 2 — contact form
+  const contactForm = document.getElementById('tray-contact-form') as HTMLElement;
+  const cateringForm = document.getElementById('catering-contact-form') as HTMLFormElement;
+  const trayBack = document.getElementById('tray-back')!;
+  const traySubmit = document.getElementById('tray-submit') as HTMLButtonElement;
+  const ctError = document.getElementById('ct-error') as HTMLElement;
+  const ctSuccess = document.getElementById('ct-success') as HTMLElement;
+
+  // "Request Catering" → show contact form
+  trayBook.addEventListener('click', () => {
+    contactForm.hidden = false;
+  });
+
+  // Back button
+  trayBack.addEventListener('click', () => {
+    contactForm.hidden = true;
+    ctError.hidden = true;
+    ctSuccess.hidden = true;
+    traySubmit.disabled = false;
+    traySubmit.textContent = 'Send Catering Request →';
+  });
+
+  // Submit contact form
+  cateringForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    ctError.hidden = true;
+    ctSuccess.hidden = true;
+
+    const fd = new FormData(cateringForm);
+    const name = (fd.get('name') as string)?.trim();
+    const email = (fd.get('email') as string)?.trim();
+    const phone = (fd.get('phone') as string)?.trim();
+
+    if (!name || !email || !phone) {
+      ctError.hidden = false;
+      return;
+    }
+
+    traySubmit.disabled = true;
+    traySubmit.textContent = 'Sending…';
+
+    const total = selection.reduce((s, i) => s + i.price, 0);
+
+    try {
+      const res = await fetch('/api/send-catering', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          items: selection,
+          total,
+          name,
+          email,
+          phone,
+          eventDate: fd.get('eventDate') as string,
+          notes: fd.get('notes') as string,
+        }),
+      });
+
+      if (res.ok) {
+        ctSuccess.hidden = false;
+        cateringForm.reset();
+        selection = [];
+        renderCart();
+      } else {
+        throw new Error();
+      }
+    } catch {
+      ctError.textContent = 'Something went wrong. Please call us at 786-471-0100.';
+      ctError.hidden = false;
+      traySubmit.disabled = false;
+      traySubmit.textContent = 'Send Catering Request →';
+    }
+  });
 
   // Add button
   document.querySelectorAll<HTMLButtonElement>('.add-btn').forEach(btn => {

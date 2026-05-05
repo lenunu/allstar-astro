@@ -1,0 +1,5 @@
+name = "allstar-astro"
+compatibility_date = "2024-01-01"
+
+[vars]
+PLUNK_API_KEY = "sk_a1456893602b407b6d01a5279962884ffa014d66afa1445b454a24fe8f02e57b"

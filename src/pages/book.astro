@@ -29,7 +29,7 @@ import Page from '../layouts/Page.astro';
           >
             <!-- Venue Selector -->
             <fieldset class="venue-selector" aria-labelledby="venue-legend">
-              <legend id="venue-legend" class="form-section-title">Which Venue?</legend>
+              <legend id="venue-legend" class="form-section-title">Select Venue</legend>
               <div class="venue-options">
                 <label class="venue-option" aria-label="All Star Party World — Kids ages 4–12">
                   <input type="radio" name="venue" value="all-star-party-world" required />
@@ -726,13 +726,11 @@ import Page from '../layouts/Page.astro';
     gap: 0.75rem;
     text-decoration: none;
     color: inherit;
-    padding: 0.6rem 0.75rem;
-    border-radius: 8px;
-    border: 1px solid rgba(255,255,255,0.06);
-    transition: background 0.2s ease, border-color 0.2s ease;
+    padding: 0.4rem 0;
+    transition: opacity 0.2s ease;
   }
-  .venue-link:hover { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.12); }
-  .venue-link:focus-visible { outline: 2px solid #3B7DEB; outline-offset: 2px; }
+  .venue-link:hover { opacity: 0.75; }
+  .venue-link:focus-visible { outline: 2px solid #3B7DEB; outline-offset: 2px; border-radius: 4px; }
   .venue-link div { flex: 1; display: flex; flex-direction: column; gap: 0.1rem; }
   .venue-link strong { font-size: 0.82rem; color: #fff; }
   .venue-link span { font-size: 0.68rem; color: rgba(255,255,255,0.45); }
@@ -796,7 +794,7 @@ import Page from '../layouts/Page.astro';
     const data = Object.fromEntries(new FormData(form).entries());
 
     try {
-      const res = await fetch('https://cms.allstarpartyworld.com/api/bookings', {
+      const res = await fetch('/api/send-booking', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),

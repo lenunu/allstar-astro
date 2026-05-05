@@ -10,17 +10,7 @@ import Page from '../layouts/Page.astro';
   <!-- ── HERO ── -->
   <section class="hero" aria-label="The 305 Club">
     <div class="hero-bg" aria-hidden="true">
-      <video
-        src="/305-hero-video.mp4"
-        autoplay
-        muted
-        loop
-        playsinline
-        preload="metadata"
-        poster="/305-event-photos/305 dance floor 2.jpg"
-        aria-hidden="true"
-        class="hero-video"
-      ></video>
+      <img src="/305-event-photos/305-hero-dance.webp" alt="" class="hero-video" />
     </div>
     <div class="hero-overlay" aria-hidden="true"></div>
     <div class="hero-top-bar" aria-hidden="true"></div>
@@ -59,7 +49,16 @@ import Page from '../layouts/Page.astro';
     <div class="section-inner">
       <div class="about-grid">
         <div class="about-img">
-          <img src="/305-event-photos/305 quinces.jpg" alt="Quinceañera celebration inside The 305 Club" />
+          <video
+            src="/305-hero-video.mp4"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster="/305-event-photos/305 quinces.jpg"
+            style="width:100%;height:100%;object-fit:cover;display:block;border-radius:inherit;"
+          ></video>
         </div>
         <div class="about-copy">
           <p class="section-eyebrow">About The Venue</p>

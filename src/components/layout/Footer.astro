@@ -4,7 +4,7 @@
 <footer>
   <div class="footer-inner">
     <!-- Brand col -->
-    <div>
+    <div class="footer-brand-col">
       <div class="footer-logos">
         <img src="/brand_assets/all-star-logo.png" alt="All Star Party World" class="footer-logo-img" />
         <span class="footer-logo-divider" aria-hidden="true">×</span>
@@ -37,7 +37,6 @@
         <li><a href="/all-star-party-world">About the Venue</a></li>
         <li><a href="/all-star-party-world#package">Party Packages</a></li>
         <li><a href="/balloon-packages">Balloon Packages</a></li>
-        <li><a href="/gallery">Gallery</a></li>
         <li><a href="/book">Book Now</a></li>
       </ul>
     </div>
@@ -49,8 +48,18 @@
         <li><a href="/305-club">About the Club</a></li>
         <li><a href="/305-club#packages">Event Packages</a></li>
         <li><a href="/305-club#events">Events We Host</a></li>
-        <li><a href="/gallery">Gallery</a></li>
         <li><a href="/book">Book Now</a></li>
+      </ul>
+    </div>
+
+    <!-- Experiences col -->
+    <div>
+      <div class="footer-col-title">Experiences</div>
+      <ul class="footer-links" role="list">
+        <li><a href="/experiences/vr-experience">VR Experience</a></li>
+        <li><a href="/experiences/karaoke-lounge">Karaoke Lounge</a></li>
+        <li><a href="/experiences/pop-star-divas">Pop Star Divas</a></li>
+        <li><a href="/experiences/paint-me-one">Paint Me One</a></li>
       </ul>
     </div>
 
@@ -58,11 +67,10 @@
     <div>
       <div class="footer-col-title">Info</div>
       <ul class="footer-links" role="list">
-        <li><a href="/#faq">FAQ</a></li>
-        <li><a href="/book">Contact Us</a></li>
-        <li><a href="/waiver">Sign Waiver</a></li>
-        <li><a href="/experiences/karaoke-lounge">Karaoke Lounge</a></li>
-        <li><a href="/experiences/vr-experience">VR Experience</a></li>
+        <li><a href="/contact">Contact Us</a></li>
+        <li><a href="/faq">FAQ</a></li>
+        <li><a href="/gallery">Gallery</a></li>
+        <li><a href="/catering">Catering Menu</a></li>
       </ul>
     </div>
   </div>
@@ -90,7 +98,7 @@
     margin: 0 auto;
     padding: 4rem 2rem 2rem;
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
     gap: 3rem;
   }
 
@@ -179,11 +187,15 @@
   }
   .footer-legal-links a:hover { color: rgba(255,255,255,0.7); }
 
+  @media (max-width: 1100px) {
+    .footer-inner { grid-template-columns: 2fr 1fr 1fr; }
+  }
   @media (max-width: 900px) {
     .footer-inner { grid-template-columns: 1fr 1fr; }
   }
   @media (max-width: 600px) {
-    .footer-inner { grid-template-columns: 1fr; }
+    .footer-inner { grid-template-columns: 1fr 1fr; }
+    .footer-brand-col { grid-column: 1 / -1; order: 1; }
     .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
   }
 </style>

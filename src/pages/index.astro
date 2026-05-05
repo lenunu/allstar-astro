@@ -18,7 +18,7 @@ import Page from '../layouts/Page.astro';
 
     <div class="hero-split-bg" aria-hidden="true">
       <div class="hero-split-left">
-        <img src="/allstar-event-photos/glow-party-kids-dancing-blacklight-allstar-mural.jpg" alt="" />
+        <img src="/allstar-event-photos/bounce-hero.webp" alt="" />
       </div>
       <div class="hero-split-right">
         <img src="/305-event-photos/305 dance floor 2.jpg" alt="" />
@@ -75,7 +75,7 @@ import Page from '../layouts/Page.astro';
 
       <div id="allstar" class="venue-panel vp-allstar">
         <div class="venue-panel-img" aria-hidden="true">
-          <img src="/allstar-event-photos/party-room-view-basketball-court-with-balloons-and-tables.jpg" alt="" />
+          <img src="/allstar-event-photos/bounce-hero.webp" alt="" />
         </div>
         <div class="venue-panel-overlay" aria-hidden="true"></div>
         <div class="venue-panel-color" aria-hidden="true"></div>
@@ -97,7 +97,7 @@ import Page from '../layouts/Page.astro';
 
       <div id="club305" class="venue-panel vp-305">
         <div class="venue-panel-img" aria-hidden="true">
-          <img src="/305-event-photos/305 dance floor.jpg" alt="" />
+          <img src="/305-event-photos/305-hero-dance.webp" alt="" />
         </div>
         <div class="venue-panel-overlay" aria-hidden="true"></div>
         <div class="venue-panel-color" aria-hidden="true"></div>
@@ -416,7 +416,6 @@ import Page from '../layouts/Page.astro';
           <h2 class="section-title" style="margin-bottom:0.5rem;">What Families<br><span class="yellow">Are Saying.</span></h2>
         </div>
         <div class="rating-summary">
-          <span class="rating-number">4.7</span>
           <div>
             <div class="stars">★★★★★</div>
             <div class="review-count">132 Google Reviews</div>
@@ -478,7 +477,7 @@ import Page from '../layouts/Page.astro';
           </div>
         </div>
 
-        <div class="testimonial-card featured" style="grid-column: span 2;">
+        <div class="testimonial-card featured">
           <div class="featured-header">
             <span class="stars-sm">★★★★★</span>
             <span class="featured-label">Featured Review</span>
@@ -490,8 +489,8 @@ import Page from '../layouts/Page.astro';
               <div class="reviewer-name">All Star Party World Parent</div>
               <div class="reviewer-meta">Verified Google Review</div>
             </div>
-            <a href="https://g.co/kgs/allstarpartyworld" target="_blank" rel="noopener noreferrer" class="read-reviews-btn">Read All 132 Reviews →</a>
           </div>
+          <a href="https://g.co/kgs/allstarpartyworld" target="_blank" rel="noopener noreferrer" class="read-reviews-btn">Read All 132 Reviews →</a>
         </div>
 
       </div>
@@ -502,95 +501,13 @@ import Page from '../layouts/Page.astro';
 
   <!-- ── BOOKING FORM ── -->
   <section id="book" class="book-section" aria-label="Book Your Event">
-    <div class="section-inner">
-      <div class="book-grid">
-        <div class="book-content">
-          <div class="section-eyebrow">Get Started</div>
-          <h2 class="section-title">Plan Your<br><span class="blue">Perfect</span><br>Event.</h2>
-          <p class="section-body">Tell us about your celebration and we'll reach out with availability, pricing, and everything you need to make it unforgettable. Both venues available for booking.</p>
-          <div class="book-bullets">
-            <div class="book-bullet">
-              <div class="bullet-dot yellow-dot"></div>
-              <span>All Star Party World — Kids ages 4–12, 6,000 sq ft</span>
-            </div>
-            <div class="book-bullet">
-              <div class="bullet-dot blue-dot"></div>
-              <span>The 305 Club — Teens &amp; adults, 10,000 sq ft</span>
-            </div>
-            <div class="book-bullet">
-              <div class="bullet-dot pink-dot"></div>
-              <span>Response within 24 hours guaranteed</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="form-card">
-          <div class="form-title">Let's Talk</div>
-          <div class="form-subtitle">Fill out the form and we'll be in touch within 24 hours.</div>
-          <form action="/book" method="GET" novalidate>
-            <div class="form-row">
-              <div class="form-group">
-                <label class="form-label" for="home-first">First Name</label>
-                <input type="text" id="home-first" name="firstName" class="form-input" placeholder="Maria" autocomplete="given-name" />
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="home-last">Last Name</label>
-                <input type="text" id="home-last" name="lastName" class="form-input" placeholder="Garcia" autocomplete="family-name" />
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label class="form-label" for="home-email">Email</label>
-                <input type="email" id="home-email" name="email" class="form-input" placeholder="hello@email.com" autocomplete="email" />
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="home-phone">Phone</label>
-                <input type="tel" id="home-phone" name="phone" class="form-input" placeholder="(305) 000-0000" autocomplete="tel" />
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label class="form-label" for="home-venue">Venue</label>
-                <select id="home-venue" name="venue" class="form-select">
-                  <option value="">Select venue...</option>
-                  <option value="allstar">All Star Party World</option>
-                  <option value="305club">The 305 Club</option>
-                  <option value="both">Both Venues</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="home-event-type">Event Type</label>
-                <select id="home-event-type" name="eventType" class="form-select">
-                  <option value="">Event type...</option>
-                  <option value="birthday">Birthday Party</option>
-                  <option value="quinceanera">Quinceañera</option>
-                  <option value="sweet16">Sweet 16</option>
-                  <option value="corporate">Corporate Event</option>
-                  <option value="school">School / Group</option>
-                  <option value="private">Private Party</option>
-                  <option value="other">Other</option>
-                </select>
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label class="form-label" for="home-date">Event Date</label>
-                <input type="date" id="home-date" name="eventDate" class="form-input" />
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="home-guests">Guest Count</label>
-                <input type="number" id="home-guests" name="guestCount" class="form-input" placeholder="50" min="1" />
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group full">
-                <label class="form-label" for="home-message">Tell Us More (Optional)</label>
-                <textarea id="home-message" name="message" class="form-textarea" placeholder="Any special requests, themes, or questions..."></textarea>
-              </div>
-            </div>
-            <button type="submit" class="form-submit">Send Inquiry →</button>
-          </form>
-        </div>
+    <div class="book-cta-inner">
+      <p class="section-eyebrow">Get Started</p>
+      <h2 class="book-cta-title">Plan Your <span class="blue">Perfect</span> Event.</h2>
+      <p class="book-cta-sub">Tell us about your celebration and we'll reach out with availability, pricing, and everything you need to make it unforgettable.</p>
+      <div class="book-cta-actions">
+        <a href="/book" class="btn-primary">Book Your Event →</a>
+        <a href="/contact" class="btn-ghost-home">Contact Us</a>
       </div>
     </div>
   </section>
@@ -620,7 +537,7 @@ import Page from '../layouts/Page.astro';
               <span>Professional service &amp; setup included</span>
             </div>
           </div>
-          <a href="/book" class="btn-primary" style="margin-top:1.5rem; display:inline-flex; align-items:center;">Browse Menu →</a>
+          <a href="/catering" class="btn-primary" style="margin-top:1.5rem; display:inline-flex; align-items:center; align-self:flex-start; width:auto;">Browse Menu →</a>
         </div>
       </div>
     </div>
@@ -1138,6 +1055,7 @@ import Page from '../layouts/Page.astro';
     mix-blend-mode: multiply;
   }
   .vp-allstar .venue-panel-color { background: rgba(245,197,24,0.2); }
+  .vp-allstar .venue-panel-overlay { background: linear-gradient(to top, rgba(0,0,0,0.97) 0%, rgba(0,0,0,0.65) 55%, rgba(0,0,0,0.35) 100%); }
   .vp-305 .venue-panel-color { background: rgba(59,125,235,0.2); }
 
   .venue-panel-content { position: relative; z-index: 2; }
@@ -1672,6 +1590,7 @@ import Page from '../layouts/Page.astro';
   }
 
   .testimonial-card.featured {
+    grid-column: span 3;
     background: linear-gradient(135deg, rgba(245,197,24,0.08), rgba(255,107,43,0.05));
     border-color: rgba(245,197,24,0.2);
   }
@@ -1696,7 +1615,6 @@ import Page from '../layouts/Page.astro';
     font-size: 0.9rem;
     line-height: 1.7;
     color: rgba(255,255,255,0.8);
-    flex: 1;
   }
 
   .testimonial-footer {
@@ -1705,6 +1623,10 @@ import Page from '../layouts/Page.astro';
     gap: 0.75rem;
     padding-top: 0.75rem;
     border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .testimonial-footer > div:not(.avatar) {
+    flex: 1;
   }
 
   .avatar {
@@ -1733,76 +1655,88 @@ import Page from '../layouts/Page.astro';
   }
 
   .google-icon {
-    width: 16px;
-    height: 16px;
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
     margin-left: auto;
-    opacity: 0.4;
+    opacity: 0.5;
   }
 
   .read-reviews-btn {
-    margin-left: auto;
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
     font-family: 'DM Sans', sans-serif;
-    font-size: 0.75rem;
+    font-size: 0.85rem;
     font-weight: 600;
     color: #F5C518;
     text-decoration: none;
     border: 1px solid rgba(245,197,24,0.3);
     border-radius: 100px;
-    padding: 0.3rem 0.8rem;
+    padding: 0.55rem 1.25rem;
     transition: background 0.2s ease;
+    align-self: flex-start;
   }
   .read-reviews-btn:hover { background: rgba(245,197,24,0.1); }
 
-  /* ── BOOKING FORM ── */
+  /* ── BOOKING CTA ── */
   .book-section {
-    background: #0e0f14;
-    position: relative;
-    overflow: hidden;
-  }
-  .book-section::before {
-    content: '';
-    position: absolute;
-    bottom: -100px; left: -100px;
-    width: 500px; height: 500px;
-    background: radial-gradient(circle, rgba(245,197,24,0.06) 0%, transparent 70%);
-    pointer-events: none;
+    background: linear-gradient(135deg, #1c1f2b 0%, #14161e 100%);
+    border-top: 1px solid rgba(255,255,255,0.05);
+    padding: 5rem 2rem;
+    text-align: center;
   }
 
-  .book-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    align-items: center;
-  }
-
-  .book-bullets {
-    margin-top: 2rem;
+  .book-cta-inner {
+    max-width: 640px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 1rem;
   }
 
-  .book-bullet {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.85rem;
-    color: rgba(255,255,255,0.65);
+  .book-cta-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    color: #fff;
+    line-height: 1.1;
+    margin: 0;
   }
 
-  .bullet-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    flex-shrink: 0;
+  .book-cta-sub {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.6;
+    max-width: 500px;
+    margin: 0;
   }
-  .yellow-dot { background: #F5C518; }
-  .blue-dot { background: #3B7DEB; }
-  .pink-dot { background: #E8357A; }
+
+  .book-cta-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .btn-ghost-home {
+    display: inline-flex;
+    align-items: center;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.8);
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 0.85rem 2rem;
+    border-radius: 8px;
+    transition: border-color 0.2s ease, color 0.2s ease;
+  }
+  .btn-ghost-home:hover { border-color: rgba(255,255,255,0.5); color: #fff; }
 
   .form-card {
     background: rgba(255,255,255,0.03);
@@ -2060,8 +1994,8 @@ import Page from '../layouts/Page.astro';
     .events-grid { grid-template-columns: 1fr 1fr; }
     .book-grid { grid-template-columns: 1fr; }
     .stats-inner { grid-template-columns: repeat(2, 1fr); }
-    .testimonials-grid { grid-template-columns: 1fr 1fr; }
-    .testimonial-card.featured { grid-column: span 2; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .testimonial-card.featured { grid-column: span 1; }
     .catering-grid { grid-template-columns: 1fr; }
     .experiences-grid { grid-template-columns: 1fr 1fr; }
     .gallery-grid { grid-template-columns: repeat(2, 1fr); }
@@ -2069,13 +2003,11 @@ import Page from '../layouts/Page.astro';
     .gallery-item.tall { grid-row: span 1; }
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 768px) {
     .hero-venues { grid-template-columns: 1fr; }
     .events-grid { grid-template-columns: 1fr; }
     .form-row { grid-template-columns: 1fr; }
     .form-group.full { grid-column: span 1; }
-    .testimonials-grid { grid-template-columns: 1fr; }
-    .testimonial-card.featured { grid-column: span 1; }
     .experiences-grid { grid-template-columns: 1fr; }
     .gallery-grid { grid-template-columns: 1fr 1fr; }
   }

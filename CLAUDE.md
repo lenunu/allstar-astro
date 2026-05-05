@@ -95,7 +95,7 @@ public/
 
 ### ⏳ Pending
 - **Payload CMS** — NOT YET DEPLOYED. Booking/waiver forms POST to dead endpoints. This is the #1 blocker.
-- **Plunk email** — Not configured. Needs Payload first.
+- **Plunk email** — ✅ LIVE. Booking + catering emails send to eskimo1975@gmail.com via `info@allstarpartyworld.com`.
 - **Custom domain** — `allstarpartyworld.com` not yet pointed to CF Pages (owner not ready to go live)
 - **Pop Star Divas + VR Experience** — need real photos
 - **Gallery** — currently local photos only; wire to Payload Gallery collection after CMS is live
@@ -126,9 +126,13 @@ Payload CMS is the #1 remaining task. The booking and waiver forms are complete 
    - Postgres: `o0s48sggc0sok800owkk4ooo:5432` / db: `allstar_cms`
    - DATABASE_URI: `postgresql://postgres:SwijoFymgB8PjOsQacNVDf6zupU8T7aOARRKv61duQtxfiL614BQ0u9Ur11Pn0tX@o0s48sggc0sok800owkk4ooo:5432/allstar_cms`
    - Subdomain: `cms.allstarpartyworld.com` (DNS A record → 5.161.254.158 already set ✅)
-4. Configure Plunk:
-   - Public key: `pk_5d8d453c9a8fced4fed06329919d0e1a8e450a4b05494452d2421101fd1ccd11`
-   - From: `no-reply@allstarpartyworld.com`
+4. Plunk — ✅ CONFIGURED:
+   - API endpoint: `https://next-api.useplunk.com/v1/send`
+   - Secret key: in `.env` as `PLUNK_API_KEY` (also set in Cloudflare Pages env vars)
+   - From: `info@allstarpartyworld.com` · Name: `All Star Party World`
+   - Domain `allstarpartyworld.com` verified in Plunk ✅
+   - Booking emails → `eskimo1975@gmail.com`
+   - Catering emails → `eskimo1975@gmail.com`
 5. Test booking + waiver form submissions end-to-end
 
 ---
