@@ -1096,7 +1096,6 @@ addChildBtn.addEventListener('click', addChild);
 const form        = document.getElementById('waiver-form') as HTMLFormElement;
 const errorBox    = document.getElementById('form-error') as HTMLElement;
 const errorText   = document.getElementById('form-error-text')!;
-const successBox  = document.getElementById('form-success') as HTMLElement;
 const submitBtn   = document.getElementById('submit-btn') as HTMLButtonElement;
 const submitLabel = document.getElementById('submit-label')!;
 const submitLoad  = document.getElementById('submit-loading')!;
@@ -1104,7 +1103,6 @@ const submitLoad  = document.getElementById('submit-loading')!;
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
   errorBox.hidden = true;
-  successBox.hidden = true;
 
   // Validate all required fields (including dynamically added child inputs)
   const required = form.querySelectorAll<HTMLInputElement | HTMLSelectElement>('[required]');
