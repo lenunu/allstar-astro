@@ -93,9 +93,15 @@ public/
 - **/experiences/pop-star-divas** — Full page (placeholder, needs real photos)
 - **/experiences/vr-experience** — Full page (placeholder, needs real photos)
 
+### ✅ Email — LIVE
+- Booking form → email to eskimo1975@gmail.com via Plunk
+- Catering cart → 2-step checkout (contact form) → email to eskimo1975@gmail.com
+- From: `info@allstarpartyworld.com` · API: `functions/api/send-booking.ts` + `functions/api/send-catering.ts`
+- PLUNK_API_KEY set as Secret in CF Pages → Settings → Variables and Secrets
+
 ### ⏳ Pending
-- **Payload CMS** — NOT YET DEPLOYED. Booking/waiver forms POST to dead endpoints. This is the #1 blocker.
-- **Plunk email** — ✅ LIVE. Booking + catering emails send to eskimo1975@gmail.com via `info@allstarpartyworld.com`.
+- **Payload CMS** — NOT YET DEPLOYED. Waiver form POSTs to dead endpoint. Lower priority now that email is live.
+- **Custom domain** — `allstarpartyworld.com` not yet pointed to CF Pages (owner not ready to go live). Staging at `staging.allstarpartyworld.com` ✅
 - **Custom domain** — `allstarpartyworld.com` not yet pointed to CF Pages (owner not ready to go live)
 - **Pop Star Divas + VR Experience** — need real photos
 - **Gallery** — currently local photos only; wire to Payload Gallery collection after CMS is live
