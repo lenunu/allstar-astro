@@ -60,25 +60,11 @@ const SECTION_LABEL = `
   color: rgba(255,255,255,0.35);
 `;
 
-const SECTION_BODY = `padding: 16px 20px;`;
+const SECTION_BODY = `padding: 8px 20px;`;
 
-const ROW = `
-  display: flex;
-  justify-content: space-between;
-  padding: 7px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.05);
-  font-size: 13.5px;
-`;
-
-const ROW_LAST = `
-  display: flex;
-  justify-content: space-between;
-  padding: 7px 0;
-  font-size: 13.5px;
-`;
-
-const LABEL_STYLE = `color: rgba(255,255,255,0.45); flex-shrink: 0; padding-right: 16px;`;
-const VALUE_STYLE = `color: #ffffff; font-weight: 500; text-align: right;`;
+const LABEL_TD = `color: rgba(255,255,255,0.45); font-size:13.5px; padding: 8px 16px 8px 0; vertical-align:top; width:45%;`;
+const VALUE_TD = `color: #ffffff; font-weight: 500; font-size:13.5px; padding: 8px 0; vertical-align:top; text-align:right;`;
+const ROW_BORDER = `border-bottom: 1px solid rgba(255,255,255,0.05);`;
 
 const FOOTER = `
   text-align: center;
@@ -102,18 +88,29 @@ const CTA_BTN = `
   margin: 8px 0 24px;
 `;
 
+function fmtDate(d: string | undefined): string | undefined {
+  if (!d) return undefined;
+  const [y, m, day] = d.split('-');
+  if (!y || !m || !day) return d;
+  return `${m}/${day}/${y}`;
+}
+
 function row(label: string, value: string | undefined, last = false): string {
   if (!value) return '';
-  return `<div style="${last ? ROW_LAST : ROW}">
-    <span style="${LABEL_STYLE}">${label}</span>
-    <span style="${VALUE_STYLE}">${value}</span>
-  </div>`;
+  return `<tr>
+    <td style="${LABEL_TD}${last ? '' : ROW_BORDER}">${label}</td>
+    <td style="${VALUE_TD}${last ? '' : ROW_BORDER}">${value}</td>
+  </tr>`;
 }
 
 function section(title: string, rows: string): string {
   return `<div style="${SECTION}">
     <div style="${SECTION_LABEL}">${title}</div>
-    <div style="${SECTION_BODY}">${rows}</div>
+    <div style="${SECTION_BODY}">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">
+        ${rows}
+      </table>
+    </div>
   </div>`;
 }
 
@@ -192,17 +189,17 @@ export function bookingEmailHtml(d: BookingData): string {
     ].join(''))}
 
     ${section('Contact Info', [
-      row('Name', `${d.firstName ?? ''} ${d.lastName ?? ''}`.trim()),
+      row('Name', `${d.firstName ?? ''} ${d.lastName ?? ''}`.trim() || undefined),
       row('Email', d.email),
       row('Cell Phone', d.cellPhone),
       row('Secondary Phone', d.secondaryPhone),
-      row('OK to Text', d.okToText === 'yes' ? '✓ Yes' : 'No'),
+      row('OK to Text', d.okToText === 'yes' ? '✓ Yes' : d.okToText ? 'No' : undefined),
       row('Best Time to Call', d.bestTimeToCall, true),
     ].join(''))}
 
     ${section('Event Details', [
-      row('Preferred Date', d.preferredDate),
-      row('Alternate Date', d.alternateDate),
+      row('Preferred Date', fmtDate(d.preferredDate)),
+      row('Alternate Date', fmtDate(d.alternateDate)),
       row('Start Time', d.startTime),
       row('Party Length', d.partyLength),
       row('Kids', d.numKids),
@@ -211,9 +208,12 @@ export function bookingEmailHtml(d: BookingData): string {
       row('Celebrating', d.celebrating, true),
     ].join(''))}
 
-    ${d.partyDescription ? section('Party Description', `
-      <p style="font-size:13.5px;color:rgba(255,255,255,0.8);line-height:1.7;margin:0;">${d.partyDescription}</p>
-    `) : ''}
+    ${d.partyDescription ? `<div style="${SECTION}">
+      <div style="${SECTION_LABEL}">Party Description</div>
+      <div style="padding:16px 20px;">
+        <p style="font-size:13.5px;color:rgba(255,255,255,0.8);line-height:1.7;margin:0;">${d.partyDescription}</p>
+      </div>
+    </div>` : ''}
 
     ${section('Source', [
       row('How They Found Us', d.hearAboutUs, true),
@@ -249,23 +249,29 @@ export interface CateringOrderData {
 export function cateringEmailHtml(d: CateringOrderData): string {
   const itemRows = d.items.map((item, i) => {
     const isLast = i === d.items.length - 1;
-    return `<div style="${isLast ? ROW_LAST : ROW}">
-      <span style="${LABEL_STYLE}">${item.name}<br /><span style="font-size:11px;color:rgba(255,255,255,0.3);">${item.variation}</span></span>
-      <span style="${VALUE_STYLE}">$${item.price.toFixed(2)}</span>
-    </div>`;
+    return `<tr>
+      <td style="${LABEL_TD}${isLast ? '' : ROW_BORDER}">${item.name}<br /><span style="font-size:11px;color:rgba(255,255,255,0.3);">${item.variation}</span></td>
+      <td style="${VALUE_TD}${isLast ? '' : ROW_BORDER}">$${item.price.toFixed(2)}</td>
+    </tr>`;
   }).join('');
 
   const totalRow = `
-    <div style="display:flex;justify-content:space-between;padding:12px 20px;background:rgba(245,197,24,0.06);border-top:1px solid rgba(245,197,24,0.15);font-size:14px;font-weight:700;">
-      <span style="color:rgba(255,255,255,0.6);">Estimated Total</span>
-      <span style="color:#F5C518;">$${d.total.toFixed(2)}</span>
-    </div>
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;background:rgba(245,197,24,0.06);border-top:1px solid rgba(245,197,24,0.15);">
+      <tr>
+        <td style="padding:12px 20px;font-size:14px;font-weight:700;color:rgba(255,255,255,0.6);">Estimated Total</td>
+        <td style="padding:12px 20px;font-size:14px;font-weight:700;color:#F5C518;text-align:right;">$${d.total.toFixed(2)}</td>
+      </tr>
+    </table>
   `;
 
   const body = `
     <div style="${SECTION}">
       <div style="${SECTION_LABEL}">Catering Selection (${d.items.length} item${d.items.length !== 1 ? 's' : ''})</div>
-      <div style="${SECTION_BODY}">${itemRows}</div>
+      <div style="${SECTION_BODY}">
+        <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">
+          ${itemRows}
+        </table>
+      </div>
       ${totalRow}
     </div>
 
@@ -273,12 +279,15 @@ export function cateringEmailHtml(d: CateringOrderData): string {
       row('Name', d.name),
       row('Email', d.email),
       row('Phone', d.phone),
-      row('Event Date', d.eventDate, true),
+      row('Event Date', fmtDate(d.eventDate), true),
     ].join('')) : ''}
 
-    ${d.notes ? section('Notes', `
-      <p style="font-size:13.5px;color:rgba(255,255,255,0.8);line-height:1.7;margin:0;">${d.notes}</p>
-    `) : ''}
+    ${d.notes ? `<div style="${SECTION}">
+      <div style="${SECTION_LABEL}">Notes</div>
+      <div style="padding:16px 20px;">
+        <p style="font-size:13.5px;color:rgba(255,255,255,0.8);line-height:1.7;margin:0;">${d.notes}</p>
+      </div>
+    </div>` : ''}
 
     <p style="font-size:11px;color:rgba(255,255,255,0.3);text-align:center;padding:0 24px 8px;line-height:1.6;">
       *Estimated total excludes applicable taxes and service fees. Final pricing confirmed at booking.

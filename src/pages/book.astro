@@ -29,7 +29,7 @@ import Page from '../layouts/Page.astro';
           >
             <!-- Venue Selector -->
             <fieldset class="venue-selector" aria-labelledby="venue-legend">
-              <legend id="venue-legend" class="form-section-title">Select Venue</legend>
+              <legend id="venue-legend" class="form-section-title">Select Venue <span class="required" aria-label="required">*</span></legend>
               <div class="venue-options">
                 <label class="venue-option" aria-label="All Star Party World — Kids ages 4–12">
                   <input type="radio" name="venue" value="all-star-party-world" required />
@@ -359,6 +359,11 @@ import Page from '../layouts/Page.astro';
   }
   .form-section { border: none; padding: 0; margin: 0; }
   .venue-selector { border: none; padding: 0; margin: 0; }
+  .venue-selector.venue-error .venue-options {
+    outline: 2px solid #E8357A;
+    outline-offset: 4px;
+    border-radius: 12px;
+  }
 
   /* ── Venue Options ── */
   .venue-options {
@@ -766,7 +771,19 @@ import Page from '../layouts/Page.astro';
     let firstInvalid: HTMLElement | null = null;
     let allValid = true;
 
+    // Validate venue radio group
+    const venueSelected = form.querySelector<HTMLInputElement>('input[name="venue"]:checked');
+    const venueFieldset = form.querySelector<HTMLElement>('.venue-selector');
+    if (!venueSelected) {
+      allValid = false;
+      venueFieldset?.classList.add('venue-error');
+      if (!firstInvalid) firstInvalid = venueFieldset;
+    } else {
+      venueFieldset?.classList.remove('venue-error');
+    }
+
     required.forEach(field => {
+      if (field.type === 'radio') return; // handled above
       if (!field.value.trim()) {
         field.style.borderColor = '#E8357A';
         if (!firstInvalid) firstInvalid = field;
@@ -779,7 +796,11 @@ import Page from '../layouts/Page.astro';
     if (!allValid) {
       errorBox.hidden = false;
       errorMsg.textContent = 'Please fill in all required fields.';
-      firstInvalid?.focus();
+      if (firstInvalid instanceof HTMLInputElement) {
+        firstInvalid.focus();
+      } else {
+        firstInvalid?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
       return;
     }
 
@@ -820,5 +841,23 @@ import Page from '../layouts/Page.astro';
   // Clear error state on input
   form.querySelectorAll<HTMLInputElement>('.form-input, .form-select, .form-textarea').forEach(field => {
     field.addEventListener('input', () => { field.style.borderColor = ''; });
+  });
+
+  // Clear venue error when a venue is selected
+  const venueFieldset = form.querySelector<HTMLElement>('.venue-selector');
+  form.querySelectorAll<HTMLInputElement>('input[name="venue"]').forEach(radio => {
+    radio.addEventListener('change', () => {
+      venueFieldset?.classList.remove('venue-error');
+    });
+  });
+
+  // Phone auto-formatting → (305) 000-0000
+  form.querySelectorAll<HTMLInputElement>('input[type="tel"]').forEach(input => {
+    input.addEventListener('input', () => {
+      const digits = input.value.replace(/\D/g, '').slice(0, 10);
+      if (digits.length <= 3) input.value = digits;
+      else if (digits.length <= 6) input.value = `(${digits.slice(0,3)}) ${digits.slice(3)}`;
+      else input.value = `(${digits.slice(0,3)}) ${digits.slice(3,6)}-${digits.slice(6)}`;
+    });
   });
 </script>

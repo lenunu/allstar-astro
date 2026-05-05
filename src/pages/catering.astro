@@ -1295,6 +1295,16 @@ const menu = [
   const ctError = document.getElementById('ct-error') as HTMLElement;
   const ctSuccess = document.getElementById('ct-success') as HTMLElement;
 
+  // Phone auto-formatting → (305) 000-0000
+  cateringForm.querySelectorAll<HTMLInputElement>('input[type="tel"]').forEach(input => {
+    input.addEventListener('input', () => {
+      const digits = input.value.replace(/\D/g, '').slice(0, 10);
+      if (digits.length <= 3) input.value = digits;
+      else if (digits.length <= 6) input.value = `(${digits.slice(0,3)}) ${digits.slice(3)}`;
+      else input.value = `(${digits.slice(0,3)}) ${digits.slice(3,6)}-${digits.slice(6)}`;
+    });
+  });
+
   // "Request Catering" → show contact form
   trayBook.addEventListener('click', () => {
     contactForm.hidden = false;
