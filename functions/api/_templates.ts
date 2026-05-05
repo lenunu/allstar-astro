@@ -1,6 +1,6 @@
 const BASE = `
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
-  background: #0e0f14;
+  background: #f4f5f7;
   margin: 0;
   padding: 0;
 `;
@@ -8,27 +8,27 @@ const BASE = `
 const WRAPPER = `
   max-width: 600px;
   margin: 0 auto;
-  background: #0e0f14;
+  background: #f4f5f7;
 `;
 
 const HEADER_BG = `
-  background: linear-gradient(135deg, #1c1f2b 0%, #14161e 100%);
-  border-bottom: 3px solid #F5C518;
-  padding: 36px 40px 28px;
+  background: #1c1f2b;
+  border-bottom: 4px solid #F5C518;
+  padding: 32px 40px 28px;
   text-align: center;
 `;
 
 const LOGO_ROW = `
-  font-size: 13px;
-  color: rgba(255,255,255,0.4);
-  letter-spacing: 0.12em;
+  font-size: 12px;
+  color: rgba(255,255,255,0.45);
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 `;
 
 const HEADING = `
   font-family: Georgia, 'Times New Roman', serif;
-  font-size: 28px;
+  font-size: 26px;
   font-weight: 700;
   color: #ffffff;
   margin: 0 0 4px;
@@ -36,41 +36,35 @@ const HEADING = `
 `;
 
 const SUBHEADING = `
-  font-size: 14px;
-  color: rgba(255,255,255,0.55);
+  font-size: 13px;
+  color: rgba(255,255,255,0.45);
   margin: 0;
 `;
 
 const SECTION = `
-  background: #14161e;
-  border: 1px solid rgba(255,255,255,0.07);
-  border-radius: 12px;
-  margin: 0 24px 16px;
+  background: #ffffff;
+  border: 1px solid #e2e5ea;
+  border-radius: 10px;
+  margin: 0 20px 14px;
   overflow: hidden;
 `;
 
 const SECTION_LABEL = `
-  background: rgba(255,255,255,0.04);
-  border-bottom: 1px solid rgba(255,255,255,0.07);
-  padding: 10px 20px;
+  background: #f0f2f5;
+  border-bottom: 1px solid #e2e5ea;
+  padding: 8px 18px;
   font-size: 10px;
   font-weight: 700;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.35);
+  color: #8892a0;
 `;
-
-const SECTION_BODY = `padding: 8px 20px;`;
-
-const LABEL_TD = `color: rgba(255,255,255,0.45); font-size:13.5px; padding: 8px 16px 8px 0; vertical-align:top; width:45%;`;
-const VALUE_TD = `color: #ffffff; font-weight: 500; font-size:13.5px; padding: 8px 0; vertical-align:top; text-align:right;`;
-const ROW_BORDER = `border-bottom: 1px solid rgba(255,255,255,0.05);`;
 
 const FOOTER = `
   text-align: center;
-  padding: 24px 40px 32px;
+  padding: 20px 40px 28px;
   font-size: 12px;
-  color: rgba(255,255,255,0.25);
+  color: #9aa3ad;
   line-height: 1.7;
 `;
 
@@ -81,11 +75,34 @@ const CTA_BTN = `
   text-decoration: none;
   font-size: 14px;
   font-weight: 600;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-  padding: 12px 28px;
+  padding: 12px 30px;
   border-radius: 8px;
   margin: 8px 0 24px;
+`;
+
+// Stacked row: label band on top, value below — works in all email clients, never clips
+const LABEL_BAND = `
+  display: block;
+  background: #f7f8fa;
+  border-bottom: 1px solid #e8eaee;
+  padding: 5px 18px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #8892a0;
+`;
+
+const VALUE_BAND = `
+  display: block;
+  padding: 10px 18px 13px;
+  font-size: 14px;
+  color: #1a1f2e;
+  font-weight: 500;
+  border-bottom: 1px solid #edeef1;
+  word-break: break-word;
 `;
 
 function fmtDate(d: string | undefined): string | undefined {
@@ -95,21 +112,26 @@ function fmtDate(d: string | undefined): string | undefined {
   return `${m}/${day}/${y}`;
 }
 
-function row(label: string, value: string | undefined, last = false): string {
+function row(label: string, value: string | undefined): string {
   if (!value) return '';
-  return `<tr>
-    <td style="${LABEL_TD}${last ? '' : ROW_BORDER}">${label}</td>
-    <td style="${VALUE_TD}${last ? '' : ROW_BORDER}">${value}</td>
-  </tr>`;
+  return `<div>
+    <div style="${LABEL_BAND}">${label}</div>
+    <div style="${VALUE_BAND}">${value}</div>
+  </div>`;
 }
 
 function section(title: string, rows: string): string {
   return `<div style="${SECTION}">
     <div style="${SECTION_LABEL}">${title}</div>
-    <div style="${SECTION_BODY}">
-      <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">
-        ${rows}
-      </table>
+    ${rows}
+  </div>`;
+}
+
+function textSection(title: string, content: string): string {
+  return `<div style="${SECTION}">
+    <div style="${SECTION_LABEL}">${title}</div>
+    <div style="padding:14px 18px 16px;">
+      <p style="font-size:14px;color:#2d3340;line-height:1.7;margin:0;word-break:break-word;">${content}</p>
     </div>
   </div>`;
 }
@@ -133,16 +155,16 @@ function base(title: string, badge: string, badgeColor: string, body: string): s
     </div>
 
     <!-- Spacer -->
-    <div style="height:24px;"></div>
+    <div style="height:20px;"></div>
 
     ${body}
 
     <!-- Footer -->
     <div style="${FOOTER}">
-      <div style="width:40px;height:2px;background:${badgeColor};margin:0 auto 16px;border-radius:2px;"></div>
+      <div style="width:36px;height:2px;background:${badgeColor};margin:0 auto 14px;border-radius:2px;"></div>
       All Star Party World &amp; The 305 Club<br />
       8770 SW 131st Street · Miami, Florida 33176<br />
-      <a href="tel:+17864710100" style="color:rgba(255,255,255,0.4);text-decoration:none;">786-471-0100</a>
+      <a href="tel:+17864710100" style="color:#6b7a8d;text-decoration:none;">786-471-0100</a>
     </div>
 
   </div>
@@ -181,12 +203,10 @@ const VENUE_LABELS: Record<string, string> = {
 
 export function bookingEmailHtml(d: BookingData): string {
   const venueName = VENUE_LABELS[d.venue ?? ''] ?? d.venue ?? '—';
-  const venueColor = d.venue === 'all-star-party-world' ? '#F5C518' : '#3B7DEB';
+  const venueColor = d.venue === 'all-star-party-world' ? '#d4a000' : '#3B7DEB';
 
   const body = `
-    ${section('Venue', [
-      row('Selected Venue', `<span style="color:${venueColor};font-weight:700;">${venueName}</span>`, true),
-    ].join(''))}
+    ${section('Venue', row('Selected Venue', `<span style="color:${venueColor};font-weight:700;">${venueName}</span>`))}
 
     ${section('Contact Info', [
       row('Name', `${d.firstName ?? ''} ${d.lastName ?? ''}`.trim() || undefined),
@@ -194,7 +214,7 @@ export function bookingEmailHtml(d: BookingData): string {
       row('Cell Phone', d.cellPhone),
       row('Secondary Phone', d.secondaryPhone),
       row('OK to Text', d.okToText === 'yes' ? '✓ Yes' : d.okToText ? 'No' : undefined),
-      row('Best Time to Call', d.bestTimeToCall, true),
+      row('Best Time to Call', d.bestTimeToCall),
     ].join(''))}
 
     ${section('Event Details', [
@@ -205,19 +225,12 @@ export function bookingEmailHtml(d: BookingData): string {
       row('Kids', d.numKids),
       row('Adults', d.numAdults),
       row('Birthday Age', d.birthdayAge),
-      row('Celebrating', d.celebrating, true),
+      row('Celebrating', d.celebrating),
     ].join(''))}
 
-    ${d.partyDescription ? `<div style="${SECTION}">
-      <div style="${SECTION_LABEL}">Party Description</div>
-      <div style="padding:16px 20px;">
-        <p style="font-size:13.5px;color:rgba(255,255,255,0.8);line-height:1.7;margin:0;">${d.partyDescription}</p>
-      </div>
-    </div>` : ''}
+    ${d.partyDescription ? textSection('Party Description', d.partyDescription) : ''}
 
-    ${section('Source', [
-      row('How They Found Us', d.hearAboutUs, true),
-    ].join(''))}
+    ${section('Source', row('How They Found Us', d.hearAboutUs))}
 
     <div style="text-align:center;padding:8px 24px 0;">
       <a href="tel:+17864710100" style="${CTA_BTN}">Call to Follow Up →</a>
@@ -247,31 +260,26 @@ export interface CateringOrderData {
 }
 
 export function cateringEmailHtml(d: CateringOrderData): string {
-  const itemRows = d.items.map((item, i) => {
-    const isLast = i === d.items.length - 1;
-    return `<tr>
-      <td style="${LABEL_TD}${isLast ? '' : ROW_BORDER}">${item.name}<br /><span style="font-size:11px;color:rgba(255,255,255,0.3);">${item.variation}</span></td>
-      <td style="${VALUE_TD}${isLast ? '' : ROW_BORDER}">$${item.price.toFixed(2)}</td>
-    </tr>`;
-  }).join('');
+  const itemRows = d.items.map(item => `<div>
+    <div style="${LABEL_BAND}">${item.name}</div>
+    <div style="${VALUE_BAND}">${item.variation} &nbsp;·&nbsp; <strong style="color:#1a1f2e;">$${item.price.toFixed(2)}</strong></div>
+  </div>`).join('');
 
   const totalRow = `
-    <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;background:rgba(245,197,24,0.06);border-top:1px solid rgba(245,197,24,0.15);">
-      <tr>
-        <td style="padding:12px 20px;font-size:14px;font-weight:700;color:rgba(255,255,255,0.6);">Estimated Total</td>
-        <td style="padding:12px 20px;font-size:14px;font-weight:700;color:#F5C518;text-align:right;">$${d.total.toFixed(2)}</td>
-      </tr>
-    </table>
+    <div style="padding:12px 18px;background:#fffbee;border-top:2px solid #F5C518;">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td style="font-size:13px;color:#8892a0;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;">Estimated Total</td>
+          <td style="font-size:20px;font-weight:700;color:#b8860b;text-align:right;">$${d.total.toFixed(2)}</td>
+        </tr>
+      </table>
+    </div>
   `;
 
   const body = `
     <div style="${SECTION}">
       <div style="${SECTION_LABEL}">Catering Selection (${d.items.length} item${d.items.length !== 1 ? 's' : ''})</div>
-      <div style="${SECTION_BODY}">
-        <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">
-          ${itemRows}
-        </table>
-      </div>
+      ${itemRows}
       ${totalRow}
     </div>
 
@@ -279,17 +287,12 @@ export function cateringEmailHtml(d: CateringOrderData): string {
       row('Name', d.name),
       row('Email', d.email),
       row('Phone', d.phone),
-      row('Event Date', fmtDate(d.eventDate), true),
+      row('Event Date', fmtDate(d.eventDate)),
     ].join('')) : ''}
 
-    ${d.notes ? `<div style="${SECTION}">
-      <div style="${SECTION_LABEL}">Notes</div>
-      <div style="padding:16px 20px;">
-        <p style="font-size:13.5px;color:rgba(255,255,255,0.8);line-height:1.7;margin:0;">${d.notes}</p>
-      </div>
-    </div>` : ''}
+    ${d.notes ? textSection('Notes', d.notes) : ''}
 
-    <p style="font-size:11px;color:rgba(255,255,255,0.3);text-align:center;padding:0 24px 8px;line-height:1.6;">
+    <p style="font-size:11px;color:#9aa3ad;text-align:center;padding:0 24px 8px;line-height:1.6;">
       *Estimated total excludes applicable taxes and service fees. Final pricing confirmed at booking.
     </p>
 
