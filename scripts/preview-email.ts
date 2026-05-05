@@ -1,4 +1,4 @@
-import { bookingEmailHtml, cateringEmailHtml } from '../functions/api/_templates';
+import { bookingEmailHtml, cateringEmailHtml, waiverEmailHtml } from '../functions/api/_templates';
 import { writeFileSync } from 'fs';
 
 const booking = bookingEmailHtml({
@@ -37,11 +37,29 @@ const catering = cateringEmailHtml({
   notes: 'Please make sure the cake has "Happy Birthday Sofia" written on it. Nut-free for all items.',
 });
 
+const waiver = waiverEmailHtml({
+  parentFirstName: 'Maria',
+  parentLastName: 'Rodriguez',
+  email: 'maria.rodriguez@gmail.com',
+  phone: '(305) 555-1234',
+  numChildren: '3',
+  children: [
+    { firstName: 'Sofia', lastName: 'Rodriguez', dateOfBirth: '2017-03-14' },
+    { firstName: 'Lucas', lastName: 'Rodriguez', dateOfBirth: '2019-08-22' },
+    { firstName: 'Emma', lastName: 'Rodriguez', dateOfBirth: '2021-11-05' },
+  ],
+  eventDate: '2026-07-12',
+  signature: 'Maria Rodriguez',
+  waiverVersion: 'V2',
+  submittedAt: 'May 5, 2026, 3:45 PM',
+});
+
 writeFileSync('preview-booking.html', booking);
 writeFileSync('preview-catering.html', catering);
+writeFileSync('preview-waiver.html', waiver);
 
 console.log('✓ preview-booking.html');
 console.log('✓ preview-catering.html');
+console.log('✓ preview-waiver.html');
 console.log('\nOpen with:');
-console.log('  open preview-booking.html');
-console.log('  open preview-catering.html');
+console.log('  open preview-booking.html preview-catering.html preview-waiver.html');

@@ -304,5 +304,57 @@ export function cateringEmailHtml(d: CateringOrderData): string {
   return base('Catering Inquiry', 'New catering selection from allstarpartyworld.com', '#F5C518', body);
 }
 
-export { bookingEmailHtml as buildBookingEmail, cateringEmailHtml as buildCateringEmail };
-export type { BookingData, CateringOrderData, CateringItem };
+// ── Waiver email ──────────────────────────────────────────────────────────────
+
+export interface WaiverChild {
+  firstName: string;
+  lastName: string;
+  dateOfBirth: string;
+}
+
+export interface WaiverData {
+  parentFirstName?: string;
+  parentLastName?: string;
+  email?: string;
+  phone?: string;
+  numChildren?: string;
+  children?: WaiverChild[];
+  eventDate?: string;
+  signature?: string;
+  waiverVersion?: string;
+  submittedAt?: string;
+}
+
+export function waiverEmailHtml(d: WaiverData): string {
+  const childRows = (d.children ?? []).map((child, i) =>
+    row(`Child ${i + 1}`, `${child.firstName} ${child.lastName} &nbsp;·&nbsp; DOB: ${fmtDate(child.dateOfBirth) ?? child.dateOfBirth}`)
+  ).join('');
+
+  const body = `
+    ${section('Parent / Guardian', [
+      row('Name', `${d.parentFirstName ?? ''} ${d.parentLastName ?? ''}`.trim() || undefined),
+      row('Email', d.email),
+      row('Phone', d.phone),
+    ].join(''))}
+
+    ${section(`Children (${d.children?.length ?? d.numChildren ?? 0})`, childRows)}
+
+    ${section('Event & Signature', [
+      row('Event Date', fmtDate(d.eventDate)),
+      row('Signed As', d.signature),
+      row('Waiver Version', d.waiverVersion),
+      row('Submitted', d.submittedAt),
+    ].join(''))}
+
+    <div style="margin:0 20px 16px;padding:14px 18px;background:#f0fdf4;border:1px solid #86efac;border-radius:10px;">
+      <p style="font-size:13px;color:#166534;margin:0;font-weight:600;">
+        ✓ Parent confirmed waiver was read in full and consented electronically.
+      </p>
+    </div>
+  `;
+
+  return base('New Waiver Signed', `Submitted via allstarpartyworld.com`, '#3B7DEB', body);
+}
+
+export { bookingEmailHtml as buildBookingEmail, cateringEmailHtml as buildCateringEmail, waiverEmailHtml as buildWaiverEmail };
+export type { BookingData, CateringOrderData, CateringItem, WaiverData, WaiverChild };

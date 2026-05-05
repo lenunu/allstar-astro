@@ -136,163 +136,143 @@ import Page from '../layouts/Page.astro';
 
         <!-- ── Parent / Guardian ── -->
         <fieldset class="form-block" aria-labelledby="parent-legend">
-          <legend id="parent-legend" class="block-title">Parent / Guardian Information</legend>
+          <div class="block-header">
+            <div class="block-icon" aria-hidden="true"><i class="fas fa-user"></i></div>
+            <div>
+              <legend id="parent-legend" class="block-title">Parent / Guardian</legend>
+              <p class="block-sub">The adult signing this waiver on behalf of all children listed.</p>
+            </div>
+          </div>
 
           <div class="field-row">
             <div class="field-group">
-              <label class="field-label" for="parent-first">
-                Parent First Name <span class="req" aria-label="required">*</span>
-              </label>
-              <input
-                type="text" id="parent-first" name="parentFirstName"
-                class="field-input" autocomplete="given-name"
-                required aria-required="true" placeholder="Maria"
-              />
+              <label class="field-label" for="parent-first">First Name <span class="req" aria-label="required">*</span></label>
+              <input type="text" id="parent-first" name="parentFirstName" class="field-input"
+                autocomplete="given-name" required aria-required="true" placeholder="Maria" />
             </div>
             <div class="field-group">
-              <label class="field-label" for="parent-last">
-                Parent Last Name <span class="req" aria-label="required">*</span>
-              </label>
-              <input
-                type="text" id="parent-last" name="parentLastName"
-                class="field-input" autocomplete="family-name"
-                required aria-required="true" placeholder="Rodriguez"
-              />
+              <label class="field-label" for="parent-last">Last Name <span class="req" aria-label="required">*</span></label>
+              <input type="text" id="parent-last" name="parentLastName" class="field-input"
+                autocomplete="family-name" required aria-required="true" placeholder="Rodriguez" />
             </div>
           </div>
 
-          <div class="field-group">
-            <label class="field-label" for="parent-email">
-              Email <span class="req" aria-label="required">*</span>
-            </label>
-            <input
-              type="email" id="parent-email" name="email"
-              class="field-input" autocomplete="email"
-              required aria-required="true" placeholder="Your Email"
-            />
-          </div>
-
-          <div class="field-group">
-            <label class="field-label" for="parent-phone">
-              Phone <span class="req" aria-label="required">*</span>
-            </label>
-            <input
-              type="tel" id="parent-phone" name="phone"
-              class="field-input" autocomplete="tel"
-              required aria-required="true" placeholder="Primary Phone"
-            />
-          </div>
-
-          <div class="field-group">
-            <label class="field-label" for="num-children">
-              # of Children <span class="req" aria-label="required">*</span>
-            </label>
-            <div class="select-wrap">
-              <select
-                id="num-children" name="numChildren"
-                class="field-select"
-                required aria-required="true"
-                aria-describedby="num-children-hint"
-              >
-                {[1,2,3,4,5,6,7,8,9,10].map(n => (
-                  <option value={n}>{n}</option>
-                ))}
-              </select>
-              <i class="fas fa-chevron-down select-icon" aria-hidden="true"></i>
+          <div class="field-row">
+            <div class="field-group">
+              <label class="field-label" for="parent-email">Email <span class="req" aria-label="required">*</span></label>
+              <div class="input-icon-wrap">
+                <i class="fas fa-envelope input-icon" aria-hidden="true"></i>
+                <input type="email" id="parent-email" name="email" class="field-input has-icon"
+                  autocomplete="email" required aria-required="true" placeholder="you@email.com" />
+              </div>
             </div>
-            <p id="num-children-hint" class="field-hint">Select the number of children attending — child rows will appear below.</p>
+            <div class="field-group">
+              <label class="field-label" for="parent-phone">Cell Phone <span class="req" aria-label="required">*</span></label>
+              <div class="input-icon-wrap">
+                <i class="fas fa-phone input-icon" aria-hidden="true"></i>
+                <input type="tel" id="parent-phone" name="phone" class="field-input has-icon"
+                  autocomplete="tel" required aria-required="true" placeholder="(305) 000-0000" />
+              </div>
+            </div>
           </div>
+
         </fieldset>
 
         <!-- ── Children ── -->
-        <fieldset class="form-block" aria-labelledby="children-legend">
-          <legend id="children-legend" class="block-title">Children Attending</legend>
-          <p class="block-sub">Enter the information for every child in attendance.</p>
+        <fieldset class="form-block children-block" aria-labelledby="children-legend">
+          <div class="block-header">
+            <div class="block-icon block-icon--yellow" aria-hidden="true"><i class="fas fa-star"></i></div>
+            <div>
+              <legend id="children-legend" class="block-title">Children Attending</legend>
+              <p class="block-sub">Add every child who will be participating. Use the button below to add more.</p>
+            </div>
+          </div>
           <div id="children-list" aria-live="polite" aria-label="Child information fields"></div>
+          <div class="child-controls">
+            <button type="button" id="add-child-btn" class="btn-add-child">
+              <i class="fas fa-plus" aria-hidden="true"></i> Add Another Child
+            </button>
+            <span id="child-count-label" class="child-count-label">1 child added</span>
+          </div>
         </fieldset>
 
-        <!-- ── Event & Consent ── -->
+        <!-- ── Event Date ── -->
         <fieldset class="form-block" aria-labelledby="event-legend">
-          <legend id="event-legend" class="block-title">Event Information &amp; Consent</legend>
-
-          <div class="field-group">
-            <label class="field-label" for="event-date">
-              Date of Event <span class="req" aria-label="required">*</span>
-            </label>
-            <input
-              type="date" id="event-date" name="eventDate"
-              class="field-input"
-              required aria-required="true"
-            />
+          <div class="block-header">
+            <div class="block-icon block-icon--pink" aria-hidden="true"><i class="fas fa-calendar-day"></i></div>
+            <div>
+              <legend id="event-legend" class="block-title">Event Date</legend>
+              <p class="block-sub">The date your party or visit is scheduled.</p>
+            </div>
           </div>
-
-          <div class="consent-block">
-            <label class="consent-check" id="consent-label">
-              <input
-                type="checkbox"
-                id="consent-checkbox"
-                name="consentGiven"
-                value="agreed"
-                required
-                aria-required="true"
-                aria-describedby="consent-label"
-              />
-              <span class="check-box" aria-hidden="true"></span>
-              <span>I have read this <strong>Release and Waiver of Liability, Assumption of Risk, and Indemnity Agreement</strong></span>
-            </label>
-            <p class="consent-fine-print">
-              I understand that I have given up substantial rights by signing it and have signed it freely and without any inducement and assurance of any nature and intend it to be a complete and unconditional release of all liability to the greatest extent allowed by law and agree that if any portion of this Agreement is held to be invalid the balance, notwithstanding, shall continue in full force and effect. I further agree that this Agreement shall be construed in accordance with the laws of the State of Florida.
-            </p>
+          <div class="field-group" style="margin-bottom:0;">
+            <label class="field-label" for="event-date">Date of Event <span class="req" aria-label="required">*</span></label>
+            <div class="input-icon-wrap">
+              <i class="fas fa-calendar input-icon" aria-hidden="true"></i>
+              <input type="date" id="event-date" name="eventDate" class="field-input has-icon"
+                required aria-required="true" />
+            </div>
           </div>
         </fieldset>
+
+        <!-- ── Consent ── -->
+        <div class="consent-block">
+          <label class="consent-check" id="consent-label">
+            <input type="checkbox" id="consent-checkbox" name="consentGiven" value="agreed"
+              required aria-required="true" />
+            <span class="check-box" aria-hidden="true"></span>
+            <span>I confirm I have read the full <strong>Release &amp; Waiver of Liability, Assumption of Risk, and Indemnity Agreement</strong> and agree to its terms on behalf of myself and all children listed above.</span>
+          </label>
+          <p class="consent-fine-print">
+            I understand that I have given up substantial rights by signing this agreement and have signed it freely and without any inducement or assurance of any nature. I intend this to be a complete and unconditional release of all liability to the greatest extent allowed by law. I agree that this Agreement shall be construed in accordance with the laws of the State of Florida.
+          </p>
+        </div>
 
         <!-- ── Signature ── -->
-        <fieldset class="form-block sig-block" aria-labelledby="sig-legend">
-          <legend id="sig-legend" class="block-title">Signature <span class="req" aria-label="required">*</span></legend>
-          <p class="block-sub">Type your full legal name below. This constitutes a legally binding electronic signature.</p>
-
-          <div class="field-group">
-            <label class="field-label" for="signature">
-              Full Legal Name
-            </label>
+        <div class="sig-block">
+          <div class="sig-block-header">
+            <i class="fas fa-signature sig-icon" aria-hidden="true"></i>
+            <div>
+              <div class="block-title" style="margin-bottom:0.2rem;">Electronic Signature <span class="req" aria-label="required">*</span></div>
+              <p class="block-sub" style="margin:0;">Type your full legal name to sign this agreement.</p>
+            </div>
+          </div>
+          <div class="sig-input-wrap">
             <input
-              type="text"
-              id="signature"
-              name="signature"
+              type="text" id="signature" name="signature"
               class="field-input sig-input"
-              placeholder="Type your full name"
+              placeholder="Type your full legal name here"
               autocomplete="name"
-              required
-              aria-required="true"
+              required aria-required="true"
               aria-describedby="sig-note"
               spellcheck="false"
             />
+            <div class="sig-line-label">× Signature</div>
           </div>
           <p id="sig-note" class="sig-note">
             <i class="fas fa-lock" aria-hidden="true"></i>
-            By entering your name above, you agree to the terms of the Release &amp; Waiver of Liability, Assumption of Risk, and Indemnity Agreement.
+            By entering your name above you are signing this agreement electronically. Your electronic signature is legally binding under Florida law.
           </p>
-        </fieldset>
+        </div>
 
         <!-- Status messages -->
         <div id="form-error" class="status-msg error" role="alert" aria-live="assertive" hidden>
           <i class="fas fa-exclamation-circle" aria-hidden="true"></i>
           <span id="form-error-text">Please complete all required fields.</span>
         </div>
-        <div id="form-success" class="status-msg success" role="status" aria-live="polite" hidden>
-          <i class="fas fa-check-circle" aria-hidden="true"></i>
-          Waiver submitted! A confirmation has been sent to your email address.
-        </div>
 
         <!-- Submit -->
         <div class="submit-wrap">
           <button type="submit" id="submit-btn" class="btn-submit">
-            <span id="submit-label">Submit Waiver</span>
+            <span id="submit-label"><i class="fas fa-file-signature" aria-hidden="true"></i> &nbsp;Submit Signed Waiver</span>
             <span id="submit-loading" hidden aria-hidden="true">
               <i class="fas fa-spinner fa-spin"></i>&nbsp;Submitting…
             </span>
           </button>
-          <p class="submit-note">A confirmation copy will be emailed to you. No payment required.</p>
+          <p class="submit-note">
+            <i class="fas fa-shield-check" aria-hidden="true"></i>
+            Your information is kept private and used only for this waiver.
+          </p>
         </div>
 
       </form>
@@ -474,8 +454,8 @@ import Page from '../layouts/Page.astro';
   margin-top: 1rem; line-height: 1.5;
 }
 .doc-body p {
-  font-size: 0.83rem;
-  line-height: 1.85;
+  font-size: 0.875rem;
+  line-height: 1.9;
   color: rgba(255,255,255,0.6);
   margin-bottom: 1.1rem;
 }
@@ -608,21 +588,55 @@ import Page from '../layouts/Page.astro';
 .form-block {
   border: 1px solid rgba(255,255,255,0.07);
   border-radius: 14px;
-  padding: 2rem;
-  margin-bottom: 1.5rem;
+  padding: 1.75rem 2rem;
+  margin-bottom: 1.25rem;
   background: rgba(255,255,255,0.02);
+}
+.block-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.block-icon {
+  width: 36px; height: 36px; border-radius: 9px; flex-shrink: 0;
+  background: rgba(59,125,235,0.12);
+  border: 1px solid rgba(59,125,235,0.2);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.85rem; color: #7fb3ff;
+}
+.block-icon--yellow {
+  background: rgba(245,197,24,0.1);
+  border-color: rgba(245,197,24,0.2);
+  color: #F5C518;
+}
+.block-icon--pink {
+  background: rgba(232,53,122,0.1);
+  border-color: rgba(232,53,122,0.2);
+  color: #E8357A;
 }
 .block-title {
   font-family: 'Oswald', sans-serif;
-  font-size: 0.75rem; font-weight: 700;
-  letter-spacing: 0.18em; text-transform: uppercase;
-  color: rgba(255,255,255,0.4);
-  margin-bottom: 1.5rem; display: block;
+  font-size: 0.82rem; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 0.25rem; display: block;
 }
 .block-sub {
-  font-size: 0.82rem; color: rgba(255,255,255,0.4);
-  line-height: 1.6; margin-top: -1rem; margin-bottom: 1.25rem;
+  font-size: 0.8rem; color: rgba(255,255,255,0.35);
+  line-height: 1.5; margin: 0;
 }
+
+/* ── Input icons ── */
+.input-icon-wrap { position: relative; }
+.input-icon {
+  position: absolute; left: 0.9rem; top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.78rem; color: rgba(255,255,255,0.25);
+  pointer-events: none;
+}
+.field-input.has-icon,
+.field-select.has-icon { padding-left: 2.5rem; }
 
 /* ── Fields ── */
 .field-row {
@@ -675,64 +689,103 @@ import Page from '../layouts/Page.astro';
   pointer-events: none;
 }
 
-/* ── Child rows ── */
-.child-block {
-  background: rgba(255,255,255,0.02);
-  border: 1px solid rgba(255,255,255,0.07);
-  border-radius: 10px;
-  padding: 1.25rem;
-  margin-bottom: 0.85rem;
+/* ── Child rows — NOTE: child blocks are JS-injected so styles use :global or inline ── */
+.child-controls {
+  display: flex; align-items: center; gap: 1rem;
+  margin-top: 1rem; flex-wrap: wrap;
 }
-.child-block-title {
+.btn-add-child {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: rgba(245,197,24,0.1);
+  border: 1px solid rgba(245,197,24,0.3);
+  color: #F5C518;
+  padding: 0.6rem 1.25rem;
+  border-radius: 8px;
+  font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+}
+.btn-add-child:hover { background: rgba(245,197,24,0.18); border-color: rgba(245,197,24,0.5); transform: translateY(-1px); }
+.btn-add-child:focus-visible { outline: 2px solid #F5C518; outline-offset: 3px; }
+.child-count-label {
   font-family: 'Oswald', sans-serif;
-  font-size: 0.68rem; font-weight: 700;
-  letter-spacing: 0.14em; text-transform: uppercase;
+  font-size: 0.68rem; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
   color: rgba(255,255,255,0.3);
-  margin-bottom: 1rem;
 }
 
 /* ── Consent ── */
 .consent-block {
-  margin-top: 0.5rem;
-  padding: 1.25rem;
+  margin-bottom: 1.25rem;
+  padding: 1.5rem;
   background: rgba(59,125,235,0.05);
-  border: 1px solid rgba(59,125,235,0.18);
-  border-radius: 10px;
+  border: 1px solid rgba(59,125,235,0.2);
+  border-radius: 14px;
 }
 .consent-fine-print {
-  font-size: 0.75rem; color: rgba(255,255,255,0.4);
-  line-height: 1.7; margin-top: 0.85rem;
-  padding-top: 0.85rem;
+  font-size: 0.75rem; color: rgba(255,255,255,0.38);
+  line-height: 1.75; margin-top: 1rem;
+  padding-top: 1rem;
   border-top: 1px solid rgba(255,255,255,0.07);
   font-style: italic;
 }
 
 /* ── Signature ── */
-.sig-block { border-color: rgba(59,125,235,0.2); }
+.sig-block {
+  margin-bottom: 1.5rem;
+  padding: 1.75rem 2rem;
+  background: rgba(59,125,235,0.04);
+  border: 1px solid rgba(59,125,235,0.22);
+  border-radius: 14px;
+}
+.sig-block-header {
+  display: flex; align-items: flex-start; gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.sig-icon {
+  font-size: 1.4rem; color: rgba(59,125,235,0.6);
+  margin-top: 2px; flex-shrink: 0;
+}
+.sig-input-wrap {
+  position: relative;
+  border-bottom: 2px solid rgba(255,255,255,0.2);
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+.sig-input-wrap:focus-within { border-bottom-color: #3B7DEB; }
 .sig-input {
   font-family: 'Georgia', 'Times New Roman', serif !important;
-  font-size: 1.35rem !important;
+  font-size: 1.5rem !important;
   letter-spacing: 0.02em;
   color: #fff !important;
-  border-bottom: 2px solid rgba(255,255,255,0.2) !important;
-  border-left: none !important;
-  border-right: none !important;
-  border-top: none !important;
+  border: none !important;
   border-radius: 0 !important;
   background: transparent !important;
-  padding-bottom: 0.5rem !important;
-  padding-left: 0 !important;
-}
-.sig-input:focus {
-  border-bottom-color: #3B7DEB !important;
+  -webkit-text-fill-color: #fff !important;
+  padding: 0.25rem 0 !important;
   box-shadow: none !important;
+  width: 100%;
+}
+.sig-input:focus { box-shadow: none !important; outline: none !important; background: transparent !important; }
+.sig-input:-webkit-autofill,
+.sig-input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 1000px transparent inset !important;
+  -webkit-text-fill-color: #fff !important;
+  transition: background-color 9999s ease-in-out 0s;
+}
+.sig-input::placeholder { color: rgba(255,255,255,0.18) !important; font-style: italic; -webkit-text-fill-color: rgba(255,255,255,0.18) !important; }
+.sig-line-label {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase;
+  color: rgba(255,255,255,0.2);
+  margin-top: 0.3rem;
 }
 .sig-note {
-  font-size: 0.75rem; color: rgba(255,255,255,0.35);
-  line-height: 1.6; margin-top: 0.75rem;
+  font-size: 0.75rem; color: rgba(255,255,255,0.3);
+  line-height: 1.6;
   display: flex; align-items: flex-start; gap: 0.5rem;
 }
-.sig-note i { margin-top: 2px; color: rgba(255,255,255,0.25); flex-shrink: 0; }
+.sig-note i { margin-top: 2px; color: rgba(59,125,235,0.4); flex-shrink: 0; }
 
 /* ── Status messages ── */
 .status-msg {
@@ -760,7 +813,9 @@ import Page from '../layouts/Page.astro';
 .submit-note {
   text-align: center; font-size: 0.72rem;
   color: rgba(255,255,255,0.28); line-height: 1.5;
+  display: flex; align-items: center; justify-content: center; gap: 0.4rem;
 }
+.submit-note i { color: rgba(59,125,235,0.5); }
 
 /* ── Done ── */
 .done-section.visible { display: flex; align-items: center; justify-content: center; min-height: 75vh; }
@@ -791,15 +846,65 @@ import Page from '../layouts/Page.astro';
 .btn-ghost:hover { color: #fff; border-color: rgba(255,255,255,0.45); transform: translateY(-2px); }
 .btn-ghost:focus-visible { outline: 2px solid rgba(255,255,255,0.5); outline-offset: 3px; }
 
-/* ── Responsive ── */
+/* ── iPad portrait + landscape (768–1024px) ── */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .waiver-inner { padding: 2.5rem 2rem 5rem; }
+
+  /* Taller waiver doc — more comfortable to scroll on tablet */
+  .waiver-doc { height: 520px; font-size: 0.9rem; }
+
+  /* Bigger tap targets for all inputs */
+  .field-input,
+  .field-select { padding: 0.85rem 1rem; font-size: 1rem; }
+  .field-input.has-icon,
+  .field-select.has-icon { padding-left: 2.75rem; }
+
+  /* Labels slightly larger */
+  .field-label { font-size: 0.75rem; }
+
+  /* Agree bar stacks on tablet portrait */
+  .agree-bar { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  .btn-continue { width: 100%; justify-content: center; padding: 1rem 2rem; font-size: 1rem; }
+
+  /* Form blocks more breathing room */
+  .form-block { padding: 1.75rem 1.75rem; }
+
+  /* Signature input bigger for finger/stylus input */
+  .sig-input { font-size: 1.75rem !important; }
+
+  /* Submit button taller */
+  .btn-submit { padding: 1.1rem; font-size: 1.05rem; }
+
+  /* Consent checkbox easier to tap */
+  .check-box { width: 22px; height: 22px; min-width: 22px; border-radius: 6px; }
+  .agree-check, .consent-check { font-size: 0.95rem; gap: 1rem; }
+}
+
+/* ── iPad landscape specifically ── */
+@media (min-width: 900px) and (max-width: 1024px) {
+  .waiver-inner { max-width: 820px; }
+}
+
+/* ── Mobile (≤640px) ── */
 @media (max-width: 640px) {
   .field-row { grid-template-columns: 1fr; }
   .agree-bar { flex-direction: column; align-items: flex-start; }
   .btn-continue { width: 100%; justify-content: center; }
   .waiver-doc { height: 360px; padding: 1.5rem; }
-  .form-block { padding: 1.5rem; }
+  .form-block { padding: 1.25rem; }
   .step-label { display: none; }
+  .block-header { gap: 0.75rem; }
+  .field-input, .field-select { padding: 0.75rem 0.9rem; font-size: 0.95rem; }
+  .sig-input { font-size: 1.3rem !important; }
 }
+
+/* ── Touch devices — remove hover transitions that feel laggy ── */
+@media (hover: none) {
+  .btn-continue:not(:disabled):hover { transform: none; box-shadow: 0 0 20px rgba(59,125,235,0.35); }
+  .btn-submit:hover { transform: none; box-shadow: 0 0 24px rgba(59,125,235,0.4); }
+  .btn-add-child:hover { transform: none; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .scroll-hint i { animation: none; }
   .progress-fill { transition: none; }
@@ -865,51 +970,124 @@ continueBtn.addEventListener('click', () => {
   s2.scrollIntoView({ behavior: 'smooth', block: 'start' });
   setTimeout(() => (document.getElementById('parent-first') as HTMLElement)?.focus(), 400);
 
-  // Build initial child rows
-  buildChildRows(1);
+  // Start with 1 child row
+  addChild();
 });
 
 // ════════════════════════════════════════════════════════
-// STEP 2 — Dynamic child rows driven by # of Children select
+// STEP 2 — Dynamic child rows with Add / Remove buttons
+// NOTE: inline styles used because Astro scopes CSS and
+//       these elements are injected at runtime by JS.
 // ════════════════════════════════════════════════════════
 
-const numChildrenSel = document.getElementById('num-children') as HTMLSelectElement;
-const childrenList   = document.getElementById('children-list')!;
+const childrenList    = document.getElementById('children-list')!;
+const addChildBtn     = document.getElementById('add-child-btn') as HTMLButtonElement;
+const childCountLabel = document.getElementById('child-count-label')!;
+let childCount = 0;
 
-function buildChildRows(n: number) {
-  childrenList.innerHTML = '';
-  for (let i = 1; i <= n; i++) {
-    const block = document.createElement('div');
-    block.className = 'child-block';
-    block.setAttribute('data-child', String(i));
-    block.innerHTML = `
-      <div class="child-block-title">Child ${i} Information</div>
-      <div class="field-row">
-        <div class="field-group">
-          <label class="field-label" for="child-first-${i}">First Name <span class="req">*</span></label>
-          <input type="text" id="child-first-${i}" name="children[${i}][firstName]"
-            class="field-input" required placeholder="First" />
-        </div>
-        <div class="field-group">
-          <label class="field-label" for="child-last-${i}">Last Name <span class="req">*</span></label>
-          <input type="text" id="child-last-${i}" name="children[${i}][lastName]"
-            class="field-input" required placeholder="Last" />
-        </div>
-      </div>
-      <div class="field-group">
-        <label class="field-label" for="child-dob-${i}">Date of Birth <span class="req">*</span></label>
-        <input type="date" id="child-dob-${i}" name="children[${i}][dateOfBirth]"
-          class="field-input" required aria-describedby="child-dob-hint-${i}" />
-        <p id="child-dob-hint-${i}" class="field-hint">Child's date of birth</p>
-      </div>
-    `;
-    childrenList.appendChild(block);
-  }
+const S = {
+  block: `background:rgba(245,197,24,0.04);border:1px solid rgba(245,197,24,0.15);border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:0.75rem;`,
+  header: `display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;`,
+  headerLeft: `display:flex;align-items:center;gap:0.6rem;`,
+  num: `width:26px;height:26px;border-radius:50%;background:rgba(245,197,24,0.15);border:1px solid rgba(245,197,24,0.3);display:flex;align-items:center;justify-content:center;font-family:'Oswald',sans-serif;font-size:0.72rem;font-weight:700;color:#F5C518;flex-shrink:0;`,
+  title: `font-family:'Oswald',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.5);`,
+  removeBtn: `background:rgba(232,53,122,0.08);border:1px solid rgba(232,53,122,0.2);color:rgba(232,53,122,0.7);width:28px;height:28px;border-radius:6px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:0.75rem;transition:background 0.2s,color 0.2s;`,
+  row: `display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;`,
+  group: `display:flex;flex-direction:column;gap:0.35rem;`,
+  label: `font-size:0.68rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.4);`,
+  req: `color:#E8357A;`,
+  input: `background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:0.85rem 1rem;color:#fff;font-family:'DM Sans',sans-serif;font-size:1rem;outline:none;width:100%;box-sizing:border-box;transition:border-color 0.2s ease;`,
+  dobWrap: `position:relative;`,
+  dobIcon: `position:absolute;left:0.9rem;top:50%;transform:translateY(-50%);color:rgba(255,255,255,0.25);font-size:0.78rem;pointer-events:none;`,
+  dobInput: `background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:0.85rem 1rem 0.85rem 2.5rem;color:#fff;font-family:'DM Sans',sans-serif;font-size:1rem;outline:none;width:100%;box-sizing:border-box;transition:border-color 0.2s ease;`,
+};
+
+function updateCountLabel() {
+  childCountLabel.textContent = `${childCount} ${childCount === 1 ? 'child' : 'children'} added`;
 }
 
-numChildrenSel.addEventListener('change', () => {
-  buildChildRows(parseInt(numChildrenSel.value, 10));
-});
+function renumberChildren() {
+  childrenList.querySelectorAll<HTMLElement>('[data-child]').forEach((block, idx) => {
+    const n = idx + 1;
+    block.setAttribute('data-child', String(n));
+    const numEl = block.querySelector<HTMLElement>('.child-num');
+    const titleEl = block.querySelector<HTMLElement>('.child-title');
+    if (numEl) numEl.textContent = String(n);
+    if (titleEl) titleEl.textContent = `Child ${n}`;
+    // update input ids/names
+    const first = block.querySelector<HTMLInputElement>('.child-first');
+    const last  = block.querySelector<HTMLInputElement>('.child-last');
+    const dob   = block.querySelector<HTMLInputElement>('.child-dob');
+    if (first) { first.id = `child-first-${n}`; first.name = `children[${n}][firstName]`; }
+    if (last)  { last.id  = `child-last-${n}`;  last.name  = `children[${n}][lastName]`; }
+    if (dob)   { dob.id   = `child-dob-${n}`;   dob.name   = `children[${n}][dateOfBirth]`; }
+  });
+}
+
+function addChild() {
+  childCount++;
+  const n = childCount;
+  const block = document.createElement('div');
+  block.setAttribute('data-child', String(n));
+  block.setAttribute('style', S.block);
+
+  block.innerHTML = `
+    <div style="${S.header}">
+      <div style="${S.headerLeft}">
+        <div class="child-num" style="${S.num}">${n}</div>
+        <div class="child-title" style="${S.title}">Child ${n}</div>
+      </div>
+      ${n > 1 ? `<button type="button" class="remove-child-btn" aria-label="Remove child ${n}" style="${S.removeBtn}"><i class="fas fa-times"></i></button>` : ''}
+    </div>
+    <div style="${S.row}">
+      <div style="${S.group}">
+        <label style="${S.label}" for="child-first-${n}">First Name <span style="${S.req}">*</span></label>
+        <input type="text" id="child-first-${n}" name="children[${n}][firstName]"
+          class="child-first child-input" style="${S.input}" required placeholder="First name" />
+      </div>
+      <div style="${S.group}">
+        <label style="${S.label}" for="child-last-${n}">Last Name <span style="${S.req}">*</span></label>
+        <input type="text" id="child-last-${n}" name="children[${n}][lastName]"
+          class="child-last child-input" style="${S.input}" required placeholder="Last name" />
+      </div>
+    </div>
+    <div style="${S.group}">
+      <label style="${S.label}" for="child-dob-${n}">Date of Birth <span style="${S.req}">*</span></label>
+      <div style="${S.dobWrap}">
+        <i class="fas fa-cake-candles" style="${S.dobIcon}" aria-hidden="true"></i>
+        <input type="date" id="child-dob-${n}" name="children[${n}][dateOfBirth]"
+          class="child-dob child-input" style="${S.dobInput}" required />
+      </div>
+    </div>
+  `;
+
+  // focus/hover border effect on inputs
+  block.querySelectorAll<HTMLInputElement>('.child-input').forEach(inp => {
+    inp.addEventListener('focus', () => inp.style.borderColor = '#3B7DEB');
+    inp.addEventListener('blur',  () => inp.style.borderColor = 'rgba(255,255,255,0.1)');
+  });
+
+  // remove button
+  const removeBtn = block.querySelector<HTMLButtonElement>('.remove-child-btn');
+  if (removeBtn) {
+    removeBtn.addEventListener('mouseenter', () => { removeBtn.style.background = 'rgba(232,53,122,0.18)'; removeBtn.style.color = '#E8357A'; });
+    removeBtn.addEventListener('mouseleave', () => { removeBtn.style.background = 'rgba(232,53,122,0.08)'; removeBtn.style.color = 'rgba(232,53,122,0.7)'; });
+    removeBtn.addEventListener('click', () => {
+      block.remove();
+      childCount--;
+      renumberChildren();
+      updateCountLabel();
+    });
+  }
+
+  childrenList.appendChild(block);
+  updateCountLabel();
+  if (n > 1) block.querySelector<HTMLInputElement>('.child-first')?.focus();
+}
+
+addChildBtn.addEventListener('click', addChild);
+
+// Start with 1 child (called after continueBtn click below)
 
 // ════════════════════════════════════════════════════════
 // STEP 2 — Form submit
@@ -928,7 +1106,7 @@ form.addEventListener('submit', async (e) => {
   errorBox.hidden = true;
   successBox.hidden = true;
 
-  // Validate all required fields
+  // Validate all required fields (including dynamically added child inputs)
   const required = form.querySelectorAll<HTMLInputElement | HTMLSelectElement>('[required]');
   let firstInvalid: HTMLElement | null = null;
   let valid = true;
@@ -943,7 +1121,12 @@ form.addEventListener('submit', async (e) => {
       }
     } else if (!field.value.trim()) {
       valid = false;
-      el.classList.add('invalid');
+      // inline-styled child inputs use style directly
+      if (el.classList.contains('child-input')) {
+        el.style.borderColor = '#E8357A';
+      } else {
+        el.classList.add('invalid');
+      }
       if (!firstInvalid) firstInvalid = el;
     }
   });
@@ -959,17 +1142,18 @@ form.addEventListener('submit', async (e) => {
   const fd = new FormData(form);
   const data: Record<string, unknown> = Object.fromEntries(fd.entries());
 
-  // Collect children
-  const numKids = parseInt(numChildrenSel.value, 10);
+  // Collect children from dynamic blocks
   const children: Record<string, string>[] = [];
-  for (let i = 1; i <= numKids; i++) {
+  childrenList.querySelectorAll<HTMLElement>('[data-child]').forEach((block, idx) => {
+    const n = idx + 1;
     children.push({
-      firstName:   (document.getElementById(`child-first-${i}`) as HTMLInputElement)?.value ?? '',
-      lastName:    (document.getElementById(`child-last-${i}`) as HTMLInputElement)?.value ?? '',
-      dateOfBirth: (document.getElementById(`child-dob-${i}`) as HTMLInputElement)?.value ?? '',
+      firstName:   (document.getElementById(`child-first-${n}`) as HTMLInputElement)?.value ?? '',
+      lastName:    (document.getElementById(`child-last-${n}`) as HTMLInputElement)?.value ?? '',
+      dateOfBirth: (document.getElementById(`child-dob-${n}`) as HTMLInputElement)?.value ?? '',
     });
-  }
+  });
   data.children = children;
+  data.numChildren = String(childCount);
   data.waiverVersion = 'V2';
   data.waiverReadConfirmed = true;
 
@@ -979,7 +1163,7 @@ form.addEventListener('submit', async (e) => {
   submitLoad.hidden = false;
 
   try {
-    const res = await fetch('https://cms.allstarpartyworld.com/api/waivers', {
+    const res = await fetch('/api/send-waiver', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data),
@@ -1010,6 +1194,15 @@ form.addEventListener('submit', async (e) => {
 // Clear invalid state on input
 form.querySelectorAll<HTMLElement>('.field-input, .field-select').forEach(el => {
   el.addEventListener('input', () => el.classList.remove('invalid'));
+});
+
+// Phone auto-formatting → (305) 000-0000
+const phoneInput = document.getElementById('parent-phone') as HTMLInputElement;
+phoneInput?.addEventListener('input', () => {
+  const digits = phoneInput.value.replace(/\D/g, '').slice(0, 10);
+  if (digits.length <= 3) phoneInput.value = digits;
+  else if (digits.length <= 6) phoneInput.value = `(${digits.slice(0,3)}) ${digits.slice(3)}`;
+  else phoneInput.value = `(${digits.slice(0,3)}) ${digits.slice(3,6)}-${digits.slice(6)}`;
 });
 
 // Init — show step 1
