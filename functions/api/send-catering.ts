@@ -29,7 +29,9 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
     }
 
     await sendEmail(env.PLUNK_API_KEY, {
-      to: 'eskimo1975@gmail.com',
+      to: 'info@allstarpartyworld.com',
+      cc: 'miguel@lenunu.com',
+      replyTo: data.email,
       subject: `New Catering Inquiry — ${data.items.length} item${data.items.length !== 1 ? 's' : ''} · $${data.total.toFixed(2)}`,
       html: buildCateringEmail(data),
     });
@@ -41,7 +43,7 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
   }
 };
 
-async function sendEmail(apiKey: string, payload: { to: string; subject: string; html: string }) {
+async function sendEmail(apiKey: string, payload: { to: string; cc?: string; replyTo?: string; subject: string; html: string }) {
   const res = await fetch('https://next-api.useplunk.com/v1/send', {
     method: 'POST',
     headers: {
@@ -50,6 +52,8 @@ async function sendEmail(apiKey: string, payload: { to: string; subject: string;
     },
     body: JSON.stringify({
       to: payload.to,
+      cc: payload.cc,
+      replyTo: payload.replyTo,
       subject: payload.subject,
       body: payload.html,
       from: 'info@allstarpartyworld.com',

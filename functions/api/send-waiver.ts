@@ -40,7 +40,8 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
     const childCount = data.children?.length ?? data.numChildren ?? 0;
 
     await sendEmail(env.PLUNK_API_KEY, {
-      to: 'eskimo1975@gmail.com',
+      to: 'info@allstarpartyworld.com',
+      cc: 'miguel@lenunu.com',
       subject: `New Waiver — ${parentName} · ${childCount} child${Number(childCount) !== 1 ? 'ren' : ''}`,
       html: buildWaiverEmail({ ...data, submittedAt }),
     });
@@ -52,7 +53,7 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
   }
 };
 
-async function sendEmail(apiKey: string, payload: { to: string; subject: string; html: string }) {
+async function sendEmail(apiKey: string, payload: { to: string; cc?: string; subject: string; html: string }) {
   const res = await fetch('https://next-api.useplunk.com/v1/send', {
     method: 'POST',
     headers: {
@@ -61,6 +62,7 @@ async function sendEmail(apiKey: string, payload: { to: string; subject: string;
     },
     body: JSON.stringify({
       to: payload.to,
+      cc: payload.cc,
       subject: payload.subject,
       body: payload.html,
       from: 'info@allstarpartyworld.com',
