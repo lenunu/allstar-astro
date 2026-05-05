@@ -23,6 +23,21 @@ pnpm-debug.log*
 # jetbrains setting folder
 .idea/
 
+# Wrangler local dev state
+.wrangler/
+
+# Raw/unoptimized media folders (not served from public/)
+305-media/
+allstar-media/
+karaoke-media/
+paintmeone-media/
+popstar-media/
+vr-media/
+brand_assets/
+"allstar new photos/"
+allstar new photos/
+allstar-kids-paint-room-with-easels-img-2446.jpg
+
 # Videos — only optimized/web-ready videos are tracked
 public/**/*.mp4
 public/**/*.mov

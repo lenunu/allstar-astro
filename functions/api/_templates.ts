@@ -291,3 +291,6 @@ export function cateringEmailHtml(d: CateringOrderData): string {
 
   return base('Catering Inquiry', 'New catering selection from allstarpartyworld.com', '#F5C518', body);
 }
+
+export { bookingEmailHtml as buildBookingEmail, cateringEmailHtml as buildCateringEmail };
+export type { BookingData, CateringOrderData, CateringItem };
