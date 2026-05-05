@@ -28,24 +28,24 @@ import Page from '../layouts/Page.astro';
 
     <div class="hero-content">
       <div class="hero-text">
-        <div class="hero-eyebrow animate-fade-up">Miami's Premier Party Destinations</div>
+        <div class="hero-eyebrow hi-0">Miami's Premier Party Destinations</div>
 
-        <h1 class="hero-headline animate-fade-up delay-1">
+        <h1 class="hero-headline hi-1">
           <span class="line-yellow">TWO<br>VENUES.</span><br>
           <span style="color:#fff;">ONE</span><br>
           <span class="line-blue">DESTINATION.</span>
         </h1>
 
-        <p class="hero-tagline animate-fade-up delay-2">
+        <p class="hero-tagline hi-2">
           <span>Multiple Experiences.</span> Every Celebration Covered.
         </p>
 
-        <div class="hero-actions animate-fade-up delay-3">
+        <div class="hero-actions hi-3">
           <a href="/book" class="btn-primary">Book Your Event →</a>
           <a href="#venues" class="btn-outline">Explore Venues</a>
         </div>
 
-        <div class="hero-venues animate-fade-up delay-4">
+        <div class="hero-venues hi-4">
           <a href="/all-star-party-world" class="hero-venue-card hvc-allstar">
             <img src="/brand_assets/all-star-logo.png" alt="All Star Party World logo" class="hvc-logo" />
             <div class="hvc-body">
@@ -123,19 +123,19 @@ import Page from '../layouts/Page.astro';
   <!-- ── STATS STRIP ── -->
   <div class="stats-strip" aria-label="By the numbers">
     <div class="stats-inner">
-      <div>
+      <div class="stat-item">
         <div class="stat-number">16K+</div>
         <div class="stat-label">Sq Ft Combined</div>
       </div>
-      <div>
+      <div class="stat-item">
         <div class="stat-number">500+</div>
         <div class="stat-label">Events Per Year</div>
       </div>
-      <div>
+      <div class="stat-item">
         <div class="stat-number">2</div>
         <div class="stat-label">Unique Venues</div>
       </div>
-      <div>
+      <div class="stat-item">
         <div class="stat-number">10K+</div>
         <div class="stat-label">Memories Made</div>
       </div>
@@ -992,7 +992,8 @@ import Page from '../layouts/Page.astro';
     border-radius: 14px;
     overflow: hidden;
     padding: 1.5rem 2rem;
-    transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), border-color 0.3s ease, box-shadow 0.3s ease;
+    will-change: transform;
+    transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1), border-color 0.3s ease, box-shadow 0.3s ease;
     text-decoration: none;
     color: #fff;
     display: flex;
@@ -1257,6 +1258,40 @@ import Page from '../layouts/Page.astro';
     text-align: center;
   }
 
+  .stat-item {
+    opacity: 0;
+  }
+  .stat-item.in-view .stat-number {
+    animation: statNum 0.6s cubic-bezier(0.22,1,0.36,1) forwards;
+  }
+  .stat-item.in-view .stat-label {
+    animation: statLabel 0.5s cubic-bezier(0.22,1,0.36,1) 0.2s forwards;
+  }
+  .stat-item.in-view { opacity: 1; }
+
+  .stat-item:nth-child(1).in-view .stat-number { animation-delay: 0s; }
+  .stat-item:nth-child(2).in-view .stat-number { animation-delay: 0.1s; }
+  .stat-item:nth-child(3).in-view .stat-number { animation-delay: 0.2s; }
+  .stat-item:nth-child(4).in-view .stat-number { animation-delay: 0.3s; }
+  .stat-item:nth-child(1).in-view .stat-label  { animation-delay: 0.2s; }
+  .stat-item:nth-child(2).in-view .stat-label  { animation-delay: 0.3s; }
+  .stat-item:nth-child(3).in-view .stat-label  { animation-delay: 0.4s; }
+  .stat-item:nth-child(4).in-view .stat-label  { animation-delay: 0.5s; }
+
+  @keyframes statNum {
+    from { opacity: 0; transform: scale(1.4); filter: blur(2px); }
+    to   { opacity: 1; transform: scale(1);   filter: blur(0); }
+  }
+  @keyframes statLabel {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 0.75; transform: translateY(0); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .stat-item { opacity: 1; }
+    .stat-item .stat-number, .stat-item .stat-label { animation: none !important; opacity: 1 !important; transform: none !important; }
+  }
+
   .stat-number {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 3.5rem;
@@ -1335,9 +1370,10 @@ import Page from '../layouts/Page.astro';
     color: #fff;
     display: block;
     box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    will-change: transform;
+    transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s ease;
   }
-  .exp-card:hover { transform: translateY(-8px); box-shadow: 0 30px 60px rgba(0,0,0,0.5); }
+  .exp-card:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 30px 60px rgba(0,0,0,0.5); }
   .exp-card:hover .exp-overlay { opacity: 0.95; }
 
   .exp-img {
@@ -1433,7 +1469,8 @@ import Page from '../layouts/Page.astro';
     border: 1px solid rgba(255,255,255,0.07);
     border-radius: 14px;
     overflow: hidden;
-    transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), border-color 0.3s ease, box-shadow 0.3s ease;
+    will-change: transform;
+    transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1), border-color 0.3s ease, box-shadow 0.3s ease;
   }
   .event-card:hover {
     transform: translateY(-6px);
@@ -1625,11 +1662,13 @@ import Page from '../layouts/Page.astro';
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    transition: transform 0.3s ease, border-color 0.3s ease;
+    will-change: transform;
+    transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1), border-color 0.3s ease, box-shadow 0.3s ease;
   }
   .testimonial-card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-6px) scale(1.01);
     border-color: rgba(245,197,24,0.3);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.4);
   }
 
   .testimonial-card.featured {
@@ -1993,19 +2032,27 @@ import Page from '../layouts/Page.astro';
   .cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
 
   /* ── ANIMATIONS ── */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
+  /* hero intro — elements start hidden, JS adds .is-visible */
+  .hi-0, .hi-1, .hi-2, .hi-3, .hi-4 {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s cubic-bezier(0.22,1,0.36,1), transform 0.8s cubic-bezier(0.22,1,0.36,1);
+  }
+  .hi-1 { transform: translateY(70px); }
+  .hi-4 { transform: translateY(40px) scale(0.96); transition-property: opacity, transform; }
+
+  .hi-0.is-visible,
+  .hi-1.is-visible,
+  .hi-2.is-visible,
+  .hi-3.is-visible,
+  .hi-4.is-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
   }
 
-  .animate-fade-up {
-    opacity: 0;
-    animation: fadeUp 0.7s cubic-bezier(0.25,0.46,0.45,0.94) forwards;
+  @media (prefers-reduced-motion: reduce) {
+    .hi-0, .hi-1, .hi-2, .hi-3, .hi-4 { opacity: 1; transform: none; transition: none; }
   }
-  .delay-1 { animation-delay: 0.1s; }
-  .delay-2 { animation-delay: 0.2s; }
-  .delay-3 { animation-delay: 0.35s; }
-  .delay-4 { animation-delay: 0.5s; }
 
   /* ── RESPONSIVE ── */
   @media (max-width: 900px) {
@@ -2035,6 +2082,24 @@ import Page from '../layouts/Page.astro';
 </style>
 
 <script>
+  // Stats strip — trigger when scrolled into view
+  const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        statsObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.4 });
+  document.querySelectorAll('.stat-item').forEach(el => statsObserver.observe(el));
+
+  // Hero intro sequence
+  const delays = [0, 300, 600, 850, 1100];
+  ['hi-0','hi-1','hi-2','hi-3','hi-4'].forEach((cls, i) => {
+    const el = document.querySelector(`.${cls}`) as HTMLElement | null;
+    if (el) setTimeout(() => el.classList.add('is-visible'), delays[i]);
+  });
+
   function toggleFaq(btn: HTMLElement) {
     const item = btn.closest('.faq-item') as HTMLElement;
     const isOpen = item.classList.contains('open');

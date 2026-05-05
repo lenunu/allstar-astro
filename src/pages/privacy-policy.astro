@@ -1,0 +1,168 @@
+---
+import Page from '../layouts/Page.astro';
+---
+
+<Page
+  title="Privacy Policy — All Star Party World & The 305 Club"
+  description="Privacy policy for allstarpartyworld.com and the305club.com — how we collect, use, and protect your information."
+>
+
+  <div class="legal-page">
+    <div class="legal-inner">
+
+      <div class="legal-header">
+        <span class="eyebrow">Legal</span>
+        <h1>Privacy Policy</h1>
+        <p class="last-updated">Last updated: May 2026</p>
+      </div>
+
+      <div class="legal-body">
+
+        <p>All Star Party World and The 305 Club ("we," "us," or "our") operate the website at allstarpartyworld.com. This Privacy Policy explains what information we collect, how we use it, and your rights regarding that information.</p>
+
+        <h2>Information We Collect</h2>
+        <p>We collect information you voluntarily provide when you:</p>
+        <ul>
+          <li>Fill out our <a href="/book" class="inline-link">booking request form</a> (name, email, phone number, event details)</li>
+          <li>Complete a <a href="/waiver" class="inline-link">liability waiver</a> (name, date of birth, guardian signature)</li>
+          <li>Contact us by phone or email</li>
+        </ul>
+        <p>We do not automatically collect cookies, tracking pixels, or analytics beyond standard Cloudflare infrastructure logs (IP address, page requests, browser type).</p>
+
+        <h2>How We Use Your Information</h2>
+        <ul>
+          <li>To respond to booking inquiries and confirm event reservations</li>
+          <li>To process and store signed liability waivers as required</li>
+          <li>To contact you about your event (reminders, confirmations, follow-ups)</li>
+          <li>To send occasional promotional communications if you opt in</li>
+        </ul>
+        <p>We do not sell, rent, or share your personal information with third parties for marketing purposes.</p>
+
+        <h2>Data Retention</h2>
+        <p>Booking and waiver information is retained for a minimum of 3 years as required for liability and business records. You may request deletion of your data by contacting us directly, subject to applicable legal retention requirements.</p>
+
+        <h2>Third-Party Services</h2>
+        <p>Our site is hosted on Cloudflare Pages. Transactional emails are sent via Plunk. These services may process your data in accordance with their own privacy policies. We do not use Google Analytics, Facebook Pixel, or other behavioral tracking services.</p>
+
+        <h2>Children's Privacy</h2>
+        <p>We collect date of birth and names of children only as part of liability waivers signed by a parent or legal guardian. We do not knowingly collect personal information from children without parental consent.</p>
+
+        <h2>Your Rights</h2>
+        <p>You have the right to request access to, correction of, or deletion of your personal information. To make a request, contact us at:</p>
+        <div class="contact-block">
+          <p><strong>All Star Party World</strong><br />
+          8770 SW 131st Street, Miami, Florida 33176<br />
+          <a href="tel:+17864710100" class="inline-link">786-471-0100</a></p>
+        </div>
+
+        <h2>Changes to This Policy</h2>
+        <p>We may update this Privacy Policy from time to time. Material changes will be reflected by an updated "Last updated" date at the top of this page.</p>
+
+      </div>
+
+      <div class="legal-footer-links">
+        <a href="/terms">Terms & Conditions →</a>
+        <a href="/faq">FAQ →</a>
+      </div>
+
+    </div>
+  </div>
+
+</Page>
+
+<style>
+  .legal-page {
+    background: #0e0f14;
+    min-height: 60vh;
+    padding: 5rem 2rem;
+  }
+  .legal-inner {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .legal-header {
+    margin-bottom: 3rem;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    padding-bottom: 2rem;
+  }
+  .eyebrow {
+    display: inline-block;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #F5C518;
+    margin-bottom: 0.75rem;
+  }
+  .legal-header h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    letter-spacing: 0.02em;
+    color: #fff;
+    margin-bottom: 0.5rem;
+  }
+  .last-updated {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.35);
+  }
+
+  .legal-body {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.65);
+  }
+  .legal-body h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #fff;
+    margin: 2.5rem 0 0.75rem;
+  }
+  .legal-body p { margin-bottom: 1rem; }
+  .legal-body ul {
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  .legal-body ul li { margin-bottom: 0.4rem; }
+
+  .inline-link {
+    color: #F5C518;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: rgba(245,197,24,0.4);
+    transition: text-decoration-color 0.2s ease;
+  }
+  .inline-link:hover { text-decoration-color: #F5C518; }
+
+  .contact-block {
+    background: #14161e;
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 10px;
+    padding: 1.25rem 1.5rem;
+    margin: 1rem 0 1.5rem;
+  }
+  .contact-block p { margin: 0; }
+
+  .legal-footer-links {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .legal-footer-links a {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: rgba(255,255,255,0.45);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  .legal-footer-links a:hover { color: #fff; }
+</style>

@@ -181,6 +181,7 @@ import Page from '../layouts/Page.astro';
             <!-- Party Preferences -->
             <fieldset class="form-section" aria-labelledby="prefs-legend">
               <legend id="prefs-legend" class="form-section-title">Tell Us More</legend>
+
               <div class="form-group" style="margin-bottom:0.85rem;">
                 <label class="form-label" for="party-description">Party Description</label>
                 <textarea
@@ -326,6 +327,11 @@ import Page from '../layouts/Page.astro';
     gap: 2.5rem;
     align-items: start;
   }
+  .book-grid aside {
+    position: sticky;
+    top: 88px;
+    align-self: start;
+  }
 
   /* ── Form Card ── */
   .form-card {
@@ -452,6 +458,94 @@ import Page from '../layouts/Page.astro';
     line-height: 1.5;
     margin-top: 0.35rem;
   }
+  .form-optional {
+    font-size: 0.65rem;
+    font-weight: 400;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 0.06em;
+    margin-left: 0.4rem;
+  }
+  .form-link {
+    color: #F5C518;
+    text-decoration: none;
+    font-size: 0.68rem;
+  }
+  .form-link:hover { text-decoration: underline; }
+
+  /* ── Balloon Package Selector ── */
+  .balloon-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.6rem;
+    margin-top: 0.65rem;
+    align-items: stretch;
+  }
+  .balloon-option {
+    display: flex;
+    width: 100%;
+    cursor: pointer;
+  }
+  .balloon-option input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  .balloon-option-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    padding: 0.85rem 1rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.03);
+    transition: border-color 0.2s ease, background 0.2s ease;
+    user-select: none;
+    width: 100%;
+    min-height: 100px;
+  }
+  .balloon-option:hover .balloon-option-content {
+    border-color: rgba(245,197,24,0.35);
+    background: rgba(245,197,24,0.04);
+  }
+  .balloon-option input:checked + .balloon-option-content {
+    border-color: #F5C518;
+    background: rgba(245,197,24,0.08);
+    box-shadow: 0 0 0 1px rgba(245,197,24,0.3);
+  }
+  .balloon-option input:focus-visible + .balloon-option-content {
+    outline: 2px solid #3B7DEB;
+    outline-offset: 2px;
+  }
+  .balloon-option-name {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: #fff;
+  }
+  .balloon-option-price {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.1rem;
+    color: #F5C518;
+    line-height: 1;
+  }
+  .balloon-option-desc {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.7rem;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.4;
+  }
+  .balloon-note {
+    font-size: 0.65rem;
+    color: rgba(255,255,255,0.25);
+    margin-top: 0.5rem;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 480px) {
+    .balloon-options { grid-template-columns: 1fr; }
+  }
 
   /* ── Checkbox ── */
   .checkbox-label {
@@ -573,8 +667,6 @@ import Page from '../layouts/Page.astro';
     border: 1px solid rgba(255,255,255,0.07);
     border-radius: 14px;
     padding: 1.75rem;
-    position: sticky;
-    top: 6rem;
     margin-bottom: 1rem;
   }
   .info-title {

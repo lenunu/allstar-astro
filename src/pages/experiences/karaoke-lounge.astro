@@ -8,18 +8,18 @@ import Page from '../../layouts/Page.astro';
 >
 
   <!-- Hero -->
-  <section class="kl-hero" aria-label="Karaoke Lounge hero">
+  <section class="kl-hero" aria-label="Karaoke Experience hero">
     <div class="kl-hero-bg" aria-hidden="true">
-      <img src="/karaoke-photos/karaoke-lounge-singing.jpg" alt="" />
+      <img src="/karaoke-hero.webp" alt="" />
       <div class="kl-hero-overlay"></div>
     </div>
     <div class="kl-hero-content">
-      <div class="kl-eyebrow">Signature Experience</div>
-      <h1 class="kl-hero-title">Karaoke<br /><span class="kl-accent">Lounge</span></h1>
-      <p class="kl-hero-sub">Professional microphones. Stage lighting. A massive song library. All inside All Star Party World. Your guests don't just watch — they perform.</p>
-      <div class="kl-hero-actions">
+      <div class="kl-eyebrow hi-0">Signature Experience</div>
+      <h1 class="kl-hero-title hi-1">Karaoke<br /><span class="kl-accent">Experience</span></h1>
+      <p class="kl-hero-sub hi-2">Professional microphones. Stage lighting. A massive song library. Available at both venues — your guests don't just watch, they perform.</p>
+      <div class="kl-hero-actions hi-3">
         <a href="/book" class="btn-primary">Add to Your Party</a>
-        <a href="#how-it-works" class="btn-ghost">Learn More</a>
+        <a href="#venues" class="btn-ghost">See Both Venues</a>
       </div>
     </div>
     <div class="kl-hero-scroll" aria-hidden="true">
@@ -28,31 +28,52 @@ import Page from '../../layouts/Page.astro';
     </div>
   </section>
 
-  <!-- What Is It -->
-  <section class="kl-what" aria-label="About the Karaoke Lounge">
-    <div class="kl-what-inner">
-      <div class="kl-what-image">
-        <img src="/karaoke-photos/karaoke-lounge-group.jpg" alt="Group of young women singing on microphones in the All Star Party World karaoke lounge with stage lighting" />
-        <div class="kl-image-badge" aria-hidden="true">
-          <span class="badge-icon"><i class="fas fa-microphone" aria-hidden="true"></i></span>
-          <span class="badge-label">Live Stage</span>
+  <!-- Two Venues -->
+  <section class="kl-venues" id="venues" aria-label="Karaoke at both venues">
+    <div class="kl-venues-inner">
+      <div class="section-eyebrow" style="text-align:center;">Two Venues, One Experience</div>
+      <h2 style="text-align:center;margin-bottom:3.5rem;">Pick Your <span class="kl-accent">Stage</span></h2>
+
+      <!-- All Star -->
+      <div class="kl-venue-card about-img">
+        <div class="kl-venue-photo">
+          <img src="/karaoke-allstar.webp" alt="Young girl singing into a mic in front of a large projection screen at All Star Party World" />
+        </div>
+        <div class="kl-venue-text about-copy">
+          <div class="section-eyebrow">All Star Party World</div>
+          <h3>Karaoke <span class="kl-accent-yellow">Party</span></h3>
+          <p>A dedicated karaoke stage with a large projection screen, stage lighting rig, and professional microphones. Designed for kids ages 4–12 — every child gets their star moment in front of the whole party.</p>
+          <ul class="kl-feature-list" role="list">
+            <li><span class="check-icon" aria-hidden="true">✦</span> Large projection screen</li>
+            <li><span class="check-icon" aria-hidden="true">✦</span> Stage lighting rig</li>
+            <li><span class="check-icon" aria-hidden="true">✦</span> Professional wireless mics</li>
+            <li><span class="check-icon" aria-hidden="true">✦</span> Kids ages 4–12</li>
+          </ul>
+          <a href="/book?venue=allstar" class="btn-primary btn-yellow" style="margin-top:1.5rem;display:inline-flex;">Book at All Star</a>
         </div>
       </div>
-      <div class="kl-what-text">
-        <div class="section-eyebrow">The Experience</div>
-        <h2>Your Own <span class="kl-accent">Stage Moment</span></h2>
-        <p>The Karaoke Lounge puts your guests in the spotlight — literally. With professional-grade microphones, programmable stage lighting, and a song catalog spanning every genre and decade, every birthday kid, graduate, or party guest gets their pop star moment.</p>
-        <p>Perfect for mixed-age parties. Kids and adults take turns at the mic while the party room vibes stay high.</p>
-        <ul class="kl-feature-list" role="list">
-          <li><span class="check-icon" aria-hidden="true">✦</span> Professional wireless microphones</li>
-          <li><span class="check-icon" aria-hidden="true">✦</span> Stage-quality lighting rig</li>
-          <li><span class="check-icon" aria-hidden="true">✦</span> Thousands of songs — all genres</li>
-          <li><span class="check-icon" aria-hidden="true">✦</span> Dual screen display (performer + audience)</li>
-          <li><span class="check-icon" aria-hidden="true">✦</span> All Star specialist on deck</li>
-          <li><span class="check-icon" aria-hidden="true">✦</span> All ages welcome</li>
-        </ul>
-        <a href="/book" class="btn-primary" style="margin-top:1.5rem;display:inline-flex;">Book This Experience</a>
+
+      <div class="kl-venue-divider" aria-hidden="true"></div>
+
+      <!-- 305 Lounge -->
+      <div class="kl-venue-card kl-venue-card--reverse about-img">
+        <div class="kl-venue-photo">
+          <img src="/karaoke-305.webp" alt="Girls singing on stage in front of a full wall of TV screens at The 305 Club Karaoke Lounge" />
+        </div>
+        <div class="kl-venue-text about-copy">
+          <div class="section-eyebrow">The 305 Club</div>
+          <h3>Karaoke <span class="kl-accent">Lounge</span></h3>
+          <p>The 305 Club's exclusive Karaoke Lounge features an immersive wall of screens that wraps performers in lyrics and visuals. The upgraded experience for teens and tweens — more energy, more vibe, more moments.</p>
+          <ul class="kl-feature-list" role="list">
+            <li><span class="check-icon" aria-hidden="true">✦</span> Full wall of TV screens</li>
+            <li><span class="check-icon" aria-hidden="true">✦</span> Immersive surround display</li>
+            <li><span class="check-icon" aria-hidden="true">✦</span> Professional wireless mics</li>
+            <li><span class="check-icon" aria-hidden="true">✦</span> Teens &amp; tweens</li>
+          </ul>
+          <a href="/book?venue=305" class="btn-primary" style="margin-top:1.5rem;display:inline-flex;">Book the Lounge</a>
+        </div>
       </div>
+
     </div>
   </section>
 
@@ -64,7 +85,7 @@ import Page from '../../layouts/Page.astro';
       <div class="kl-steps-grid" role="list">
         <div class="kl-step" role="listitem">
           <div class="step-num" aria-hidden="true">01</div>
-          <div class="step-icon" aria-hidden="true"><i class="fas fa-list-music"></i></div>
+          <div class="step-icon" aria-hidden="true"><i class="fas fa-music"></i></div>
           <h3>Choose Your Song</h3>
           <p>Browse thousands of tracks on the digital song library. Pop, hip-hop, reggaeton, classics — if you know it, we probably have it.</p>
         </div>
@@ -85,13 +106,12 @@ import Page from '../../layouts/Page.astro';
   </section>
 
   <!-- Add-On Banner -->
-  <section class="kl-addon" aria-label="Add Karaoke Lounge to your party">
+  <section class="kl-addon" aria-label="Add Karaoke to your party">
     <div class="kl-addon-inner">
       <div class="kl-addon-text">
         <div class="section-eyebrow">Party Add-On</div>
         <h2>Add It to Any Party Package</h2>
-        <p>The Karaoke Lounge is available as a premium add-on to any All Star Party World package. Book it alongside your main party or as a standalone experience for smaller groups.</p>
-        <p>Ask about karaoke-only bookings for evening events.</p>
+        <p>Karaoke is available as a premium add-on at both venues. Book it alongside your main party or as a standalone experience — we'll set the stage, you bring the voice.</p>
         <a href="/book" class="btn-primary">Get a Quote</a>
       </div>
       <div class="kl-addon-details" role="list" aria-label="Details">
@@ -110,17 +130,17 @@ import Page from '../../layouts/Page.astro';
           </div>
         </div>
         <div class="detail-card" role="listitem">
-          <i class="fas fa-child" aria-hidden="true"></i>
+          <i class="fas fa-star" aria-hidden="true"></i>
           <div>
-            <strong>Age Range</strong>
-            <span>All ages welcome</span>
+            <strong>Venues</strong>
+            <span>All Star &amp; The 305 Club</span>
           </div>
         </div>
         <div class="detail-card" role="listitem">
-          <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+          <i class="fas fa-child" aria-hidden="true"></i>
           <div>
-            <strong>Location</strong>
-            <span>Inside All Star Party World</span>
+            <strong>Age Range</strong>
+            <span>Kids, teens &amp; adults</span>
           </div>
         </div>
       </div>
@@ -164,7 +184,7 @@ import Page from '../../layouts/Page.astro';
   <!-- CTA -->
   <section class="kl-cta" aria-label="Book the Karaoke Lounge">
     <div class="kl-cta-bg" aria-hidden="true">
-      <img src="/karaoke-photos/karaoke-lounge-singing.jpg" alt="" />
+      <img src="/karaoke-hero.webp" alt="" />
       <div class="kl-cta-overlay"></div>
     </div>
     <div class="kl-cta-content">
@@ -343,58 +363,60 @@ import Page from '../../layouts/Page.astro';
   .btn-ghost:focus-visible { outline: 2px solid rgba(255,255,255,0.5); outline-offset: 3px; }
 
   /* ── What ── */
-  .kl-what { background: #0e0f14; padding: 7rem 2rem; }
-  .kl-what-inner {
-    max-width: 1280px;
-    margin: 0 auto;
+  /* ── Two Venues ── */
+  .kl-accent-yellow { color: #F5C518; }
+  .btn-yellow {
+    background: #F5C518 !important;
+    color: #0e0f14 !important;
+    box-shadow: 0 0 24px rgba(245,197,24,0.4), 0 4px 12px rgba(0,0,0,0.3) !important;
+  }
+  .btn-yellow:hover { box-shadow: 0 0 40px rgba(245,197,24,0.6), 0 8px 24px rgba(0,0,0,0.4) !important; }
+
+  .kl-venues { background: #0e0f14; padding: 7rem 2rem; }
+  .kl-venues-inner { max-width: 1280px; margin: 0 auto; }
+  .kl-venues-inner > .section-eyebrow { display: block; }
+  .kl-venues-inner > h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    line-height: 1;
+  }
+
+  .kl-venue-card {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 5rem;
     align-items: center;
+    padding: 3.5rem 0;
   }
-  .kl-what-image {
+  .kl-venue-card--reverse .kl-venue-photo { order: 2; }
+  .kl-venue-card--reverse .kl-venue-text { order: 1; }
+
+  .kl-venue-photo {
     position: relative;
     border-radius: 16px;
     overflow: hidden;
+    aspect-ratio: 4/3;
+    will-change: transform;
   }
-  .kl-what-image img {
-    width: 100%;
-    aspect-ratio: 3/4;
-    object-fit: cover;
-    display: block;
-  }
-  .kl-image-badge {
-    position: absolute;
-    bottom: 1.5rem;
-    left: 1.5rem;
-    background: var(--kl-accent);
-    border-radius: 12px;
-    padding: 0.75rem 1.25rem;
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    box-shadow: 0 8px 32px rgba(59,125,235,0.5);
-  }
-  .badge-icon { font-size: 1.2rem; color: #fff; }
-  .badge-label {
-    font-family: 'Oswald', sans-serif;
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.9);
-  }
-  .kl-what-text h2 {
+  .kl-venue-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  .kl-venue-text h3 {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-size: clamp(2rem, 4vw, 3rem);
     line-height: 1;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.25rem;
   }
-  .kl-what-text p {
+  .kl-venue-text p {
     font-size: 0.95rem;
     line-height: 1.8;
     color: rgba(255,255,255,0.7);
     margin-bottom: 1rem;
+  }
+
+  .kl-venue-divider {
+    height: 1px;
+    background: rgba(255,255,255,0.06);
+    margin: 0;
   }
   .kl-feature-list {
     list-style: none;
@@ -543,6 +565,7 @@ import Page from '../../layouts/Page.astro';
     gap: 1.25rem;
     text-decoration: none;
     color: inherit;
+    will-change: transform;
     transition: border-color 0.2s ease, transform 0.2s cubic-bezier(0.34,1.56,0.64,1), background 0.2s ease;
   }
   .more-card:hover {
@@ -608,9 +631,11 @@ import Page from '../../layouts/Page.astro';
 
   /* ── Responsive ── */
   @media (max-width: 1024px) {
-    .kl-what-inner,
+    .kl-venue-card, .kl-venue-card--reverse,
     .kl-addon-inner { grid-template-columns: 1fr; gap: 3rem; }
-    .kl-what-image { max-width: 480px; }
+    .kl-venue-card--reverse .kl-venue-photo { order: unset; }
+    .kl-venue-card--reverse .kl-venue-text { order: unset; }
+    .kl-venue-photo { max-width: 560px; }
   }
   @media (max-width: 768px) {
     .kl-steps-grid,

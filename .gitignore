@@ -23,8 +23,10 @@ pnpm-debug.log*
 # jetbrains setting folder
 .idea/
 
-# Videos — only the optimized hero video is tracked; all others are unoptimized
+# Videos — only optimized/web-ready videos are tracked
 public/**/*.mp4
 public/**/*.mov
 public/**/*.avi
 !public/305-event-photos/hero-bkg-305-optimized.mp4
+!public/305-hero-video.mp4
+!public/vr-clip.mp4

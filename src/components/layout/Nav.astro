@@ -1,22 +1,64 @@
 ---
 const currentPath = Astro.url.pathname;
+const isVenue = currentPath === '/all-star-party-world' || currentPath === '/305-club';
+const isExp = currentPath.startsWith('/experiences/');
 ---
 
 <nav aria-label="Main navigation">
   <div class="nav-inner">
-    <a href="/" class="nav-logo" aria-label="All Star Party World — Home">
-      <span>All Star</span>
-      <span class="dot">.</span>
-      <span class="sub">× The 305 Club</span>
+    <a href="/" class="nav-logo" aria-label="All Star Party World × The 305 Club — Home">
+      <img src="/brand_assets/all-star-logo.png" alt="All Star Party World" class="nav-logo-img" />
+      <span class="logo-divider" aria-hidden="true">×</span>
+      <img src="/brand_assets/305-logo.png" alt="The 305 Club" class="nav-logo-img" />
     </a>
 
     <div class="nav-links" role="list">
-      <a href="/all-star-party-world" role="listitem" aria-current={currentPath === '/all-star-party-world' ? 'page' : undefined}>All Star</a>
-      <a href="/305-club" role="listitem" aria-current={currentPath === '/305-club' ? 'page' : undefined}>305 Club</a>
-      <a href="/#events" role="listitem">Events</a>
-      <a href="/gallery" role="listitem" aria-current={currentPath === '/gallery' ? 'page' : undefined}>Gallery</a>
+
+      <!-- Venues dropdown -->
+      <div class="nav-dropdown" role="listitem">
+        <button class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true" aria-current={isVenue ? 'true' : undefined}>
+          Venues <span class="chevron" aria-hidden="true">›</span>
+        </button>
+        <div class="dropdown-panel" role="menu">
+          <a href="/all-star-party-world" role="menuitem" aria-current={currentPath === '/all-star-party-world' ? 'page' : undefined}>
+            <span class="dropdown-label">All Star Party World</span>
+            <span class="dropdown-sub">Kids Ages 4–12</span>
+          </a>
+          <a href="/305-club" role="menuitem" aria-current={currentPath === '/305-club' ? 'page' : undefined}>
+            <span class="dropdown-label">The 305 Club</span>
+            <span class="dropdown-sub">Teens & Adults</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Experiences dropdown -->
+      <div class="nav-dropdown" role="listitem">
+        <button class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true" aria-current={isExp ? 'true' : undefined}>
+          Experiences <span class="chevron" aria-hidden="true">›</span>
+        </button>
+        <div class="dropdown-panel" role="menu">
+          <a href="/experiences/paint-me-one" role="menuitem" aria-current={currentPath === '/experiences/paint-me-one' ? 'page' : undefined}>
+            <span class="dropdown-label">Paint Me One</span>
+            <span class="dropdown-sub">Art & creativity</span>
+          </a>
+          <a href="/experiences/karaoke-lounge" role="menuitem" aria-current={currentPath === '/experiences/karaoke-lounge' ? 'page' : undefined}>
+            <span class="dropdown-label">Karaoke Lounge</span>
+            <span class="dropdown-sub">Sing your heart out</span>
+          </a>
+          <a href="/experiences/pop-star-divas" role="menuitem" aria-current={currentPath === '/experiences/pop-star-divas' ? 'page' : undefined}>
+            <span class="dropdown-label">Pop Star Divas</span>
+            <span class="dropdown-sub">Performance & glam</span>
+          </a>
+          <a href="/experiences/vr-experience" role="menuitem" aria-current={currentPath === '/experiences/vr-experience' ? 'page' : undefined}>
+            <span class="dropdown-label">VR Experience</span>
+            <span class="dropdown-sub">Virtual reality gaming</span>
+          </a>
+        </div>
+      </div>
+
+      <a href="/balloon-packages" role="listitem" aria-current={currentPath === '/balloon-packages' ? 'page' : undefined}>Decorations</a>
       <a href="/catering" role="listitem" aria-current={currentPath === '/catering' ? 'page' : undefined}>Catering</a>
-      <a href="/#faq" role="listitem">FAQ</a>
+      <a href="/faq" role="listitem" aria-current={currentPath === '/faq' ? 'page' : undefined}>FAQ</a>
       <a href="/book" class="nav-cta" role="listitem">Book Your Event</a>
     </div>
 
@@ -33,13 +75,23 @@ const currentPath = Astro.url.pathname;
     </button>
   </div>
 
+  <!-- Mobile menu -->
   <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
-    <a href="/all-star-party-world" onclick="closeMobileMenu()">All Star Party World</a>
-    <a href="/305-club" onclick="closeMobileMenu()">The 305 Club</a>
-    <a href="/#events" onclick="closeMobileMenu()">Events</a>
-    <a href="/gallery" onclick="closeMobileMenu()">Gallery</a>
+    <div class="mobile-group">
+      <div class="mobile-group-label">Venues</div>
+      <a href="/all-star-party-world" onclick="closeMobileMenu()">All Star Party World</a>
+      <a href="/305-club" onclick="closeMobileMenu()">The 305 Club</a>
+    </div>
+    <div class="mobile-group">
+      <div class="mobile-group-label">Experiences</div>
+      <a href="/experiences/paint-me-one" onclick="closeMobileMenu()">Paint Me One</a>
+      <a href="/experiences/karaoke-lounge" onclick="closeMobileMenu()">Karaoke Lounge</a>
+      <a href="/experiences/pop-star-divas" onclick="closeMobileMenu()">Pop Star Divas</a>
+      <a href="/experiences/vr-experience" onclick="closeMobileMenu()">VR Experience</a>
+    </div>
+    <a href="/balloon-packages" onclick="closeMobileMenu()">Decorations</a>
     <a href="/catering" onclick="closeMobileMenu()">Catering</a>
-    <a href="/#faq" onclick="closeMobileMenu()">FAQ</a>
+    <a href="/faq" onclick="closeMobileMenu()">FAQ</a>
     <a href="/book" class="nav-cta" onclick="closeMobileMenu()">Book Your Event</a>
   </div>
 </nav>
@@ -69,34 +121,31 @@ const currentPath = Astro.url.pathname;
   }
 
   .nav-logo {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.4rem;
-    letter-spacing: 0.06em;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    color: #fff;
+    gap: 0.6rem;
     text-decoration: none;
   }
-  .nav-logo .dot { color: #3B7DEB; }
-  .nav-logo .sub {
+  .nav-logo-img {
+    height: 44px;
+    width: auto;
+    display: block;
+  }
+  .logo-divider {
     font-family: 'DM Sans', sans-serif;
-    font-size: 0.6rem;
-    font-weight: 500;
-    letter-spacing: 0.2em;
-    color: #828282;
-    text-transform: uppercase;
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.25);
     line-height: 1;
-    margin-top: 2px;
   }
 
+  /* ── TOP NAV ── */
   .nav-links {
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: 1.75rem;
   }
 
-  .nav-links a {
+  .nav-links > a {
     font-family: 'DM Sans', sans-serif;
     font-size: 0.8rem;
     font-weight: 500;
@@ -104,25 +153,117 @@ const currentPath = Astro.url.pathname;
     text-transform: uppercase;
     color: rgba(255,255,255,0.65);
     text-decoration: none;
-    transition: color 0.2s cubic-bezier(0.34,1.56,0.64,1);
+    transition: color 0.2s ease;
   }
-  .nav-links a:hover { color: #fff; }
-  .nav-links a[aria-current="page"] { color: #7fb3ff; }
+  .nav-links > a:hover { color: #fff; }
+  .nav-links > a[aria-current="page"] { color: #7fb3ff; }
 
+  /* ── DROPDOWN ── */
+  .nav-dropdown {
+    position: relative;
+  }
+
+  .nav-dropdown-trigger {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.65);
+    padding: 0;
+    transition: color 0.2s ease;
+  }
+  .nav-dropdown-trigger:hover,
+  .nav-dropdown-trigger[aria-expanded="true"] { color: #fff; }
+  .nav-dropdown-trigger[aria-current="true"] { color: #7fb3ff; }
+
+  .chevron {
+    font-size: 0.75rem;
+    display: inline-block;
+    transition: transform 0.2s ease;
+    margin-top: 1px;
+  }
+  .nav-dropdown-trigger[aria-expanded="true"] .chevron {
+    transform: rotate(90deg);
+  }
+
+  .dropdown-panel {
+    position: absolute;
+    top: calc(100% + 18px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1c1f2b;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 10px;
+    padding: 0.5rem;
+    min-width: 200px;
+    box-shadow: 0 16px 40px rgba(0,0,0,0.5);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(-50%) translateY(-6px);
+    transition: opacity 0.18s ease, transform 0.18s ease;
+    z-index: 200;
+  }
+  .nav-dropdown-trigger[aria-expanded="true"] + .dropdown-panel {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .dropdown-panel a {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    padding: 0.65rem 0.85rem;
+    border-radius: 7px;
+    text-decoration: none;
+    transition: background 0.15s ease;
+  }
+  .dropdown-panel a:hover { background: rgba(255,255,255,0.06); }
+  .dropdown-panel a[aria-current="page"] .dropdown-label { color: #7fb3ff; }
+
+  .dropdown-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: rgba(255,255,255,0.85);
+    letter-spacing: 0.02em;
+  }
+  .dropdown-sub {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 0.03em;
+  }
+
+  /* ── CTA ── */
   .nav-cta {
     background: #3B7DEB;
     color: #fff !important;
     padding: 0.55rem 1.4rem;
     border-radius: 6px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.8rem;
     font-weight: 600 !important;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
     box-shadow: 0 0 20px rgba(59,125,235,0.35), 0 2px 8px rgba(0,0,0,0.3);
-    transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.2s ease !important;
+    transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.2s ease;
   }
   .nav-cta:hover {
     transform: translateY(-1px);
     box-shadow: 0 0 30px rgba(59,125,235,0.5), 0 4px 16px rgba(0,0,0,0.4) !important;
+    color: #fff !important;
   }
 
+  /* ── HAMBURGER ── */
   .hamburger-btn {
     display: none;
     background: none;
@@ -137,13 +278,14 @@ const currentPath = Astro.url.pathname;
     height: 2px;
     background: #fff;
     margin: 5px 0;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.3s ease;
     border-radius: 2px;
   }
   .hamburger-btn.active span:nth-child(1) { transform: rotate(45deg) translate(10px, 10px); }
   .hamburger-btn.active span:nth-child(2) { opacity: 0; }
   .hamburger-btn.active span:nth-child(3) { transform: rotate(-45deg) translate(8px, -8px); }
 
+  /* ── MOBILE MENU ── */
   .mobile-menu {
     display: none;
     position: absolute;
@@ -152,8 +294,8 @@ const currentPath = Astro.url.pathname;
     backdrop-filter: blur(16px);
     border-bottom: 1px solid rgba(255,255,255,0.06);
     flex-direction: column;
-    padding: 1.5rem 2rem;
-    gap: 1rem;
+    padding: 1.25rem 2rem 2rem;
+    gap: 0;
     animation: slideDown 0.3s ease;
   }
   .mobile-menu.active { display: flex; }
@@ -163,33 +305,75 @@ const currentPath = Astro.url.pathname;
     to   { opacity: 1; transform: translateY(0); }
   }
 
+  .mobile-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.5rem;
+  }
+  .mobile-group-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.25);
+    padding: 1rem 0 0.4rem;
+  }
+
   .mobile-menu a {
     font-family: 'DM Sans', sans-serif;
     font-size: 0.9rem;
     font-weight: 500;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
     color: rgba(255,255,255,0.65);
     text-decoration: none;
     transition: color 0.2s ease;
-    padding: 0.75rem 0;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
   }
+  .mobile-group a { border-bottom: none; padding: 0.45rem 0; }
   .mobile-menu a:hover { color: #fff; }
   .mobile-menu .nav-cta {
-    display: inline-block;
-    width: 100%;
+    display: block;
     text-align: center;
-    padding: 0.75rem 1.4rem;
-    margin-top: 0.5rem;
+    padding: 0.8rem 1.4rem;
+    margin-top: 1.25rem;
+    border-bottom: none;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 900px) {
     .nav-links { display: none; }
     .hamburger-btn { display: block; }
   }
 </style>
 
 <script>
+  // Dropdown logic
+  document.querySelectorAll('.nav-dropdown-trigger').forEach(trigger => {
+    trigger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+      // close all others
+      document.querySelectorAll('.nav-dropdown-trigger[aria-expanded="true"]').forEach(other => {
+        if (other !== trigger) other.setAttribute('aria-expanded', 'false');
+      });
+      trigger.setAttribute('aria-expanded', String(!isOpen));
+    });
+  });
+
+  document.addEventListener('click', () => {
+    document.querySelectorAll('.nav-dropdown-trigger').forEach(t => t.setAttribute('aria-expanded', 'false'));
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.nav-dropdown-trigger').forEach(t => t.setAttribute('aria-expanded', 'false'));
+      closeMobileMenu();
+    }
+  });
+
+  // Mobile menu
   function toggleMobileMenu() {
     const btn = document.getElementById('hamburger-btn')!;
     const menu = document.getElementById('mobile-menu')!;
@@ -212,5 +396,4 @@ const currentPath = Astro.url.pathname;
   }
 
   document.getElementById('hamburger-btn')?.addEventListener('click', toggleMobileMenu);
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMobileMenu(); });
 </script>
