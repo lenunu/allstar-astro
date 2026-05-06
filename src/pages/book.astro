@@ -31,7 +31,7 @@ import Page from '../layouts/Page.astro';
             <fieldset class="venue-selector" aria-labelledby="venue-legend">
               <legend id="venue-legend" class="form-section-title">Select Venue <span class="required" aria-label="required">*</span></legend>
               <div class="venue-options">
-                <label class="venue-option" aria-label="All Star Party World — Kids ages 4–12">
+                <label class="venue-option venue-allstar" aria-label="All Star Party World — Kids ages 4–12">
                   <input type="radio" name="venue" value="all-star-party-world" required />
                   <div class="venue-option-content">
                     <span class="venue-dot allstar" aria-hidden="true"></span>
@@ -39,9 +39,10 @@ import Page from '../layouts/Page.astro';
                       <strong>All Star Party World</strong>
                       <span>Kids ages 4–12</span>
                     </div>
+                    <i class="fas fa-check venue-check" aria-hidden="true"></i>
                   </div>
                 </label>
-                <label class="venue-option" aria-label="The 305 Club — Teens and adults">
+                <label class="venue-option venue-club" aria-label="The 305 Club — Teens and adults">
                   <input type="radio" name="venue" value="305-club" />
                   <div class="venue-option-content">
                     <span class="venue-dot club" aria-hidden="true"></span>
@@ -49,16 +50,18 @@ import Page from '../layouts/Page.astro';
                       <strong>The 305 Club</strong>
                       <span>Teens &amp; adults</span>
                     </div>
+                    <i class="fas fa-check venue-check" aria-hidden="true"></i>
                   </div>
                 </label>
-                <label class="venue-option" aria-label="Both venues — Coordinate same-day event">
+                <label class="venue-option venue-both" aria-label="Not Sure — We'll help you decide">
                   <input type="radio" name="venue" value="both" />
                   <div class="venue-option-content">
                     <span class="venue-dot both" aria-hidden="true"></span>
                     <div>
-                      <strong>Both Venues</strong>
-                      <span>Same-day coordination</span>
+                      <strong>Not Sure</strong>
+                      <span>We'll help you decide</span>
                     </div>
+                    <i class="fas fa-check venue-check" aria-hidden="true"></i>
                   </div>
                 </label>
               </div>
@@ -374,52 +377,74 @@ import Page from '../layouts/Page.astro';
   }
   .venue-option {
     cursor: pointer;
-    border: 1px solid rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-left-width: 3px;
     border-radius: 10px;
-    padding: 0.75rem 1rem;
-    transition: border-color 0.2s ease, background 0.2s ease;
+    padding: 1rem 1rem;
+    transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
   }
   .venue-option input[type="radio"] {
     position: absolute;
     opacity: 0;
     pointer-events: none;
   }
-  .venue-option:has(input:checked) {
-    border-color: #3B7DEB;
-    background: rgba(59,125,235,0.08);
-  }
+  .venue-allstar { border-left-color: #F5C518; }
+  .venue-club    { border-left-color: #3B7DEB; }
+  .venue-both    { border-left-color: rgba(255,255,255,0.25); }
+
+  .venue-allstar:hover { background: rgba(245,197,24,0.05); border-color: rgba(245,197,24,0.4); border-left-color: #F5C518; }
+  .venue-club:hover    { background: rgba(59,125,235,0.05);  border-color: rgba(59,125,235,0.4);  border-left-color: #3B7DEB; }
+  .venue-both:hover    { background: rgba(255,255,255,0.03); border-color: rgba(255,255,255,0.2); }
+
+  .venue-allstar:has(input:checked) { background: rgba(245,197,24,0.08); border-color: rgba(245,197,24,0.5); border-left-color: #F5C518; box-shadow: 0 0 0 1px rgba(245,197,24,0.2), 0 4px 16px rgba(245,197,24,0.1); }
+  .venue-club:has(input:checked)    { background: rgba(59,125,235,0.1);  border-color: rgba(59,125,235,0.5);  border-left-color: #3B7DEB; box-shadow: 0 0 0 1px rgba(59,125,235,0.2),  0 4px 16px rgba(59,125,235,0.1); }
+  .venue-both:has(input:checked)    { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.3); box-shadow: 0 4px 16px rgba(0,0,0,0.2); }
+
   .venue-option:focus-within { outline: 2px solid #3B7DEB; outline-offset: 2px; border-radius: 10px; }
+
   .venue-option-content {
     display: flex;
     align-items: center;
-    gap: 0.6rem;
+    gap: 0.75rem;
   }
-  .venue-option-content div {
+  .venue-option-content > div {
     display: flex;
     flex-direction: column;
-    gap: 0.1rem;
+    gap: 0.15rem;
+    flex: 1;
   }
   .venue-option-content strong {
-    font-size: 0.82rem;
+    font-size: 0.85rem;
     font-weight: 600;
     color: #fff;
     display: block;
   }
-  .venue-option-content span {
-    font-size: 0.68rem;
-    color: rgba(255,255,255,0.45);
+  .venue-option-content > div span {
+    font-size: 0.7rem;
+    color: rgba(255,255,255,0.4);
   }
+
   .venue-dot {
-    width: 8px; height: 8px;
+    width: 10px; height: 10px;
     border-radius: 50%;
     flex-shrink: 0;
+    margin-top: 2px;
   }
-  .venue-dot.allstar { background: #F5C518; box-shadow: 0 0 6px rgba(245,197,24,0.5); }
-  .venue-dot.club { background: #3B7DEB; box-shadow: 0 0 6px rgba(59,125,235,0.5); }
-  .venue-dot.both {
-    background: linear-gradient(135deg, #F5C518 50%, #3B7DEB 50%);
-    box-shadow: 0 0 6px rgba(59,125,235,0.3);
+  .venue-dot.allstar { background: #F5C518; box-shadow: 0 0 8px rgba(245,197,24,0.6); }
+  .venue-dot.club    { background: #3B7DEB; box-shadow: 0 0 8px rgba(59,125,235,0.6); }
+  .venue-dot.both    { background: rgba(255,255,255,0.4); }
+
+  .venue-check {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.15);
+    flex-shrink: 0;
+    transition: color 0.2s ease, transform 0.2s ease;
+    transform: scale(0.7);
   }
+  .venue-allstar:has(input:checked) .venue-check { color: #F5C518; transform: scale(1); }
+  .venue-club:has(input:checked)    .venue-check { color: #7fb3ff; transform: scale(1); }
+  .venue-both:has(input:checked)    .venue-check { color: rgba(255,255,255,0.6); transform: scale(1); }
 
   /* ── Form Fields ── */
   .form-row {
